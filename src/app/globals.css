@@ -1,26 +1,139 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* Geist as literal — never var() self-reference */
+  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, "SFMono-Regular",
+    Menlo, Monaco, monospace;
+  --font-heading: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Tablero brand — desaturated industrial orange (S<80% per design-taste rules) */
+  --color-tablero-orange: var(--tablero-orange);
+  --color-tablero-orange-soft: var(--tablero-orange-soft);
+
+  /* Operational state colors aligned with product priorities */
+  --color-state-critical: var(--state-critical);
+  --color-state-warning: var(--state-warning);
+  --color-state-ok: var(--state-ok);
+  --color-state-info: var(--state-info);
+
+  --radius-xs: calc(var(--radius) * 0.5);
+  --radius-sm: calc(var(--radius) * 0.75);
+  --radius-md: calc(var(--radius) * 0.875);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.5);
+  --radius-2xl: calc(var(--radius) * 2);
+
+  --container-content: 1200px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* Backgrounds (off-black foreground per design-taste rule — never #000) */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.18 0.005 285);
+
+  /* Surfaces */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.005 285);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.005 285);
+
+  /* Primary = Tablero azul oscuro corporativo (#1F2A44 approx) */
+  --primary: oklch(0.244 0.045 265);
+  --primary-foreground: oklch(0.985 0 0);
+
+  /* Secondary surfaces (muted neutral) */
+  --secondary: oklch(0.97 0.003 264);
+  --secondary-foreground: oklch(0.244 0.045 265);
+
+  --muted: oklch(0.97 0.003 264);
+  --muted-foreground: oklch(0.5 0.012 265);
+
+  --accent: oklch(0.96 0.005 265);
+  --accent-foreground: oklch(0.244 0.045 265);
+
+  --destructive: oklch(0.55 0.21 27);
+
+  --border: oklch(0.92 0.005 265);
+  --input: oklch(0.92 0.005 265);
+  --ring: oklch(0.244 0.045 265);
+
+  /* Tablero brand orange — desaturated industrial (#D9602F approx, S~75%) */
+  --tablero-orange: oklch(0.624 0.155 42);
+  --tablero-orange-soft: oklch(0.95 0.04 50);
+
+  /* Operational states (aligned with copy module 2 priorities) */
+  --state-critical: oklch(0.58 0.21 27);
+  --state-warning: oklch(0.74 0.165 70);
+  --state-ok: oklch(0.66 0.16 145);
+  --state-info: oklch(0.62 0.16 245);
+
+  --radius: 0.625rem;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    @apply border-border;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  html {
+    @apply font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
