@@ -1,7 +1,5 @@
 import { Logo } from "./logo";
-
-const CONTACT_EMAIL = "eric@grupoimar-mantenimiento.com";
-const SUBJECT = "Tablero — Consulta";
+import { ctaUrls } from "@/lib/cta-config";
 
 const productLinks = [
   { href: "#producto", label: "Módulos" },
@@ -18,9 +16,6 @@ const legalLinks = [
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
-    SUBJECT
-  )}`;
 
   return (
     <footer className="mt-24 border-t border-border bg-secondary/40">
@@ -33,10 +28,10 @@ export function Footer() {
               para PYME industrial española.
             </p>
             <a
-              href={mailto}
+              href={ctaUrls.mailto}
               className="mt-6 inline-flex items-center gap-2 rounded-md text-sm font-medium text-foreground transition-colors hover:text-primary"
             >
-              <span className="font-mono tabular">{CONTACT_EMAIL}</span>
+              <span className="font-mono tabular">{ctaUrls.contactEmail}</span>
             </a>
             <p className="mt-2 text-xs text-muted-foreground">
               Lo leemos nosotros, no un bot. Respuesta en &lt; 24 h laborales.

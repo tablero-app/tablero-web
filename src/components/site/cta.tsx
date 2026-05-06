@@ -1,12 +1,7 @@
 import { ArrowRight, Video, Sparkles } from "lucide-react";
-
-const CONTACT_EMAIL = "eric@grupoimar-mantenimiento.com";
+import { ctaUrls } from "@/lib/cta-config";
 
 export function Cta() {
-  const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
-    "Tablero — Consulta",
-  )}`;
-
   return (
     <section
       id="cta"
@@ -77,7 +72,7 @@ export function Cta() {
 
             <div className="mt-auto pt-8">
               <a
-                href={mailto}
+                href={ctaUrls.reservarDemo}
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-md bg-primary px-5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
               >
                 Reservar demo
@@ -118,7 +113,7 @@ export function Cta() {
 
             <div className="mt-auto pt-8">
               <a
-                href={mailto}
+                href={ctaUrls.empezarPrueba}
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-md border border-border bg-card px-5 text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
               >
                 Empezar prueba
@@ -138,10 +133,10 @@ export function Cta() {
           <p className="text-sm leading-relaxed text-muted-foreground md:text-base">
             ¿Prefieres email? Escríbenos a{" "}
             <a
-              href={mailto}
+              href={ctaUrls.mailto}
               className="font-mono tabular font-medium text-foreground underline underline-offset-4 decoration-foreground/30 transition-colors hover:decoration-foreground"
             >
-              {CONTACT_EMAIL}
+              {ctaUrls.contactEmail}
             </a>
             . Lo leemos nosotros, no un bot. Respondemos en menos de 24 h
             laborales.

@@ -1,7 +1,8 @@
 import { Check } from "lucide-react";
+import { ctaUrls, type PricingPlan } from "@/lib/cta-config";
 
 interface Plan {
-  nombre: string;
+  nombre: PricingPlan;
   precioAnual: number;
   precioMensual: number;
   paraQuien: string;
@@ -180,7 +181,7 @@ export function Pricing() {
 
               <div className="mt-auto pt-8">
                 <a
-                  href="#cta"
+                  href={ctaUrls.pricing[plan.nombre]}
                   className={`flex h-11 w-full items-center justify-center rounded-md px-4 text-sm font-semibold transition-colors ${
                     plan.destacado
                       ? "bg-primary text-primary-foreground hover:bg-primary/90"
