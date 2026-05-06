@@ -120,7 +120,7 @@ export function Pricing() {
               {plan.destacado && (
                 <span
                   className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-white"
-                  style={{ background: "var(--tablero-orange)" }}
+                  style={{ background: "var(--tablero-orange-text)" }}
                 >
                   Recomendado
                 </span>
