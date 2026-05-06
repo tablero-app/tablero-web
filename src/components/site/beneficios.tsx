@@ -169,7 +169,7 @@ export function Beneficios() {
               <div className="px-5 py-4">
                 <span
                   className="text-[10px] font-semibold uppercase tracking-wider"
-                  style={{ color: "var(--tablero-orange)" }}
+                  style={{ color: "var(--tablero-orange-text)" }}
                 >
                   Con Tablero
                 </span>
@@ -255,7 +255,7 @@ export function Beneficios() {
 
           <p className="mt-12 max-w-2xl text-lg font-medium leading-snug tracking-tight text-foreground md:mt-16">
             Si alguno de los tres no gana, el sistema acaba abandonado.{" "}
-            <span style={{ color: "var(--tablero-orange)" }}>
+            <span style={{ color: "var(--tablero-orange-text)" }}>
               Por eso este es el único punto que no negociamos.
             </span>
           </p>

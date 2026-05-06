@@ -139,7 +139,7 @@ export function Flujo() {
 
         <p className="mt-12 max-w-xl text-lg font-medium leading-snug tracking-tight text-foreground md:mt-16">
           Todo lo anterior lo hacían tus equipos antes.{" "}
-          <span style={{ color: "var(--tablero-orange)" }}>
+          <span style={{ color: "var(--tablero-orange-text)" }}>
             Ahora queda registrado.
           </span>
         </p>

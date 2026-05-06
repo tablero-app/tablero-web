@@ -128,7 +128,7 @@ export function Implantacion() {
               <div className="flex items-baseline gap-3">
                 <span
                   className="font-mono text-xs tabular uppercase tracking-wider"
-                  style={{ color: "var(--tablero-orange)" }}
+                  style={{ color: "var(--tablero-orange-text)" }}
                 >
                   {s.num}
                 </span>
@@ -309,7 +309,7 @@ export function Implantacion() {
 
           <p className="mt-10 max-w-2xl text-lg font-medium leading-snug tracking-tight text-foreground md:mt-12">
             Si esta tabla te parece poca cosa,{" "}
-            <span style={{ color: "var(--tablero-orange)" }}>
+            <span style={{ color: "var(--tablero-orange-text)" }}>
               probablemente has visto demasiadas implantaciones que no tenían
               que haber sido tan caras.
             </span>

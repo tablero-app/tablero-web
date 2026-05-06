@@ -84,7 +84,7 @@ function HeroMockup() {
         <span className="h-px w-3 bg-border" aria-hidden="true" />
         <span
           className="font-mono tabular font-semibold"
-          style={{ color: "var(--tablero-orange)" }}
+          style={{ color: "var(--tablero-orange-text)" }}
         >
           Día 14
         </span>
@@ -114,9 +114,9 @@ function HeroMockup() {
             <span className="font-mono tabular">tablero.app/r/L4-ENV01</span>
           </div>
 
-          <h3 className="mt-4 text-lg font-semibold leading-tight tracking-tight text-foreground">
+          <p className="mt-4 text-lg font-semibold leading-tight tracking-tight text-foreground">
             Línea 4 · Envasadora
-          </h3>
+          </p>
           <p className="mt-1 text-xs text-muted-foreground">
             Reportar incidencia
           </p>

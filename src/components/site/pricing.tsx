@@ -333,7 +333,7 @@ export function Pricing() {
           <p className="mt-12 max-w-2xl text-lg font-medium leading-snug tracking-tight text-foreground md:mt-14">
             Si alguien te ha vendido un CMMS y la factura del mes 6 te
             sorprendió,{" "}
-            <span style={{ color: "var(--tablero-orange)" }}>
+            <span style={{ color: "var(--tablero-orange-text)" }}>
               sabes por qué esta tabla está aquí.
             </span>
           </p>
