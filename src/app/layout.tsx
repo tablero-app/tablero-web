@@ -105,7 +105,7 @@ const faqPageLd = {
       name: "¿Funciona si tenemos mala cobertura WiFi en planta?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Sí. El form móvil funciona con datos del operario o con WiFi. Si la cobertura cae justo al enviar, el sistema reintenta automáticamente cuando vuelve la red. La incidencia no se pierde.",
+        text: "Sí. El form móvil de Intralogik funciona con datos del operario o con WiFi. Si la cobertura cae justo al enviar, el sistema reintenta automáticamente cuando vuelve la red. La incidencia no se pierde.",
       },
     },
     {
@@ -129,7 +129,7 @@ const faqPageLd = {
       name: "¿Lo podemos integrar con nuestro ERP?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Sí, mediante exportes automáticos o conector a medida. La integración sale como add-on en el plan Avanzado o como proyecto puntual.",
+        text: "Sí. Mediante exportes automáticos en CSV/Excel, API REST en el plan Avanzado, o conector a medida si tu ERP necesita algo específico. La integración sale como add-on en el plan Avanzado o como proyecto puntual.",
       },
     },
     {
@@ -153,7 +153,7 @@ const faqPageLd = {
       name: "¿Funciona offline?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Parcialmente. El form sigue capturando incidencias sin red y las envía cuando se recupera. El panel del responsable necesita conexión.",
+        text: "Intralogik es una aplicación web móvil — funciona desde cualquier navegador del operario. Si la cobertura cae justo al enviar la incidencia, el form la guarda y la reintenta cuando vuelve la red, así que no se pierde. El panel del responsable de mantenimiento sí necesita conexión, pero hoy las oficinas la tienen siempre.",
       },
     },
     {
@@ -161,7 +161,7 @@ const faqPageLd = {
       name: "¿Es compatible con auditorías ISO 9001 / 14001 / 45001?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Sí. Las OTs se exportan en formato auditable con foto, hora, técnico responsable y repuestos consumidos. En el plan Avanzado, incluye firma digital del técnico al cierre.",
+        text: "Sí. Intralogik registra incidencias, órdenes de trabajo, repuestos consumidos, técnico responsable, fecha de cierre e historial por máquina. Esa trazabilidad es exactamente lo que pide una auditoría ISO 9001, 14001 o 45001 — sobre todo si hoy dependes de partes en papel o Excel. En el plan Avanzado, las OTs incluyen firma digital del técnico al cierre.",
       },
     },
     {
@@ -177,7 +177,7 @@ const faqPageLd = {
       name: "¿Y si tenemos varias plantas?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Plan Avanzado. Cada planta entra cuando está lista, no hay que arrancar las cinco a la vez. Dirección ve el dashboard consolidado, cada jefe de planta ve solo la suya.",
+        text: "Sí, el plan Avanzado de Intralogik soporta multi-planta. Cada planta entra cuando está lista, no hay que arrancar las cinco a la vez. Dirección ve el dashboard consolidado, cada jefe de planta ve solo la suya.",
       },
     },
   ],
