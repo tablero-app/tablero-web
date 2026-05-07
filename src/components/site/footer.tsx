@@ -2,10 +2,18 @@ import { Logo } from "./logo";
 import { ctaUrls } from "@/lib/cta-config";
 
 const productLinks = [
-  { href: "/#producto", label: "Módulos" },
-  { href: "/#flujo", label: "Cómo funciona" },
   { href: "/precios", label: "Precios" },
+  { href: "/gestion-incidencias-mantenimiento", label: "Gestión de incidencias" },
+  { href: "/stock-repuestos-mantenimiento", label: "Stock de repuestos" },
+  { href: "/#flujo", label: "Cómo funciona" },
   { href: "/#faq", label: "FAQ" },
+];
+
+const recursosLinks = [
+  { href: "/casos", label: "Casos reales" },
+  { href: "/casos/fabrica-metalmecanica-cataluna", label: "Caso · fábrica metalmecánica" },
+  { href: "/blog", label: "Blog" },
+  { href: "/blog/que-es-gmao", label: "¿Qué es un GMAO?" },
 ];
 
 const legalLinks = [
@@ -21,7 +29,7 @@ export function Footer() {
     <footer className="mt-24 border-t border-border bg-secondary/40">
       <div className="mx-auto max-w-[var(--container-content)] px-4 py-16 md:px-8">
         <div className="grid gap-12 md:grid-cols-12">
-          <div className="md:col-span-5">
+          <div className="md:col-span-4">
             <Logo size={28} />
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
               El mantenimiento de tu planta, en una sola pantalla. GMAO ligero
@@ -38,10 +46,7 @@ export function Footer() {
             </p>
           </div>
 
-          <nav
-            aria-label="Producto"
-            className="md:col-span-3 md:col-start-7"
-          >
+          <nav aria-label="Producto" className="md:col-span-3">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground">
               Producto
             </h3>
@@ -59,7 +64,25 @@ export function Footer() {
             </ul>
           </nav>
 
-          <nav aria-label="Legal" className="md:col-span-3">
+          <nav aria-label="Recursos" className="md:col-span-3">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground">
+              Recursos
+            </h3>
+            <ul className="mt-4 space-y-2.5">
+              {recursosLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <nav aria-label="Legal" className="md:col-span-2">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground">
               Legal
             </h3>
