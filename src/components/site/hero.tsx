@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
  */
 export function Hero() {
   return (
-    <section className="relative min-h-[100dvh] overflow-hidden pt-12 pb-16 md:pt-20 md:pb-24">
+    <section className="relative overflow-hidden pt-8 pb-16 md:pt-12 md:pb-24">
       {/* Subtle off-white background gradient toward bottom-right */}
       <div
         aria-hidden="true"
@@ -19,7 +19,7 @@ export function Hero() {
         }}
       />
 
-      <div className="mx-auto grid max-w-[var(--container-content)] grid-cols-1 items-center gap-12 px-4 md:px-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16">
+      <div className="mx-auto grid max-w-[var(--container-content)] grid-cols-1 items-start gap-12 px-4 md:px-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16">
         {/* Left column — text */}
         <div className="max-w-xl">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/60 px-3 py-1 text-xs font-medium text-muted-foreground">
