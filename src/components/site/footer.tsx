@@ -2,10 +2,10 @@ import { Logo } from "./logo";
 import { ctaUrls } from "@/lib/cta-config";
 
 const productLinks = [
-  { href: "#producto", label: "Módulos" },
-  { href: "#flujo", label: "Cómo funciona" },
-  { href: "#precios", label: "Precios" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#producto", label: "Módulos" },
+  { href: "/#flujo", label: "Cómo funciona" },
+  { href: "/#precios", label: "Precios" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 const legalLinks = [

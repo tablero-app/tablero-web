@@ -14,10 +14,10 @@ import {
 } from "@/components/ui/sheet";
 
 const links = [
-  { href: "#producto", label: "Producto" },
-  { href: "#flujo", label: "Cómo funciona" },
-  { href: "#precios", label: "Precios" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#producto", label: "Producto" },
+  { href: "/#flujo", label: "Cómo funciona" },
+  { href: "/#precios", label: "Precios" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 export function Nav() {
@@ -65,7 +65,7 @@ export function Nav() {
 
         <div className="hidden md:block">
           <Button asChild size="sm">
-            <a href="#cta">Reservar demo</a>
+            <Link href="/#cta">Reservar demo</Link>
           </Button>
         </div>
 
@@ -109,9 +109,9 @@ export function Nav() {
               </ul>
               <div className="mt-6">
                 <Button asChild className="w-full" size="lg">
-                  <a href="#cta" onClick={() => setOpen(false)}>
+                  <Link href="/#cta" onClick={() => setOpen(false)}>
                     Reservar demo
-                  </a>
+                  </Link>
                 </Button>
               </div>
             </nav>

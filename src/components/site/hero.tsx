@@ -32,14 +32,14 @@ export function Hero() {
           </span>
 
           <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tighter text-foreground md:text-5xl lg:text-6xl">
-            De WhatsApp a un sistema de mantenimiento en{" "}
+            Software de mantenimiento industrial para pasar de WhatsApp y Excel a un sistema en{" "}
             <span className="whitespace-nowrap">2 semanas.</span>
           </h1>
 
           <p className="mt-5 max-w-[60ch] text-base leading-relaxed text-muted-foreground md:text-lg">
-            Incidencias, órdenes de trabajo, repuestos e historial por máquina.
-            Sin consultoría, sin proyecto IT, sin un PowerPoint de 80 diapositivas.
-            Para empresas industriales que necesitan organizarse ya.
+            Intralogik es un GMAO ligero para pymes industriales: incidencias,
+            órdenes de trabajo, repuestos, preventivos e historial por máquina
+            desde un panel móvil.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
