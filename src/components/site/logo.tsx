@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { cn } from "@/lib/utils";
 
 interface LogoProps {
@@ -6,39 +8,25 @@ interface LogoProps {
   variant?: "full" | "mark";
 }
 
-/**
- * Intralogik brand mark — 2×2 grid (panel de mando) with one active cell
- * in industrial orange. Wordmark in Geist 800 lowercase.
- */
+const FULL_RATIO = 1147 / 256;
+const MARK_RATIO = 512 / 562;
+
 export function Logo({ size = 32, className, variant = "full" }: LogoProps) {
+  const src = variant === "full" ? "/intralogik-logo.png" : "/intralogik-mark.png";
+  const ratio = variant === "full" ? FULL_RATIO : MARK_RATIO;
+  const width = Math.round(size * ratio);
+
   return (
-    <span className={cn("inline-flex items-center gap-2", className)}>
-      <svg
-        width={size}
+    <span className={cn("inline-flex items-center", className)}>
+      <Image
+        src={src}
+        alt="Intralogik"
+        width={width}
         height={size}
-        viewBox="0 0 32 32"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-        className="shrink-0"
-      >
-        <rect x="2" y="2" width="13" height="13" rx="2.5" fill="currentColor" />
-        <rect x="17" y="2" width="13" height="13" rx="2.5" fill="currentColor" />
-        <rect
-          x="2"
-          y="17"
-          width="13"
-          height="13"
-          rx="2.5"
-          fill="var(--intralogik-orange)"
-        />
-        <rect x="17" y="17" width="13" height="13" rx="2.5" fill="currentColor" />
-      </svg>
-      {variant === "full" && (
-        <span className="text-xl font-extrabold tracking-tight text-foreground">
-          intralogik
-        </span>
-      )}
+        priority
+        className="h-auto w-auto"
+        style={{ height: size, width }}
+      />
     </span>
   );
 }
