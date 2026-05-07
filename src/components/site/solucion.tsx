@@ -20,7 +20,7 @@ const modulos: Modulo[] = [
   {
     num: "01",
     icon: QrCode,
-    titulo: "Parte de incidencia móvil",
+    titulo: "Gestión de incidencias de mantenimiento desde el móvil",
     lead: "El operario reporta una avería en 30 segundos. Sin login, sin app, sin formación.",
     bullets: [
       "Escanea el QR pegado en la máquina con la cámara del móvil.",
@@ -33,7 +33,7 @@ const modulos: Modulo[] = [
   {
     num: "02",
     icon: LayoutDashboard,
-    titulo: "Panel de incidencias y órdenes de trabajo",
+    titulo: "Panel de incidencias y órdenes de trabajo de mantenimiento",
     lead: "El responsable de mantenimiento ve todo lo que pasa en la planta, en una sola pantalla.",
     bullets: [
       "Cada incidencia entra al panel con su prioridad, su máquina y su hora.",
@@ -46,7 +46,7 @@ const modulos: Modulo[] = [
   {
     num: "03",
     icon: Wrench,
-    titulo: "Ficha de máquina",
+    titulo: "Ficha de máquina con historial de mantenimiento",
     lead: "Toda la vida de cada máquina, en un solo sitio.",
     bullets: [
       "Historial completo de averías, reparaciones y cambios de repuesto.",
@@ -59,7 +59,7 @@ const modulos: Modulo[] = [
   {
     num: "04",
     icon: Boxes,
-    titulo: "Stock de repuestos",
+    titulo: "Control de stock de repuestos para mantenimiento",
     lead: "Saber lo que hay, lo que falta y lo que está a punto de faltar.",
     bullets: [
       "Entradas y salidas con la OT que las generó.",
@@ -72,7 +72,7 @@ const modulos: Modulo[] = [
   {
     num: "05",
     icon: CalendarCheck,
-    titulo: "Mantenimientos preventivos",
+    titulo: "Mantenimiento preventivo y correctivo registrado",
     lead: "Lo que tienes que hacer cada mes, cada 500 horas o cada 10.000 ciclos. Antes de que se rompa.",
     bullets: [
       "Calendario de preventivos por máquina, por frecuencia o por contador.",
