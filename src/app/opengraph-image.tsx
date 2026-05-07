@@ -1,6 +1,5 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
 export const alt =
   "Intralogik — Sistema de gestión de mantenimiento industrial";
 export const size = { width: 1200, height: 630 };
@@ -30,18 +29,21 @@ export default async function OgImage() {
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           <div
             style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gridTemplateRows: "1fr 1fr",
+              display: "flex",
+              flexDirection: "column",
               gap: 4,
               width: 56,
               height: 56,
             }}
           >
-            <div style={{ background: FG, borderRadius: 6 }} />
-            <div style={{ background: FG, borderRadius: 6 }} />
-            <div style={{ background: ORANGE, borderRadius: 6 }} />
-            <div style={{ background: FG, borderRadius: 6 }} />
+            <div style={{ display: "flex", gap: 4, flex: 1 }}>
+              <div style={{ background: FG, borderRadius: 6, flex: 1 }} />
+              <div style={{ background: FG, borderRadius: 6, flex: 1 }} />
+            </div>
+            <div style={{ display: "flex", gap: 4, flex: 1 }}>
+              <div style={{ background: ORANGE, borderRadius: 6, flex: 1 }} />
+              <div style={{ background: FG, borderRadius: 6, flex: 1 }} />
+            </div>
           </div>
           <span
             style={{
@@ -55,7 +57,7 @@ export default async function OgImage() {
           </span>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", maxWidth: 980 }}>
+        <div style={{ display: "flex", flexDirection: "column", maxWidth: 1040 }}>
           <span
             style={{
               fontSize: 18,
@@ -67,32 +69,31 @@ export default async function OgImage() {
           >
             GMAO ligero · PYME industrial española
           </span>
-          <h1
+          <div
             style={{
-              fontSize: 92,
+              display: "flex",
+              fontSize: 78,
               fontWeight: 800,
               letterSpacing: "-0.035em",
               lineHeight: 1.02,
               color: FG,
               marginTop: 24,
-              marginBottom: 0,
             }}
           >
             El mantenimiento de tu planta,
-          </h1>
-          <h1
+          </div>
+          <div
             style={{
-              fontSize: 92,
+              display: "flex",
+              fontSize: 78,
               fontWeight: 800,
               letterSpacing: "-0.035em",
               lineHeight: 1.02,
               color: ORANGE,
-              marginTop: 0,
-              marginBottom: 0,
             }}
           >
             en una sola pantalla.
-          </h1>
+          </div>
         </div>
 
         <div
