@@ -7,6 +7,8 @@ const productLinks = [
   { href: "/precios", label: "Precios" },
   { href: "/gestion-incidencias-mantenimiento", label: "Gestión de incidencias" },
   { href: "/stock-repuestos-mantenimiento", label: "Stock de repuestos" },
+  { href: "/mantenimiento-preventivo-correctivo", label: "Preventivo y correctivo" },
+  { href: "/form-qr-mantenimiento-fabrica", label: "Form QR de mantenimiento" },
   { href: "/#flujo", label: "Cómo funciona" },
   { href: "/#faq", label: "FAQ" },
 ];
