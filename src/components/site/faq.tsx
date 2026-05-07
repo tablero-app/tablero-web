@@ -98,10 +98,13 @@ export function Faq() {
               >
                 <AccordionTrigger className="py-5 text-left text-base font-semibold leading-snug text-foreground hover:no-underline md:text-lg">
                   <span className="flex items-baseline gap-3">
-                    <span className="font-mono text-xs tabular text-muted-foreground">
+                    <span
+                      aria-hidden="true"
+                      className="font-mono text-xs tabular text-muted-foreground"
+                    >
                       {String(idx + 1).padStart(2, "0")}
-                    </span>
-                    {p.q}
+                    </span>{" "}
+                    <span>{p.q}</span>
                   </span>
                 </AccordionTrigger>
                 <AccordionContent className="pb-5 text-base leading-relaxed text-muted-foreground">
