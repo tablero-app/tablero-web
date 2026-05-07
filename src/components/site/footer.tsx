@@ -4,7 +4,7 @@ import { ctaUrls } from "@/lib/cta-config";
 const productLinks = [
   { href: "/#producto", label: "Módulos" },
   { href: "/#flujo", label: "Cómo funciona" },
-  { href: "/#precios", label: "Precios" },
+  { href: "/precios", label: "Precios" },
   { href: "/#faq", label: "FAQ" },
 ];
 
