@@ -12,7 +12,7 @@ const DESCRIPTION =
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Intralogik — El mantenimiento de tu planta, en una sola pantalla",
+    default: "Software de mantenimiento industrial sencillo | Intralogik",
     template: "%s · Intralogik",
   },
   description: DESCRIPTION,
@@ -38,12 +38,12 @@ export const metadata: Metadata = {
     locale: "es_ES",
     url: SITE_URL,
     siteName: "Intralogik",
-    title: "Intralogik — El mantenimiento de tu planta, en una sola pantalla",
+    title: "Software de mantenimiento industrial sencillo | Intralogik",
     description: DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Intralogik — El mantenimiento de tu planta, en una sola pantalla",
+    title: "Software de mantenimiento industrial sencillo | Intralogik",
     description: DESCRIPTION,
   },
   robots: {
