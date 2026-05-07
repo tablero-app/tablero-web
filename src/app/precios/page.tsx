@@ -8,7 +8,8 @@ import { Cta } from "@/components/site/cta";
 
 const SITE_URL = "https://www.intralogik.com";
 
-const TITLE = "Precios GMAO Intralogik · desde 199 €/mes";
+// El template del root layout añade " · Intralogik" automáticamente.
+const TITLE = "Precios GMAO desde 199 €/mes — sin permanencia";
 const DESCRIPTION =
   "Tarifas claras para GMAO industrial PYME: planes Esencial 199 €, Estándar 299 € y Avanzado 599 € al mes (anual). Sin permanencia. Implantación 2 semanas incluida.";
 
