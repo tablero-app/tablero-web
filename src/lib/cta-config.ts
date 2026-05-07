@@ -1,4 +1,4 @@
-const CONTACT_EMAIL = "eric@grupoimar-mantenimiento.com";
+const CONTACT_EMAIL = "info@intralogik.com";
 const CALENDLY_DEFAULT = "https://calendly.com/castillonavarro-eric/30min";
 
 const mailtoFallback = (subject: string) =>
