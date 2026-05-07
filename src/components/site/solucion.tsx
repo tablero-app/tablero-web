@@ -96,7 +96,7 @@ export function Solucion() {
     <section
       id="producto"
       aria-labelledby="solucion-heading"
-      className="border-t border-border py-20 md:py-28"
+      className="border-t border-border py-14 md:py-20"
     >
       <div className="mx-auto max-w-[var(--container-content)] px-4 md:px-8">
         <div className="max-w-2xl">

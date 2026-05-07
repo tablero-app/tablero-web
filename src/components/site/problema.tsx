@@ -31,7 +31,7 @@ export function Problema() {
     <section
       id="problema"
       aria-labelledby="problema-heading"
-      className="relative border-t border-border bg-secondary/30 py-20 md:py-28"
+      className="relative border-t border-border bg-secondary/30 py-14 md:py-20"
     >
       <div className="mx-auto max-w-[var(--container-content)] px-4 md:px-8">
         <div className="max-w-2xl">

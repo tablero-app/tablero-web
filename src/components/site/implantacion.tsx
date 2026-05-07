@@ -87,7 +87,7 @@ export function Implantacion() {
     <section
       id="implantacion"
       aria-labelledby="implantacion-heading"
-      className="border-t border-border py-20 md:py-28"
+      className="border-t border-border py-14 md:py-20"
     >
       <div className="mx-auto max-w-[var(--container-content)] px-4 md:px-8">
         {/* V1 · Calendario semana a semana */}

@@ -6,7 +6,7 @@ export function Cta() {
     <section
       id="cta"
       aria-labelledby="cta-heading"
-      className="relative border-t border-border bg-secondary/30 py-20 md:py-28"
+      className="relative border-t border-border bg-secondary/30 py-14 md:py-20"
     >
       <div
         aria-hidden="true"

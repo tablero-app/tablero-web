@@ -53,7 +53,7 @@ export function Faq() {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      className="border-t border-border py-20 md:py-28"
+      className="border-t border-border py-14 md:py-20"
     >
       <div className="mx-auto max-w-[var(--container-content)] px-4 md:px-8">
         <div className="grid gap-10 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:gap-16">
