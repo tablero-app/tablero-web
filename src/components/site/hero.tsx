@@ -32,7 +32,7 @@ export function Hero() {
           </span>
 
           <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tighter text-foreground md:text-5xl lg:text-6xl">
-            Software de mantenimiento industrial para pasar de WhatsApp y Excel a un sistema en{" "}
+            Software GMAO de mantenimiento industrial para pasar de WhatsApp y Excel a un sistema en{" "}
             <span className="whitespace-nowrap">2 semanas.</span>
           </h1>
 

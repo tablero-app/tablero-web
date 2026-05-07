@@ -13,6 +13,8 @@ export const PENDING = {
   domicilioFiscal: "PENDIENTE: domicilio fiscal",
   /** Provincia para fijar fuero contractual con clientes no consumidores. */
   provincia: "PENDIENTE: provincia",
+  /** Teléfono comercial publicable. Móvil España OK. */
+  telefono: "PENDIENTE: teléfono comercial",
 } as const;
 
 export const legalInfo = {
@@ -26,6 +28,7 @@ export const legalInfo = {
   // Contacto
   email: "info@intralogik.com",
   emailRgpd: "info@intralogik.com",
+  telefono: PENDING.telefono,
 
   // Sitio
   sitioUrl: "https://www.intralogik.com",

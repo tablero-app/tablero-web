@@ -25,12 +25,7 @@ const softwareApplicationLd = {
   url: SITE_URL,
   image: `${SITE_URL}/opengraph-image`,
   inLanguage: "es",
-  provider: {
-    "@type": "Organization",
-    name: "Intralogik",
-    url: SITE_URL,
-    founder: { "@type": "Person", name: "Eric Castillo" },
-  },
+  provider: { "@id": `${SITE_URL}/#organization` },
   offers: [
     {
       "@type": "Offer",

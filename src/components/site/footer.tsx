@@ -1,5 +1,7 @@
+import Link from "next/link";
 import { Logo } from "./logo";
 import { ctaUrls } from "@/lib/cta-config";
+import { legalInfo, isPending } from "@/lib/legal-info";
 
 const productLinks = [
   { href: "/precios", label: "Precios" },
@@ -25,6 +27,12 @@ const legalLinks = [
 export function Footer() {
   const year = new Date().getFullYear();
 
+  // Solo renderizamos los datos legales en el footer cuando NO son placeholders
+  // (alta de autónomo pendiente). El aviso legal sí refleja todo, incluso "pendiente".
+  const showNif = !isPending(legalInfo.nif);
+  const showDomicilio = !isPending(legalInfo.domicilioFiscal);
+  const showTelefono = !isPending(legalInfo.telefono);
+
   return (
     <footer className="mt-24 border-t border-border bg-secondary/40">
       <div className="mx-auto max-w-[var(--container-content)] px-4 py-16 md:px-8">
@@ -44,6 +52,27 @@ export function Footer() {
             <p className="mt-2 text-xs text-muted-foreground">
               Lo leemos nosotros, no un bot. Respuesta en &lt; 24 h laborales.
             </p>
+            {showTelefono && (
+              <a
+                href={`tel:${legalInfo.telefono.replace(/\s+/g, "")}`}
+                className="mt-3 inline-flex items-center gap-2 rounded-md text-sm font-medium text-foreground transition-colors hover:text-primary"
+              >
+                <span className="font-mono tabular">{legalInfo.telefono}</span>
+              </a>
+            )}
+            <address className="mt-6 space-y-1 not-italic text-xs leading-relaxed text-muted-foreground">
+              <p className="text-foreground">{legalInfo.titular}</p>
+              {showNif && <p>NIF · {legalInfo.nif}</p>}
+              {showDomicilio && <p>{legalInfo.domicilioFiscal}</p>}
+              <p className="pt-1">
+                <Link
+                  href="/aviso-legal#titular"
+                  className="underline underline-offset-4 decoration-foreground/30 hover:decoration-foreground"
+                >
+                  Información legal completa
+                </Link>
+              </p>
+            </address>
           </div>
 
           <nav aria-label="Producto" className="md:col-span-3">

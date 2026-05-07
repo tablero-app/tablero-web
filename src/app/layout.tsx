@@ -3,6 +3,8 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { socialProfiles, founderProfiles } from "@/lib/social-profiles";
+import { legalInfo, isPending } from "@/lib/legal-info";
 import "./globals.css";
 
 const SITE_URL = "https://www.intralogik.com";
@@ -52,6 +54,53 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${SITE_URL}/#organization`,
+  name: "Intralogik",
+  legalName: legalInfo.titular,
+  url: SITE_URL,
+  logo: {
+    "@type": "ImageObject",
+    url: `${SITE_URL}/opengraph-image`,
+    inLanguage: "es",
+  },
+  image: `${SITE_URL}/opengraph-image`,
+  description: DESCRIPTION,
+  email: legalInfo.email,
+  ...(isPending(legalInfo.telefono) ? {} : { telephone: legalInfo.telefono }),
+  founder: {
+    "@type": "Person",
+    name: "Eric Castillo",
+    jobTitle: "Fundador de Intralogik",
+    ...(founderProfiles.length > 0 ? { sameAs: [...founderProfiles] } : {}),
+  },
+  foundingDate: "2026",
+  areaServed: { "@type": "Country", name: "España" },
+  knowsAbout: [
+    "GMAO",
+    "CMMS",
+    "mantenimiento industrial",
+    "gestión de incidencias",
+    "órdenes de trabajo",
+    "stock de repuestos",
+    "mantenimiento preventivo",
+    "PYME industrial",
+  ],
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      contactType: "customer support",
+      email: legalInfo.email,
+      ...(isPending(legalInfo.telefono) ? {} : { telephone: legalInfo.telefono }),
+      areaServed: "ES",
+      availableLanguage: ["Spanish", "es"],
+    },
+  ],
+  ...(socialProfiles.length > 0 ? { sameAs: [...socialProfiles] } : {}),
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -65,6 +114,10 @@ export default function RootLayout({
     >
       <head>
         <meta name="theme-color" content="#1F2A44" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
+        />
       </head>
       <body className="min-h-[100dvh] flex flex-col antialiased">
         {children}
