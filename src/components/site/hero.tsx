@@ -111,7 +111,7 @@ function HeroMockup() {
               strokeWidth={2}
               aria-hidden="true"
             />
-            <span className="font-mono tabular">tablero.app/r/L4-ENV01</span>
+            <span className="font-mono tabular">intralogik.com/r/L4-ENV01</span>
           </div>
 
           <p className="mt-4 text-lg font-semibold leading-tight tracking-tight text-foreground">

@@ -80,12 +80,8 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col gap-3 border-t border-border pt-8 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs leading-relaxed text-muted-foreground">
-            © {year} Tablero. Sistema de gestión de mantenimiento desarrollado
-            por Eric Castillo.
-          </p>
-          <p className="text-xs text-muted-foreground">
-            Email comercial provisional hasta el lanzamiento del dominio
-            definitivo.
+            © {year} Intralogik. Sistema de gestión de mantenimiento
+            desarrollado por Eric Castillo.
           </p>
         </div>
       </div>

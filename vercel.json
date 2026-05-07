@@ -1,0 +1,16 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "intralogik.com"
+        }
+      ],
+      "destination": "https://www.intralogik.com/:path*",
+      "permanent": true
+    }
+  ]
+}

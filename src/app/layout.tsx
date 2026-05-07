@@ -3,20 +3,24 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
-const SITE_URL = "https://tablero.app";
+const SITE_URL = "https://www.intralogik.com";
+const OG_IMAGE = "/og-image.png";
 const DESCRIPTION =
-  "Sistema de gestión de mantenimiento industrial para PYMEs españolas. De WhatsApp a Tablero en 2 semanas. Form QR, panel de incidencias, ficha de máquina, stock de repuestos, mantenimientos preventivos.";
+  "GMAO ligero para PYMEs industriales. Pasa de WhatsApp y Excel a un sistema completo en 2 semanas: incidencias, máquinas, stock, preventivos. Desde 199€/mes.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Tablero — El mantenimiento de tu planta, en una sola pantalla",
-    template: "%s · Tablero",
+    default: "Intralogik — El mantenimiento de tu planta, en una sola pantalla",
+    template: "%s · Intralogik",
   },
   description: DESCRIPTION,
-  applicationName: "Tablero",
+  applicationName: "Intralogik",
   authors: [{ name: "Eric Castillo" }],
   creator: "Eric Castillo",
+  alternates: {
+    canonical: "/",
+  },
   keywords: [
     "GMAO",
     "CMMS",
@@ -32,22 +36,23 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_ES",
     url: SITE_URL,
-    siteName: "Tablero",
-    title: "Tablero — El mantenimiento de tu planta, en una sola pantalla",
+    siteName: "Intralogik",
+    title: "Intralogik — El mantenimiento de tu planta, en una sola pantalla",
     description: DESCRIPTION,
     images: [
       {
-        url: "/og-image.png",
+        url: OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: "Tablero — Sistema de gestión de mantenimiento industrial",
+        alt: "Intralogik — Sistema de gestión de mantenimiento industrial",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tablero — El mantenimiento de tu planta, en una sola pantalla",
+    title: "Intralogik — El mantenimiento de tu planta, en una sola pantalla",
     description: DESCRIPTION,
+    images: [OG_IMAGE],
   },
   robots: {
     index: true,
@@ -55,19 +60,134 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
+const softwareApplicationLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "Tablero",
+  name: "Intralogik",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   description: DESCRIPTION,
   url: SITE_URL,
+  image: `${SITE_URL}${OG_IMAGE}`,
   inLanguage: "es",
+  provider: {
+    "@type": "Organization",
+    name: "Intralogik",
+    url: SITE_URL,
+    founder: { "@type": "Person", name: "Eric Castillo" },
+  },
   offers: [
-    { "@type": "Offer", name: "Esencial", price: "199", priceCurrency: "EUR" },
-    { "@type": "Offer", name: "Estándar", price: "299", priceCurrency: "EUR" },
-    { "@type": "Offer", name: "Avanzado", price: "599", priceCurrency: "EUR" },
+    {
+      "@type": "Offer",
+      name: "Esencial",
+      price: "199",
+      priceCurrency: "EUR",
+      availability: "https://schema.org/InStock",
+      priceValidUntil: "2026-12-31",
+    },
+    {
+      "@type": "Offer",
+      name: "Estándar",
+      price: "299",
+      priceCurrency: "EUR",
+      availability: "https://schema.org/InStock",
+      priceValidUntil: "2026-12-31",
+    },
+    {
+      "@type": "Offer",
+      name: "Avanzado",
+      price: "599",
+      priceCurrency: "EUR",
+      availability: "https://schema.org/InStock",
+      priceValidUntil: "2026-12-31",
+    },
+  ],
+};
+
+const faqPageLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "¿Funciona si tenemos mala cobertura WiFi en planta?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sí. El form móvil funciona con datos del operario o con WiFi. Si la cobertura cae justo al enviar, el sistema reintenta automáticamente cuando vuelve la red. La incidencia no se pierde.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Qué pasa si un operario no tiene smartphone?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Cualquier móvil moderno con cámara basta — el form va por web, no por app. Si en alguna sección de planta no hay móviles personales, dejamos un par de tablets fijas con un QR de \"modo planta\".",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Tenemos que cambiar nuestros procedimientos?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No. El sistema se adapta a cómo trabajáis hoy: tus prioridades, tus turnos, tus técnicos, tu organigrama. Lo único que cambia es que la información queda registrada en lugar de perdida.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Lo podemos integrar con nuestro ERP?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sí, mediante exportes automáticos o conector a medida. La integración sale como add-on en el plan Avanzado o como proyecto puntual.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Qué pasa con los datos si dejamos de pagar?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Te los exportas a Excel cuando quieras, también el día que te das de baja. No tenemos rehén. Tu histórico es tuyo siempre.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Lo podemos probar antes de comprar?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sí. 14 días gratis con tu propia planta, no con datos de demo. Sin tarjeta, sin permanencia.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Funciona offline?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Parcialmente. El form sigue capturando incidencias sin red y las envía cuando se recupera. El panel del responsable necesita conexión.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Es compatible con auditorías ISO 9001 / 14001 / 45001?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sí. Las OTs se exportan en formato auditable con foto, hora, técnico responsable y repuestos consumidos. En el plan Avanzado, incluye firma digital del técnico al cierre.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Hace falta un informático en plantilla?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No. El sistema lo configuramos nosotros la primera vez y luego lo gestiona el jefe de mantenimiento desde el panel.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Y si tenemos varias plantas?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Plan Avanzado. Cada planta entra cuando está lista, no hay que arrancar las cinco a la vez. Dirección ve el dashboard consolidado, cada jefe de planta ve solo la suya.",
+      },
+    },
   ],
 };
 
@@ -86,7 +206,11 @@ export default function RootLayout({
         <meta name="theme-color" content="#1F2A44" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageLd) }}
         />
       </head>
       <body className="min-h-[100dvh] flex flex-col antialiased">

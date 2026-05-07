@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./logo";
 import { Button } from "@/components/ui/button";
@@ -39,13 +40,13 @@ export function Nav() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-[var(--container-content)] items-center justify-between px-4 md:h-18 md:px-8">
-        <a
+        <Link
           href="/"
           className="rounded-md text-primary"
-          aria-label="Tablero — inicio"
+          aria-label="Intralogik — inicio"
         >
           <Logo size={28} />
-        </a>
+        </Link>
 
         <nav className="hidden md:block" aria-label="Navegación principal">
           <ul className="flex items-center gap-1">

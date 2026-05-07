@@ -125,7 +125,7 @@ export function Beneficios() {
               role="columnheader"
               className="border-l border-border px-6 py-3 text-xs font-semibold uppercase tracking-wider text-foreground"
             >
-              Con Tablero
+              Con Intralogik
             </div>
           </div>
 
@@ -171,7 +171,7 @@ export function Beneficios() {
                   className="text-[10px] font-semibold uppercase tracking-wider"
                   style={{ color: "var(--tablero-orange-text)" }}
                 >
-                  Con Tablero
+                  Con Intralogik
                 </span>
                 <p className="mt-1 text-sm leading-relaxed text-foreground">
                   {row.sistema}

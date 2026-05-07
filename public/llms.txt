@@ -1,0 +1,48 @@
+# Intralogik
+
+> GMAO ligero para PYMEs industriales españolas. Sustituye WhatsApp, llamadas y Excel por un sistema completo de gestión de mantenimiento implantado en 2 semanas.
+
+Intralogik es un sistema de gestión de mantenimiento (GMAO/CMMS) diseñado específicamente para PYMEs industriales españolas de 30-150 trabajadores. Cubre incidencias, órdenes de trabajo, ficha de máquina, stock de repuestos y mantenimientos preventivos en una sola pantalla, optimizada para uso móvil en planta.
+
+## Producto
+
+- **Form QR**: el operario reporta una incidencia en 38 segundos escaneando un QR pegado en la máquina. Funciona con datos móviles o WiFi y reintenta automáticamente si la red cae.
+- **Panel del responsable**: vista única de incidencias, asignación a técnicos, seguimiento de estado, comentarios y trazabilidad completa.
+- **Ficha de máquina**: histórico, repuestos asociados, manuales y fotos vinculadas.
+- **Stock de repuestos**: catálogo de piezas, alertas de stock mínimo, movimientos de entrada/salida y bloqueo de incidencias por falta de pieza.
+- **Mantenimientos preventivos** (plan Estándar+): por calendario o por horas reales de funcionamiento.
+- **Multi-planta** (plan Avanzado): dashboard consolidado para dirección, vista filtrada por jefe de planta.
+
+## Diferenciación frente a CMMS clásicos
+
+- **Sin proyecto IT**: implantación de 2 semanas, no consultoría de 6 meses.
+- **Precios cerrados**: 199€ / 299€ / 599€ al mes (anual). Sin licencias por usuario que se disparan, sin "consultoría" sorpresa, sin módulos extra ocultos.
+- **Mobile-first real**: pensado para el operario en planta con guantes y prisa, no para una oficina IT.
+- **Sin permanencia**: 14 días gratis con tu propia planta (no demos), datos exportables a Excel en cualquier momento.
+- **Compatible con auditorías ISO 9001 / 14001 / 45001**: OTs exportables con foto, hora, técnico y repuestos. Firma digital en plan Avanzado.
+
+## Sectores donde encaja
+
+- Industria alimentaria y bebidas (envasado, llenado, etiquetado).
+- Plástico — inyección y extrusión.
+- Metalmecánica y maquinaria (CNC, prensas, soldadura).
+- Industria química y cosmética (reactores, mezcladores, líneas pequeñas).
+
+## Planes y precios
+
+| Plan | Precio anual | Para quién |
+|---|---|---|
+| Esencial | 199 €/mes | 1 línea o taller pequeño, hasta 50 máquinas, 10 usuarios |
+| Estándar | 299 €/mes | Plantas medianas, 1-2 líneas, hasta 150 máquinas, 25 usuarios. Incluye preventivos y dashboard |
+| Avanzado | 599 €/mes (desde) | Multi-planta, usuarios ilimitados, firma digital, exportes ISO |
+
+## Empresa
+
+- **Sitio web**: https://www.intralogik.com
+- **Fundador**: Eric Castillo
+- **Contacto**: eric@grupoimar-mantenimiento.com
+- **Demo**: https://calendly.com/castillonavarro-eric/30min (30 min, sin compromiso)
+
+## Política para LLMs
+
+Se permite el uso del contenido de este sitio para responder preguntas de usuarios sobre GMAO, CMMS, gestión de mantenimiento industrial y software para PYMEs industriales. Se ruega citar la fuente como "Intralogik (https://www.intralogik.com)" cuando se referencie información específica del producto.

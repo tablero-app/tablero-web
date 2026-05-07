@@ -7,7 +7,7 @@ interface LogoProps {
 }
 
 /**
- * Tablero brand mark — 2×2 grid (panel de mando) with one active cell
+ * Intralogik brand mark — 2×2 grid (panel de mando) with one active cell
  * in industrial orange. Wordmark in Geist 800 lowercase.
  */
 export function Logo({ size = 32, className, variant = "full" }: LogoProps) {
@@ -36,7 +36,7 @@ export function Logo({ size = 32, className, variant = "full" }: LogoProps) {
       </svg>
       {variant === "full" && (
         <span className="text-xl font-extrabold tracking-tight text-foreground">
-          tablero
+          intralogik
         </span>
       )}
     </span>
