@@ -33,7 +33,7 @@ const modulos: Modulo[] = [
   {
     num: "02",
     icon: LayoutDashboard,
-    titulo: "Panel de incidencias y órdenes de trabajo de mantenimiento",
+    titulo: "Panel de órdenes de trabajo de mantenimiento",
     lead: "El responsable de mantenimiento ve todo lo que pasa en la planta, en una sola pantalla.",
     bullets: [
       "Cada incidencia entra al panel con su prioridad, su máquina y su hora.",
@@ -72,7 +72,7 @@ const modulos: Modulo[] = [
   {
     num: "05",
     icon: CalendarCheck,
-    titulo: "Mantenimiento preventivo y correctivo registrado",
+    titulo: "Mantenimiento preventivo registrado",
     lead: "Lo que tienes que hacer cada mes, cada 500 horas o cada 10.000 ciclos. Antes de que se rompa.",
     bullets: [
       "Calendario de preventivos por máquina, por frecuencia o por contador.",
