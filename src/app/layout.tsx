@@ -4,7 +4,6 @@ import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
 const SITE_URL = "https://www.intralogik.com";
-const OG_IMAGE = "/og-image.png";
 const DESCRIPTION =
   "GMAO ligero para PYMEs industriales. Pasa de WhatsApp y Excel a un sistema completo en 2 semanas: incidencias, máquinas, stock, preventivos. Desde 199€/mes.";
 
@@ -39,20 +38,11 @@ export const metadata: Metadata = {
     siteName: "Intralogik",
     title: "Intralogik — El mantenimiento de tu planta, en una sola pantalla",
     description: DESCRIPTION,
-    images: [
-      {
-        url: OG_IMAGE,
-        width: 1200,
-        height: 630,
-        alt: "Intralogik — Sistema de gestión de mantenimiento industrial",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Intralogik — El mantenimiento de tu planta, en una sola pantalla",
     description: DESCRIPTION,
-    images: [OG_IMAGE],
   },
   robots: {
     index: true,
@@ -68,7 +58,7 @@ const softwareApplicationLd = {
   operatingSystem: "Web",
   description: DESCRIPTION,
   url: SITE_URL,
-  image: `${SITE_URL}${OG_IMAGE}`,
+  image: `${SITE_URL}/opengraph-image`,
   inLanguage: "es",
   provider: {
     "@type": "Organization",
