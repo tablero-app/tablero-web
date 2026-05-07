@@ -65,7 +65,7 @@ export function Cta() {
             </div>
 
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-              20 minutos por videollamada. Te enseñamos el sistema funcionando
+              30 minutos por videollamada. Te enseñamos el sistema funcionando
               con un caso real, respondemos tus dudas concretas y vemos si
               encaja con tu planta.
             </p>
@@ -82,7 +82,7 @@ export function Cta() {
                 />
               </a>
               <p className="mt-3 text-center text-xs text-muted-foreground">
-                Calendly · 20 min · sin compromiso
+                Calendly · 30 min · sin compromiso
               </p>
             </div>
           </article>

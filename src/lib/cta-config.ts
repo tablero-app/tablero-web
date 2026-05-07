@@ -1,4 +1,5 @@
 const CONTACT_EMAIL = "eric@grupoimar-mantenimiento.com";
+const CALENDLY_DEFAULT = "https://calendly.com/castillonavarro-eric/30min";
 
 const mailtoFallback = (subject: string) =>
   `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}`;
@@ -8,9 +9,7 @@ export const ctaUrls = {
   emailSubject: "Tablero — Consulta",
   mailto: mailtoFallback("Tablero — Consulta"),
 
-  reservarDemo:
-    process.env.NEXT_PUBLIC_CALENDLY_URL ||
-    mailtoFallback("Tablero — Reservar demo guiada (20 min)"),
+  reservarDemo: process.env.NEXT_PUBLIC_CALENDLY_URL || CALENDLY_DEFAULT,
 
   empezarPrueba:
     process.env.NEXT_PUBLIC_TRIAL_URL ||
