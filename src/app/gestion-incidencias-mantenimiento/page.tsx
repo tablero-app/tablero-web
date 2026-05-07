@@ -172,7 +172,7 @@ export default function GestionIncidenciasPage() {
             className="pointer-events-none absolute inset-0 -z-10"
             style={{
               background:
-                "radial-gradient(80% 60% at 100% 0%, color-mix(in oklab, var(--tablero-orange-soft) 60%, transparent) 0%, transparent 60%)",
+                "radial-gradient(80% 60% at 100% 0%, color-mix(in oklab, var(--intralogik-orange-soft) 60%, transparent) 0%, transparent 60%)",
             }}
           />
           <div className="mx-auto max-w-3xl px-4 md:px-8">
@@ -186,14 +186,14 @@ export default function GestionIncidenciasPage() {
               <span
                 aria-hidden="true"
                 className="inline-block h-1.5 w-1.5 rounded-full"
-                style={{ background: "var(--tablero-orange)" }}
+                style={{ background: "var(--intralogik-orange)" }}
               />
               Módulo Intralogik · Form QR + Panel
             </span>
 
             <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tighter text-foreground md:text-5xl lg:text-[3.25rem]">
               Gestión de incidencias en mantenimiento industrial,{" "}
-              <span style={{ color: "var(--tablero-orange-text)" }}>
+              <span style={{ color: "var(--intralogik-orange-text)" }}>
                 en 38 segundos por reporte.
               </span>
             </h1>
@@ -286,12 +286,12 @@ export default function GestionIncidenciasPage() {
                   >
                     <div
                       className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg"
-                      style={{ background: "var(--tablero-orange-soft)" }}
+                      style={{ background: "var(--intralogik-orange-soft)" }}
                     >
                       <Icon
                         className="h-5 w-5"
                         strokeWidth={1.75}
-                        style={{ color: "var(--tablero-orange)" }}
+                        style={{ color: "var(--intralogik-orange)" }}
                         aria-hidden="true"
                       />
                     </div>
@@ -317,7 +317,7 @@ export default function GestionIncidenciasPage() {
               <span
                 aria-hidden="true"
                 className="inline-block h-px w-8"
-                style={{ background: "var(--tablero-orange)" }}
+                style={{ background: "var(--intralogik-orange)" }}
               />
               Cómo funciona en Intralogik
             </span>
@@ -367,7 +367,7 @@ export default function GestionIncidenciasPage() {
                       <span
                         className="flex h-9 w-9 items-center justify-center rounded-full font-mono text-sm font-semibold"
                         style={{
-                          background: "var(--tablero-orange)",
+                          background: "var(--intralogik-orange)",
                           color: "white",
                         }}
                       >
@@ -376,7 +376,7 @@ export default function GestionIncidenciasPage() {
                       <Icon
                         className="h-5 w-5"
                         strokeWidth={1.75}
-                        style={{ color: "var(--tablero-orange-text)" }}
+                        style={{ color: "var(--intralogik-orange-text)" }}
                         aria-hidden="true"
                       />
                     </div>
@@ -407,7 +407,7 @@ export default function GestionIncidenciasPage() {
                 <CheckCircle2
                   className="mt-1 h-5 w-5 shrink-0"
                   strokeWidth={2}
-                  style={{ color: "var(--tablero-orange)" }}
+                  style={{ color: "var(--intralogik-orange)" }}
                   aria-hidden="true"
                 />
                 <span className="text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -421,7 +421,7 @@ export default function GestionIncidenciasPage() {
                 <CheckCircle2
                   className="mt-1 h-5 w-5 shrink-0"
                   strokeWidth={2}
-                  style={{ color: "var(--tablero-orange)" }}
+                  style={{ color: "var(--intralogik-orange)" }}
                   aria-hidden="true"
                 />
                 <span className="text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -434,7 +434,7 @@ export default function GestionIncidenciasPage() {
                 <CheckCircle2
                   className="mt-1 h-5 w-5 shrink-0"
                   strokeWidth={2}
-                  style={{ color: "var(--tablero-orange)" }}
+                  style={{ color: "var(--intralogik-orange)" }}
                   aria-hidden="true"
                 />
                 <span className="text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -447,7 +447,7 @@ export default function GestionIncidenciasPage() {
                 <CheckCircle2
                   className="mt-1 h-5 w-5 shrink-0"
                   strokeWidth={2}
-                  style={{ color: "var(--tablero-orange)" }}
+                  style={{ color: "var(--intralogik-orange)" }}
                   aria-hidden="true"
                 />
                 <span className="text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -461,7 +461,7 @@ export default function GestionIncidenciasPage() {
                 <CheckCircle2
                   className="mt-1 h-5 w-5 shrink-0"
                   strokeWidth={2}
-                  style={{ color: "var(--tablero-orange)" }}
+                  style={{ color: "var(--intralogik-orange)" }}
                   aria-hidden="true"
                 />
                 <span className="text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -475,7 +475,7 @@ export default function GestionIncidenciasPage() {
                 <CheckCircle2
                   className="mt-1 h-5 w-5 shrink-0"
                   strokeWidth={2}
-                  style={{ color: "var(--tablero-orange)" }}
+                  style={{ color: "var(--intralogik-orange)" }}
                   aria-hidden="true"
                 />
                 <span className="text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -555,7 +555,7 @@ export default function GestionIncidenciasPage() {
               <span
                 aria-hidden="true"
                 className="inline-block h-px w-8"
-                style={{ background: "var(--tablero-orange)" }}
+                style={{ background: "var(--intralogik-orange)" }}
               />
               Preguntas frecuentes
             </span>

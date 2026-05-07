@@ -90,7 +90,7 @@ export default function CasosPage() {
             className="pointer-events-none absolute inset-0 -z-10"
             style={{
               background:
-                "radial-gradient(80% 60% at 100% 0%, color-mix(in oklab, var(--tablero-orange-soft) 60%, transparent) 0%, transparent 60%)",
+                "radial-gradient(80% 60% at 100% 0%, color-mix(in oklab, var(--intralogik-orange-soft) 60%, transparent) 0%, transparent 60%)",
             }}
           />
           <div className="mx-auto max-w-3xl px-4 md:px-8">
@@ -98,14 +98,14 @@ export default function CasosPage() {
               <span
                 aria-hidden="true"
                 className="inline-block h-1.5 w-1.5 rounded-full"
-                style={{ background: "var(--tablero-orange)" }}
+                style={{ background: "var(--intralogik-orange)" }}
               />
               Casos reales · plantas industriales españolas
             </span>
 
             <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tighter text-foreground md:text-5xl lg:text-[3.5rem]">
               Cómo es Intralogik{" "}
-              <span style={{ color: "var(--tablero-orange-text)" }}>
+              <span style={{ color: "var(--intralogik-orange-text)" }}>
                 en planta de verdad.
               </span>
             </h1>

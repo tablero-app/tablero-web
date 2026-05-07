@@ -104,7 +104,7 @@ export function Solucion() {
             <span
               aria-hidden="true"
               className="inline-block h-px w-8"
-              style={{ background: "var(--tablero-orange)" }}
+              style={{ background: "var(--intralogik-orange)" }}
             />
             La solución
           </span>
@@ -114,7 +114,7 @@ export function Solucion() {
             className="mt-4 text-3xl font-bold leading-[1.1] tracking-tight text-foreground md:text-4xl lg:text-[2.75rem]"
           >
             Cinco piezas. Las que tu equipo va a usar{" "}
-            <span style={{ color: "var(--tablero-orange)" }}>de verdad.</span>
+            <span style={{ color: "var(--intralogik-orange)" }}>de verdad.</span>
           </h2>
 
           <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -136,12 +136,12 @@ export function Solucion() {
                 <div className="flex items-center gap-4">
                   <div
                     className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg"
-                    style={{ background: "var(--tablero-orange-soft)" }}
+                    style={{ background: "var(--intralogik-orange-soft)" }}
                   >
                     <Icon
                       className="h-5 w-5"
                       strokeWidth={1.75}
-                      style={{ color: "var(--tablero-orange)" }}
+                      style={{ color: "var(--intralogik-orange)" }}
                       aria-hidden="true"
                     />
                   </div>
@@ -175,7 +175,7 @@ export function Solucion() {
 
                 <div className="mt-auto pt-6">
                   <p className="rounded-md border-l-2 px-4 py-3 text-sm leading-relaxed text-muted-foreground"
-                     style={{ borderLeftColor: "var(--tablero-orange)", background: "var(--secondary)" }}>
+                     style={{ borderLeftColor: "var(--intralogik-orange)", background: "var(--secondary)" }}>
                     <span className="block text-[10px] font-semibold uppercase tracking-wider text-foreground">
                       El detalle que importa
                     </span>
@@ -200,7 +200,7 @@ export function Solucion() {
                 <span
                   aria-hidden="true"
                   className="mt-2 inline-block h-1 w-3 shrink-0"
-                  style={{ background: "var(--tablero-orange)" }}
+                  style={{ background: "var(--intralogik-orange)" }}
                 />
                 {item}
               </li>

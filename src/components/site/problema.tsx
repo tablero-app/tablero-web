@@ -39,7 +39,7 @@ export function Problema() {
             <span
               aria-hidden="true"
               className="inline-block h-px w-8"
-              style={{ background: "var(--tablero-orange)" }}
+              style={{ background: "var(--intralogik-orange)" }}
             />
             El problema
           </span>
@@ -139,7 +139,7 @@ export function Problema() {
                 <span
                   aria-hidden="true"
                   className="mt-1.5 inline-block h-1 w-3 shrink-0"
-                  style={{ background: "var(--tablero-orange)" }}
+                  style={{ background: "var(--intralogik-orange)" }}
                 />
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   {row.cuesta}

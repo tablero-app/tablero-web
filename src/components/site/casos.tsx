@@ -55,7 +55,7 @@ export function Casos() {
             <span
               aria-hidden="true"
               className="inline-block h-px w-8"
-              style={{ background: "var(--tablero-orange)" }}
+              style={{ background: "var(--intralogik-orange)" }}
             />
             Dónde encaja
           </span>
@@ -65,7 +65,7 @@ export function Casos() {
             className="mt-4 text-3xl font-bold leading-[1.1] tracking-tight text-foreground md:text-4xl lg:text-[2.75rem]"
           >
             Plantas que ya ven el mantenimiento{" "}
-            <span style={{ color: "var(--tablero-orange)" }}>
+            <span style={{ color: "var(--intralogik-orange)" }}>
               de otra forma.
             </span>
           </h2>
@@ -88,12 +88,12 @@ export function Casos() {
                 <div className="flex items-center gap-4">
                   <div
                     className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg"
-                    style={{ background: "var(--tablero-orange-soft)" }}
+                    style={{ background: "var(--intralogik-orange-soft)" }}
                   >
                     <Icon
                       className="h-5 w-5"
                       strokeWidth={1.75}
-                      style={{ color: "var(--tablero-orange)" }}
+                      style={{ color: "var(--intralogik-orange)" }}
                       aria-hidden="true"
                     />
                   </div>
@@ -108,7 +108,7 @@ export function Casos() {
 
                 <div className="mt-auto pt-6">
                   <div className="rounded-md border-l-2 px-4 py-3"
-                       style={{ borderLeftColor: "var(--tablero-orange)", background: "var(--secondary)" }}>
+                       style={{ borderLeftColor: "var(--intralogik-orange)", background: "var(--secondary)" }}>
                     <span className="text-[10px] font-semibold uppercase tracking-wider text-foreground">
                       Lo que cambia
                     </span>

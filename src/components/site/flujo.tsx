@@ -73,7 +73,7 @@ export function Flujo() {
             <span
               aria-hidden="true"
               className="inline-block h-px w-8"
-              style={{ background: "var(--tablero-orange)" }}
+              style={{ background: "var(--intralogik-orange)" }}
             />
             Cómo funciona
           </span>
@@ -111,12 +111,12 @@ export function Flujo() {
                 <div className="flex items-center justify-between">
                   <div
                     className="flex h-10 w-10 items-center justify-center rounded-lg"
-                    style={{ background: "var(--tablero-orange-soft)" }}
+                    style={{ background: "var(--intralogik-orange-soft)" }}
                   >
                     <Icon
                       className="h-5 w-5"
                       strokeWidth={1.75}
-                      style={{ color: "var(--tablero-orange)" }}
+                      style={{ color: "var(--intralogik-orange)" }}
                       aria-hidden="true"
                     />
                   </div>
@@ -139,7 +139,7 @@ export function Flujo() {
 
         <p className="mt-12 max-w-xl text-lg font-medium leading-snug tracking-tight text-foreground md:mt-16">
           Todo lo anterior lo hacían tus equipos antes.{" "}
-          <span style={{ color: "var(--tablero-orange-text)" }}>
+          <span style={{ color: "var(--intralogik-orange-text)" }}>
             Ahora queda registrado.
           </span>
         </p>

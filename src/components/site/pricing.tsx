@@ -86,7 +86,7 @@ export function Pricing() {
             <span
               aria-hidden="true"
               className="inline-block h-px w-8"
-              style={{ background: "var(--tablero-orange)" }}
+              style={{ background: "var(--intralogik-orange)" }}
             />
             Precios
           </span>
@@ -121,7 +121,7 @@ export function Pricing() {
               {plan.destacado && (
                 <span
                   className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-white"
-                  style={{ background: "var(--tablero-orange-text)" }}
+                  style={{ background: "var(--intralogik-orange-text)" }}
                 >
                   Recomendado
                 </span>
@@ -171,7 +171,7 @@ export function Pricing() {
                     <Check
                       className="mt-0.5 h-4 w-4 shrink-0"
                       strokeWidth={2.5}
-                      style={{ color: "var(--tablero-orange)" }}
+                      style={{ color: "var(--intralogik-orange)" }}
                       aria-hidden="true"
                     />
                     {b}
@@ -205,7 +205,7 @@ export function Pricing() {
               <Check
                 className="h-4 w-4 shrink-0"
                 strokeWidth={2.5}
-                style={{ color: "var(--tablero-orange)" }}
+                style={{ color: "var(--intralogik-orange)" }}
                 aria-hidden="true"
               />
               {item}
@@ -233,7 +233,7 @@ export function Pricing() {
               <span
                 aria-hidden="true"
                 className="inline-block h-px w-8"
-                style={{ background: "var(--tablero-orange)" }}
+                style={{ background: "var(--intralogik-orange)" }}
               />
               Sin extras escondidos
             </span>
@@ -334,7 +334,7 @@ export function Pricing() {
           <p className="mt-12 max-w-2xl text-lg font-medium leading-snug tracking-tight text-foreground md:mt-14">
             Si alguien te ha vendido un CMMS y la factura del mes 6 te
             sorprendió,{" "}
-            <span style={{ color: "var(--tablero-orange-text)" }}>
+            <span style={{ color: "var(--intralogik-orange-text)" }}>
               sabes por qué esta tabla está aquí.
             </span>
           </p>

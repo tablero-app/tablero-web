@@ -62,7 +62,7 @@ export function Faq() {
               <span
                 aria-hidden="true"
                 className="inline-block h-px w-8"
-                style={{ background: "var(--tablero-orange)" }}
+                style={{ background: "var(--intralogik-orange)" }}
               />
               FAQ
             </span>
@@ -72,7 +72,7 @@ export function Faq() {
               className="mt-4 text-3xl font-bold leading-[1.1] tracking-tight text-foreground md:text-4xl lg:text-[2.5rem]"
             >
               Preguntas que{" "}
-              <span style={{ color: "var(--tablero-orange)" }}>
+              <span style={{ color: "var(--intralogik-orange)" }}>
                 ya nos han hecho.
               </span>
             </h2>

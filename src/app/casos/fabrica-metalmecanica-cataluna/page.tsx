@@ -124,7 +124,7 @@ export default function CasoPage() {
             className="pointer-events-none absolute inset-0 -z-10"
             style={{
               background:
-                "radial-gradient(80% 60% at 100% 0%, color-mix(in oklab, var(--tablero-orange-soft) 60%, transparent) 0%, transparent 60%)",
+                "radial-gradient(80% 60% at 100% 0%, color-mix(in oklab, var(--intralogik-orange-soft) 60%, transparent) 0%, transparent 60%)",
             }}
           />
           <div className="mx-auto max-w-3xl px-4 md:px-8">
@@ -140,7 +140,7 @@ export default function CasoPage() {
               <span
                 aria-hidden="true"
                 className="inline-block h-1.5 w-1.5 rounded-full"
-                style={{ background: "var(--tablero-orange)" }}
+                style={{ background: "var(--intralogik-orange)" }}
               />
               Caso · Metalmecánica · Cataluña · 80 trabajadores
             </span>
@@ -148,7 +148,7 @@ export default function CasoPage() {
             <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tighter text-foreground md:text-5xl lg:text-[3.5rem]">
               De &ldquo;llamar al móvil del responsable&rdquo; a un sistema
               completo de mantenimiento en{" "}
-              <span style={{ color: "var(--tablero-orange-text)" }}>
+              <span style={{ color: "var(--intralogik-orange-text)" }}>
                 2 semanas.
               </span>
             </h1>
@@ -251,12 +251,12 @@ export default function CasoPage() {
                     >
                       <div
                         className="flex h-10 w-10 items-center justify-center rounded-lg"
-                        style={{ background: "var(--tablero-orange-soft)" }}
+                        style={{ background: "var(--intralogik-orange-soft)" }}
                       >
                         <Icon
                           className="h-5 w-5"
                           strokeWidth={1.75}
-                          style={{ color: "var(--tablero-orange)" }}
+                          style={{ color: "var(--intralogik-orange)" }}
                           aria-hidden="true"
                         />
                       </div>
@@ -351,7 +351,7 @@ export default function CasoPage() {
                     <div className="flex items-baseline gap-3">
                       <span
                         className="font-mono tabular text-sm font-semibold"
-                        style={{ color: "var(--tablero-orange-text)" }}
+                        style={{ color: "var(--intralogik-orange-text)" }}
                       >
                         {item.dia}
                       </span>
@@ -380,7 +380,7 @@ export default function CasoPage() {
                   <QrCode
                     className="mt-1 h-4 w-4 shrink-0"
                     strokeWidth={2}
-                    style={{ color: "var(--tablero-orange)" }}
+                    style={{ color: "var(--intralogik-orange)" }}
                     aria-hidden="true"
                   />
                   <span>
@@ -394,7 +394,7 @@ export default function CasoPage() {
                   <QrCode
                     className="mt-1 h-4 w-4 shrink-0"
                     strokeWidth={2}
-                    style={{ color: "var(--tablero-orange)" }}
+                    style={{ color: "var(--intralogik-orange)" }}
                     aria-hidden="true"
                   />
                   <span>
@@ -407,7 +407,7 @@ export default function CasoPage() {
                   <QrCode
                     className="mt-1 h-4 w-4 shrink-0"
                     strokeWidth={2}
-                    style={{ color: "var(--tablero-orange)" }}
+                    style={{ color: "var(--intralogik-orange)" }}
                     aria-hidden="true"
                   />
                   <span>
@@ -421,7 +421,7 @@ export default function CasoPage() {
                   <QrCode
                     className="mt-1 h-4 w-4 shrink-0"
                     strokeWidth={2}
-                    style={{ color: "var(--tablero-orange)" }}
+                    style={{ color: "var(--intralogik-orange)" }}
                     aria-hidden="true"
                   />
                   <span>
@@ -435,7 +435,7 @@ export default function CasoPage() {
                   <QrCode
                     className="mt-1 h-4 w-4 shrink-0"
                     strokeWidth={2}
-                    style={{ color: "var(--tablero-orange)" }}
+                    style={{ color: "var(--intralogik-orange)" }}
                     aria-hidden="true"
                   />
                   <span>

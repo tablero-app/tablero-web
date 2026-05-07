@@ -86,7 +86,7 @@ export function Beneficios() {
             <span
               aria-hidden="true"
               className="inline-block h-px w-8"
-              style={{ background: "var(--tablero-orange)" }}
+              style={{ background: "var(--intralogik-orange)" }}
             />
             Lo que cambia
           </span>
@@ -96,7 +96,7 @@ export function Beneficios() {
             className="mt-4 text-3xl font-bold leading-[1.1] tracking-tight text-foreground md:text-4xl lg:text-[2.75rem]"
           >
             Lo que cambia,{" "}
-            <span style={{ color: "var(--tablero-orange)" }}>en concreto.</span>
+            <span style={{ color: "var(--intralogik-orange)" }}>en concreto.</span>
           </h2>
 
           <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -169,7 +169,7 @@ export function Beneficios() {
               <div className="px-5 py-4">
                 <span
                   className="text-[10px] font-semibold uppercase tracking-wider"
-                  style={{ color: "var(--tablero-orange-text)" }}
+                  style={{ color: "var(--intralogik-orange-text)" }}
                 >
                   Con Intralogik
                 </span>
@@ -195,7 +195,7 @@ export function Beneficios() {
               <span
                 aria-hidden="true"
                 className="inline-block h-px w-8"
-                style={{ background: "var(--tablero-orange)" }}
+                style={{ background: "var(--intralogik-orange)" }}
               />
               Lo que gana cada uno
             </span>
@@ -220,12 +220,12 @@ export function Beneficios() {
                 >
                   <div
                     className="flex h-11 w-11 items-center justify-center rounded-lg"
-                    style={{ background: "var(--tablero-orange-soft)" }}
+                    style={{ background: "var(--intralogik-orange-soft)" }}
                   >
                     <Icon
                       className="h-5 w-5"
                       strokeWidth={1.75}
-                      style={{ color: "var(--tablero-orange)" }}
+                      style={{ color: "var(--intralogik-orange)" }}
                       aria-hidden="true"
                     />
                   </div>
@@ -255,7 +255,7 @@ export function Beneficios() {
 
           <p className="mt-12 max-w-2xl text-lg font-medium leading-snug tracking-tight text-foreground md:mt-16">
             Si alguno de los tres no gana, el sistema acaba abandonado.{" "}
-            <span style={{ color: "var(--tablero-orange-text)" }}>
+            <span style={{ color: "var(--intralogik-orange-text)" }}>
               Por eso este es el único punto que no negociamos.
             </span>
           </p>

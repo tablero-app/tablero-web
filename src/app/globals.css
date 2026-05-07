@@ -32,9 +32,9 @@
   --color-ring: var(--ring);
 
   /* Tablero brand — desaturated industrial orange (S<80% per design-taste rules) */
-  --color-tablero-orange: var(--tablero-orange);
-  --color-tablero-orange-soft: var(--tablero-orange-soft);
-  --color-tablero-orange-text: var(--tablero-orange-text);
+  --color-intralogik-orange: var(--intralogik-orange);
+  --color-intralogik-orange-soft: var(--intralogik-orange-soft);
+  --color-intralogik-orange-text: var(--intralogik-orange-text);
 
   /* Operational state colors aligned with product priorities */
   --color-state-critical: var(--state-critical);
@@ -84,10 +84,10 @@
   --ring: oklch(0.244 0.045 265);
 
   /* Tablero brand orange — desaturated industrial (#D9602F approx, S~75%) */
-  --tablero-orange: oklch(0.624 0.155 42);
-  --tablero-orange-soft: oklch(0.95 0.04 50);
+  --intralogik-orange: oklch(0.624 0.155 42);
+  --intralogik-orange-soft: oklch(0.95 0.04 50);
   /* Same hue, darker L for WCAG AA 4.5:1 on white when used AS text body */
-  --tablero-orange-text: oklch(0.5 0.155 42);
+  --intralogik-orange-text: oklch(0.5 0.155 42);
 
   /* Operational states (aligned with copy module 2 priorities) */
   --state-critical: oklch(0.58 0.21 27);

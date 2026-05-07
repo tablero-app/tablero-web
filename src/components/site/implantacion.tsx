@@ -96,7 +96,7 @@ export function Implantacion() {
             <span
               aria-hidden="true"
               className="inline-block h-px w-8"
-              style={{ background: "var(--tablero-orange)" }}
+              style={{ background: "var(--intralogik-orange)" }}
             />
             Implantación
           </span>
@@ -106,7 +106,7 @@ export function Implantacion() {
             className="mt-4 text-3xl font-bold leading-[1.1] tracking-tight text-foreground md:text-4xl lg:text-[2.75rem]"
           >
             En marcha en{" "}
-            <span style={{ color: "var(--tablero-orange)" }}>2 semanas.</span>{" "}
+            <span style={{ color: "var(--intralogik-orange)" }}>2 semanas.</span>{" "}
             Sin sorpresas.
           </h2>
 
@@ -128,7 +128,7 @@ export function Implantacion() {
               <div className="flex items-baseline gap-3">
                 <span
                   className="font-mono text-xs tabular uppercase tracking-wider"
-                  style={{ color: "var(--tablero-orange-text)" }}
+                  style={{ color: "var(--intralogik-orange-text)" }}
                 >
                   {s.num}
                 </span>
@@ -202,7 +202,7 @@ export function Implantacion() {
               <span
                 aria-hidden="true"
                 className="inline-block h-px w-8"
-                style={{ background: "var(--tablero-orange)" }}
+                style={{ background: "var(--intralogik-orange)" }}
               />
               Reparto del trabajo
             </span>
@@ -251,7 +251,7 @@ export function Implantacion() {
                   <Check
                     className="mr-2 inline h-4 w-4 align-text-bottom"
                     strokeWidth={2.5}
-                    style={{ color: "var(--tablero-orange)" }}
+                    style={{ color: "var(--intralogik-orange)" }}
                     aria-hidden="true"
                   />
                   {r.tu}
@@ -278,7 +278,7 @@ export function Implantacion() {
                     <Check
                       className="h-3.5 w-3.5"
                       strokeWidth={2.5}
-                      style={{ color: "var(--tablero-orange)" }}
+                      style={{ color: "var(--intralogik-orange)" }}
                       aria-hidden="true"
                     />
                     Tu equipo
@@ -309,7 +309,7 @@ export function Implantacion() {
 
           <p className="mt-10 max-w-2xl text-lg font-medium leading-snug tracking-tight text-foreground md:mt-12">
             Si esta tabla te parece poca cosa,{" "}
-            <span style={{ color: "var(--tablero-orange-text)" }}>
+            <span style={{ color: "var(--intralogik-orange-text)" }}>
               probablemente has visto demasiadas implantaciones que no tenían
               que haber sido tan caras.
             </span>

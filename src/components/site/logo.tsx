@@ -30,7 +30,7 @@ export function Logo({ size = 32, className, variant = "full" }: LogoProps) {
           width="13"
           height="13"
           rx="2.5"
-          fill="var(--tablero-orange)"
+          fill="var(--intralogik-orange)"
         />
         <rect x="17" y="17" width="13" height="13" rx="2.5" fill="currentColor" />
       </svg>

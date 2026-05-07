@@ -266,7 +266,7 @@ export default function PreciosPage() {
             className="pointer-events-none absolute inset-0 -z-10"
             style={{
               background:
-                "radial-gradient(80% 60% at 100% 0%, color-mix(in oklab, var(--tablero-orange-soft) 60%, transparent) 0%, transparent 60%)",
+                "radial-gradient(80% 60% at 100% 0%, color-mix(in oklab, var(--intralogik-orange-soft) 60%, transparent) 0%, transparent 60%)",
             }}
           />
           <div className="mx-auto max-w-[var(--container-content)] px-4 md:px-8">
@@ -275,7 +275,7 @@ export default function PreciosPage() {
                 <span
                   aria-hidden="true"
                   className="inline-block h-1.5 w-1.5 rounded-full"
-                  style={{ background: "var(--tablero-orange)" }}
+                  style={{ background: "var(--intralogik-orange)" }}
                 />
                 Precios desde 199 €/mes · sin permanencia · 14 días gratis
               </span>
@@ -285,7 +285,7 @@ export default function PreciosPage() {
                 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tighter text-foreground md:text-5xl lg:text-6xl"
               >
                 Precios de Intralogik GMAO,{" "}
-                <span style={{ color: "var(--tablero-orange-text)" }}>
+                <span style={{ color: "var(--intralogik-orange-text)" }}>
                   sin sorpresas en la factura del mes 6.
                 </span>
               </h1>
@@ -314,7 +314,7 @@ export default function PreciosPage() {
                 <span
                   aria-hidden="true"
                   className="inline-block h-px w-8"
-                  style={{ background: "var(--tablero-orange)" }}
+                  style={{ background: "var(--intralogik-orange)" }}
                 />
                 Comparativa
               </span>
@@ -357,7 +357,7 @@ export default function PreciosPage() {
                       Estándar
                       <span
                         className="ml-2 font-mono tabular text-[10px] font-medium"
-                        style={{ color: "var(--tablero-orange-text)" }}
+                        style={{ color: "var(--intralogik-orange-text)" }}
                       >
                         299 €/mes · recomendado
                       </span>
@@ -415,7 +415,7 @@ export default function PreciosPage() {
                   <span
                     aria-hidden="true"
                     className="inline-block h-px w-8"
-                    style={{ background: "var(--tablero-orange)" }}
+                    style={{ background: "var(--intralogik-orange)" }}
                   />
                   Preguntas sobre precios
                 </span>
@@ -474,7 +474,7 @@ function CompareCell({ value }: { value: string | true }) {
         <Check
           className="h-4 w-4"
           strokeWidth={2.5}
-          style={{ color: "var(--tablero-orange)" }}
+          style={{ color: "var(--intralogik-orange)" }}
           aria-hidden="true"
         />
         <span className="sr-only">Sí incluido</span>

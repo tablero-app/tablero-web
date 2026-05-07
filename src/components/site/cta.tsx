@@ -13,7 +13,7 @@ export function Cta() {
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           background:
-            "radial-gradient(60% 80% at 50% 0%, color-mix(in oklab, var(--tablero-orange-soft) 70%, transparent) 0%, transparent 70%)",
+            "radial-gradient(60% 80% at 50% 0%, color-mix(in oklab, var(--intralogik-orange-soft) 70%, transparent) 0%, transparent 70%)",
         }}
       />
 
@@ -23,7 +23,7 @@ export function Cta() {
             <span
               aria-hidden="true"
               className="inline-block h-px w-8"
-              style={{ background: "var(--tablero-orange)" }}
+              style={{ background: "var(--intralogik-orange)" }}
             />
             Empezar
           </span>
@@ -33,7 +33,7 @@ export function Cta() {
             className="mt-4 text-3xl font-bold leading-[1.1] tracking-tight text-foreground md:text-4xl lg:text-[2.75rem]"
           >
             Dos formas de empezar.{" "}
-            <span style={{ color: "var(--tablero-orange)" }}>
+            <span style={{ color: "var(--intralogik-orange)" }}>
               Tú eliges el ritmo.
             </span>
           </h2>
@@ -50,12 +50,12 @@ export function Cta() {
             <div className="flex items-center gap-3">
               <div
                 className="flex h-11 w-11 items-center justify-center rounded-lg"
-                style={{ background: "var(--tablero-orange-soft)" }}
+                style={{ background: "var(--intralogik-orange-soft)" }}
               >
                 <Video
                   className="h-5 w-5"
                   strokeWidth={1.75}
-                  style={{ color: "var(--tablero-orange)" }}
+                  style={{ color: "var(--intralogik-orange)" }}
                   aria-hidden="true"
                 />
               </div>
@@ -92,12 +92,12 @@ export function Cta() {
             <div className="flex items-center gap-3">
               <div
                 className="flex h-11 w-11 items-center justify-center rounded-lg"
-                style={{ background: "var(--tablero-orange-soft)" }}
+                style={{ background: "var(--intralogik-orange-soft)" }}
               >
                 <Sparkles
                   className="h-5 w-5"
                   strokeWidth={1.75}
-                  style={{ color: "var(--tablero-orange)" }}
+                  style={{ color: "var(--intralogik-orange)" }}
                   aria-hidden="true"
                 />
               </div>

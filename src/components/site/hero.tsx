@@ -15,7 +15,7 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           background:
-            "radial-gradient(80% 60% at 100% 0%, color-mix(in oklab, var(--tablero-orange-soft) 60%, transparent) 0%, transparent 60%)",
+            "radial-gradient(80% 60% at 100% 0%, color-mix(in oklab, var(--intralogik-orange-soft) 60%, transparent) 0%, transparent 60%)",
         }}
       />
 
@@ -26,7 +26,7 @@ export function Hero() {
             <span
               aria-hidden="true"
               className="inline-block h-1.5 w-1.5 rounded-full"
-              style={{ background: "var(--tablero-orange)" }}
+              style={{ background: "var(--intralogik-orange)" }}
             />
             GMAO ligero · PYME industrial española
           </span>
@@ -84,7 +84,7 @@ function HeroMockup() {
         <span className="h-px w-3 bg-border" aria-hidden="true" />
         <span
           className="font-mono tabular font-semibold"
-          style={{ color: "var(--tablero-orange-text)" }}
+          style={{ color: "var(--intralogik-orange-text)" }}
         >
           Día 14
         </span>
