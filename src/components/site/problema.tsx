@@ -55,6 +55,13 @@ export function Problema() {
           </h2>
 
           <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            Muchas pymes industriales todavía gestionan el mantenimiento con
+            llamadas, WhatsApp, papel y hojas de Excel. El resultado es siempre
+            el mismo: poca trazabilidad, información dispersa y decisiones
+            tomadas tarde.
+          </p>
+
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
             Hablamos cada semana con responsables de mantenimiento de PYMEs
             industriales. Estos son los 5 síntomas que se repiten en casi
             todas.
