@@ -43,13 +43,6 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(__dirname),
   },
-  /**
-   * Necesario para que el redirect /demo → /demo/ (definido más abajo) NO
-   * sea deshecho por el strip-trailing-slash automático de Next.js, que
-   * generaría un loop /demo ↔ /demo/. Las demás rutas del site las controla
-   * el frontend; sin slash final canónico, no hay reescrituras automáticas.
-   */
-  skipTrailingSlashRedirect: true,
   async headers() {
     return [
       {
@@ -59,23 +52,18 @@ const nextConfig: NextConfig = {
     ];
   },
   /**
-   * Sirve el panel demo (modo demo) bajo intralogik.com/demo/ sin duplicar
+   * Sirve el panel demo (modo demo) bajo intralogik.com/demo sin duplicar
    * código. El panel real vive en eric-crypto-ai/grupo-imar-frontend y se
    * mantiene allí — cuando cambia, el rewrite lo refleja en /demo de oficio.
    *
-   * Importante: el panel usa rutas relativas para sus assets (styles.css,
-   * app.js, etc.). Sin trailing slash, el navegador resuelve "styles.css"
-   * desde la raíz (/styles.css) y no encuentra nada. Por eso /demo se
-   * redirige a /demo/ — y los enlaces internos del frontend ya apuntan a
-   * /demo/ directamente para evitar el round trip.
+   * Funciona tanto en /demo (sin slash) como en /demo/ porque el HTML del
+   * panel inyecta un <base href="/demo/"> dinámico al cargar, y eso hace
+   * que los assets relativos (styles.css, app.js…) se resuelvan
+   * correctamente independientemente del path actual del navegador.
    */
-  async redirects() {
-    return [
-      { source: "/demo", destination: "/demo/", permanent: true },
-    ];
-  },
   async rewrites() {
     return [
+      { source: "/demo",        destination: `${PANEL_DEMO_ORIGIN}/index.html` },
       { source: "/demo/",       destination: `${PANEL_DEMO_ORIGIN}/index.html` },
       { source: "/demo/:path*", destination: `${PANEL_DEMO_ORIGIN}/:path*` },
     ];
