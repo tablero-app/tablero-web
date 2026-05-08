@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#1d2942">
+  <title>Intralogik — Panel · Grupo Imar</title>
+  <!-- <base> estático: assets relativos resuelven a /demo/styles.css, /demo/app.js, etc.
+       Sincronizado vía scripts/sync-demo-from-panel.sh — no editar a mano. -->
+  <base href="/demo/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500;600&display=swap">
+  <!-- Cache-busting: bump ?v= en los 3 enlaces (styles, config, app) al hacer release. Coordinar con VERSION de config.js. -->
+  <link rel="stylesheet" href="styles.css?v=0.7.2">
+</head>
+<body>
+
+<main>
+
+  <header>
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">
+        <h1>Intralogik</h1>
+        <span class="subtitle">Panel · Grupo Imar</span>
+      </span>
+    </div>
+  </header>
+
+  <!-- ========== NAV PRINCIPAL (incidencias / piezas / config) ========== -->
+  <nav id="nav-principal" class="nav-principal hidden" aria-label="Navegación principal">
+    <button type="button" data-nav="lista"  aria-pressed="true">Incidencias</button>
+    <button type="button" data-nav="piezas" aria-pressed="false">Piezas</button>
+    <button type="button" data-nav="config" aria-pressed="false" aria-label="Configuración" title="Configuración">⚙</button>
+  </nav>
+
+  <!-- ========== LOADING (al iniciar y al hacer auth) ========== -->
+  <section id="screen-loading" class="card">
+    <p style="text-align:center; margin: 0.5rem 0;">
+      <span class="spinner" aria-hidden="true"></span>
+      Cargando…
+    </p>
+    <div class="skeleton lg"></div>
+    <div class="skeleton lg"></div>
+    <div class="skeleton"></div>
+  </section>
+
+  <!-- ========== AUTH ERROR (URL sin ?k= o key inválida) ========== -->
+  <section id="screen-auth-error" class="card hidden">
+    <div class="status error">
+      <span class="icon" aria-hidden="true">✕</span>
+      <h2>Acceso denegado</h2>
+      <p id="auth-error-detalle">Esta URL no es válida o ha caducado. Pídele a Eric un enlace nuevo.</p>
+    </div>
+  </section>
+
+  <!-- ========== LISTA ========== -->
+  <section id="screen-lista" class="hidden">
+    <div class="card">
+      <div class="filtros">
+        <div class="tabs" role="tablist" aria-label="Filtro de estado">
+          <button data-filter="activas"  aria-pressed="true">Activas</button>
+          <button data-filter="todas"    aria-pressed="false">Todas</button>
+          <button data-filter="cerradas" aria-pressed="false">Cerradas</button>
+        </div>
+        <input type="search" id="busqueda" placeholder="Buscar por ID o descripción…" aria-label="Buscar">
+        <button type="button" class="secondary" id="btn-refresh">↻ Refrescar</button>
+      </div>
+      <p id="lista-meta" class="meta"></p>
+    </div>
+
+    <div id="lista-incidencias" class="lista-incidencias"></div>
+
+    <p id="lista-vacia" class="empty hidden">No hay incidencias con estos filtros.</p>
+
+    <button type="button" id="fab-nueva" class="fab" aria-label="Nueva incidencia">+</button>
+  </section>
+
+  <!-- ========== NUEVA INCIDENCIA (manual desde panel) ========== -->
+  <section id="screen-nueva" class="hidden">
+    <button type="button" class="back" id="btn-volver-lista-nueva">← Lista</button>
+
+    <div class="card">
+      <h2>Nueva incidencia</h2>
+      <p class="meta">Crear manualmente desde el panel (preventivos, observaciones de revisión, etc.).</p>
+    </div>
+
+    <form id="form-nueva" class="card">
+      <h3>Datos básicos</h3>
+
+      <div class="field">
+        <label for="nueva-categoria">Categoría</label>
+        <select id="nueva-categoria" name="categoria"></select>
+      </div>
+
+      <div class="field">
+        <label for="nueva-id_maquina">Máquina <span class="required">*</span></label>
+        <select id="nueva-id_maquina" name="id_maquina" required></select>
+      </div>
+
+      <div class="field">
+        <label for="nueva-id_operario">Operario asignado <span class="required">*</span></label>
+        <select id="nueva-id_operario" name="id_operario" required></select>
+      </div>
+
+      <div class="field">
+        <label for="nueva-descripcion">Descripción <span class="required">*</span></label>
+        <textarea id="nueva-descripcion" name="descripcion" rows="3" maxlength="500" required placeholder="Qué hay que hacer / qué se ha detectado…"></textarea>
+      </div>
+
+      <div class="field">
+        <label>¿Máquina parada? <span class="required">*</span></label>
+        <div class="toggle">
+          <button type="button" data-name="nueva-maquina_parada" data-value="No" aria-pressed="true">No</button>
+          <button type="button" data-name="nueva-maquina_parada" data-value="Sí" aria-pressed="false">Sí</button>
+        </div>
+        <input type="hidden" id="nueva-maquina_parada" name="maquina_parada" value="No">
+      </div>
+
+      <h3 style="margin-top:1.5rem;">Clasificación</h3>
+
+      <div class="field">
+        <label for="nueva-tipo_fallo">Tipo de fallo</label>
+        <select id="nueva-tipo_fallo" name="tipo_fallo">
+          <option value="">— sin asignar —</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="nueva-prioridad">Prioridad</label>
+        <select id="nueva-prioridad" name="prioridad">
+          <option value="">— se sugiere automática —</option>
+        </select>
+      </div>
+
+      <h3 style="margin-top:1.5rem;">Asignación</h3>
+
+      <div class="field">
+        <label>Origen de la intervención</label>
+        <div class="toggle">
+          <button type="button" data-name="nueva-origen_intervencion" data-value="Interno" aria-pressed="true">Interno</button>
+          <button type="button" data-name="nueva-origen_intervencion" data-value="Externo" aria-pressed="false">Externo</button>
+        </div>
+        <input type="hidden" id="nueva-origen_intervencion" name="origen_intervencion" value="Interno">
+      </div>
+
+      <div class="field" id="campo-nueva-proveedor" style="display:none;">
+        <label for="nueva-proveedor_id">Proveedor</label>
+        <select id="nueva-proveedor_id" name="proveedor_id">
+          <option value="">— sin asignar —</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="nueva-observaciones">Observaciones</label>
+        <textarea id="nueva-observaciones" name="observaciones" rows="2" maxlength="500"></textarea>
+      </div>
+
+      <div id="nueva-error" class="error-banner hidden" role="alert"></div>
+
+      <div class="acciones-ficha">
+        <button type="submit" class="primary" id="btn-crear-nueva">Crear incidencia</button>
+        <button type="button" class="secondary" id="btn-cancelar-nueva">Volver</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ========== FICHA ========== -->
+  <section id="screen-ficha" class="hidden">
+    <button type="button" class="back" id="btn-volver-lista">← Lista</button>
+
+    <div class="card ficha-cabecera">
+      <h2 id="ficha-id">INC-…</h2>
+      <p class="ficha-meta">
+        <span id="ficha-fecha"></span> ·
+        <span id="ficha-operario"></span>
+      </p>
+      <div class="ficha-estado-actual">
+        <span class="badge" id="ficha-estado-badge">…</span>
+        <span class="badge prioridad" id="ficha-prioridad-badge">·</span>
+      </div>
+    </div>
+
+    <!-- Reportado por operario (read-only) -->
+    <div class="card">
+      <h3>Reportado</h3>
+      <div class="kv"><span class="k">Máquina</span><span class="v" id="ro-maquina">·</span></div>
+      <div class="kv"><span class="k">Departamento</span><span class="v" id="ro-departamento">·</span></div>
+      <div class="kv"><span class="k">Máquina parada</span><span class="v" id="ro-parada">·</span></div>
+      <div class="kv block">
+        <span class="k">Descripción</span>
+        <p class="v" id="ro-descripcion">·</p>
+      </div>
+      <div class="kv block">
+        <span class="k">Observaciones operario</span>
+        <p class="v" id="ro-observaciones-op">·</p>
+      </div>
+    </div>
+
+    <!-- Editable: Clasificación -->
+    <form id="form-edicion" class="card">
+      <h3>Clasificación</h3>
+
+      <div class="field">
+        <label for="ed-categoria">Categoría</label>
+        <select id="ed-categoria" name="categoria"></select>
+      </div>
+
+      <div class="field">
+        <label for="ed-tipo_fallo">Tipo de fallo</label>
+        <select id="ed-tipo_fallo" name="tipo_fallo"></select>
+      </div>
+
+      <div class="field">
+        <label for="ed-motivo_fallo">
+          Motivo del fallo
+          <span class="hint">Obligatorio al pasar a Finalizada.</span>
+        </label>
+        <select id="ed-motivo_fallo" name="motivo_fallo">
+          <option value="">— sin asignar —</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="ed-prioridad">
+          Prioridad
+          <span class="hint" id="hint-prioridad-sugerida"></span>
+        </label>
+        <select id="ed-prioridad" name="prioridad">
+          <option value="">— sin asignar —</option>
+        </select>
+      </div>
+
+      <h3 style="margin-top:1.5rem;">Asignación</h3>
+
+      <div class="field">
+        <label>Origen de la intervención</label>
+        <div class="toggle">
+          <button type="button" data-name="origen_intervencion" data-value="Interno" aria-pressed="false">Interno</button>
+          <button type="button" data-name="origen_intervencion" data-value="Externo" aria-pressed="false">Externo</button>
+        </div>
+        <input type="hidden" id="ed-origen_intervencion" name="origen_intervencion">
+      </div>
+
+      <div class="field" id="campo-proveedor">
+        <label for="ed-proveedor_id">Proveedor</label>
+        <select id="ed-proveedor_id" name="proveedor_id">
+          <option value="">— sin asignar —</option>
+        </select>
+      </div>
+
+      <h3 style="margin-top:1.5rem;">Estado</h3>
+
+      <div class="field">
+        <label for="ed-estado">Estado</label>
+        <select id="ed-estado" name="estado"></select>
+      </div>
+
+      <div class="field" id="campo-comentario-estado">
+        <label for="ed-comentario_estado">
+          Comentario del cambio de estado
+          <span class="hint">Se guarda en el historial.</span>
+        </label>
+        <textarea id="ed-comentario_estado" name="comentario_estado" rows="2" maxlength="300"></textarea>
+      </div>
+
+      <h3 style="margin-top:1.5rem;">Trabajo realizado</h3>
+
+      <div class="field">
+        <label for="ed-fecha_inicio_intervencion">Inicio de la intervención</label>
+        <input type="datetime-local" id="ed-fecha_inicio_intervencion" name="fecha_inicio_intervencion">
+      </div>
+
+      <div class="field">
+        <label for="ed-fecha_fin_intervencion">Fin de la intervención</label>
+        <input type="datetime-local" id="ed-fecha_fin_intervencion" name="fecha_fin_intervencion">
+      </div>
+
+      <div class="field">
+        <label for="ed-descripcion_trabajo_realizado">¿Qué se hizo?</label>
+        <textarea id="ed-descripcion_trabajo_realizado" name="descripcion_trabajo_realizado" rows="3" maxlength="1000"></textarea>
+      </div>
+
+      <div class="field">
+        <label>¿Se quedó solucionado?</label>
+        <div class="toggle">
+          <button type="button" data-name="solvendo" data-value="Sí" aria-pressed="false">Sí</button>
+          <button type="button" data-name="solvendo" data-value="No" aria-pressed="false">No</button>
+        </div>
+        <input type="hidden" id="ed-solvendo" name="solvendo">
+      </div>
+
+      <div class="field" id="campo-trabajo_pendiente">
+        <label for="ed-trabajo_pendiente">Trabajo pendiente</label>
+        <textarea id="ed-trabajo_pendiente" name="trabajo_pendiente" rows="2" maxlength="500"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="ed-observaciones">Observaciones</label>
+        <textarea id="ed-observaciones" name="observaciones" rows="2" maxlength="500"></textarea>
+      </div>
+
+      <div id="ficha-error" class="error-banner hidden" role="alert"></div>
+
+      <div class="acciones-ficha">
+        <button type="submit" class="primary" id="btn-guardar">Guardar cambios</button>
+        <button type="button" class="danger" id="btn-cancelar-incidencia">Cancelar incidencia</button>
+      </div>
+    </form>
+
+    <!-- Comentarios cronológicos -->
+    <div class="card">
+      <h3>Comentarios</h3>
+      <ul id="lista-comentarios" class="comentarios"></ul>
+      <div class="field" style="margin-top:0.5rem;">
+        <label for="com-texto">Añadir comentario</label>
+        <textarea id="com-texto" rows="2" maxlength="500" placeholder="Notas, llamadas, lo que sea relevante…"></textarea>
+      </div>
+      <div id="com-error" class="error-banner hidden" role="alert"></div>
+      <button type="button" class="secondary" id="btn-add-comentario">Añadir comentario</button>
+    </div>
+
+    <!-- Piezas consumidas en esta incidencia (F6-B) -->
+    <div class="card">
+      <h3>Piezas consumidas</h3>
+      <p id="ficha-pieza-bloqueante-info" class="meta hidden"></p>
+      <ul id="lista-piezas-consumidas" class="usos"></ul>
+      <div class="acciones-stock" style="margin-top:0.7rem;">
+        <button type="button" class="secondary" id="btn-add-pieza-consumida">Añadir pieza consumida</button>
+        <button type="button" class="secondary" id="btn-marcar-bloqueada-pieza">Marcar bloqueada por pieza</button>
+      </div>
+    </div>
+
+    <!-- Histórico de cambios -->
+    <div class="card">
+      <h3>Histórico</h3>
+      <ul id="lista-historial" class="historial"></ul>
+    </div>
+  </section>
+
+  <!-- ========== PIEZAS — listado (F6-A) ========== -->
+  <section id="screen-piezas" class="hidden">
+    <div class="card">
+      <div class="filtros">
+        <input type="search" id="piezas-busqueda" placeholder="Buscar por referencia, descripción…" aria-label="Buscar piezas">
+        <div class="filtros-row">
+          <select id="piezas-familia" aria-label="Familia">
+            <option value="">Todas las familias</option>
+          </select>
+          <select id="piezas-id_maquina" aria-label="Máquina">
+            <option value="">Todas las máquinas</option>
+          </select>
+        </div>
+        <label class="checkbox">
+          <input type="checkbox" id="piezas-stock-bajo">
+          Solo piezas con stock bajo
+        </label>
+        <button type="button" class="secondary" id="btn-piezas-refresh">↻ Refrescar</button>
+      </div>
+      <p id="piezas-meta" class="meta"></p>
+    </div>
+
+    <div id="lista-piezas" class="lista-piezas"></div>
+
+    <p id="piezas-vacia" class="empty hidden">No hay piezas con estos filtros.</p>
+    <button type="button" id="fab-nueva-pieza" class="fab" aria-label="Nueva pieza">+</button>
+  </section>
+
+  <!-- ========== PIEZA NUEVA (F2-C BKL-027a) ========== -->
+  <section id="screen-pieza-nueva" class="hidden">
+    <button type="button" class="back" id="btn-volver-piezas-nueva">← Piezas</button>
+    <h2>Nueva pieza</h2>
+    <p class="meta">Las listas de tipo y familia vienen de <code>config</code>. Si necesitas un valor que no aparece, añádelo primero en <code>⚙ Configuración</code>.</p>
+
+    <form id="form-nueva-pieza">
+      <div class="card">
+        <div class="field">
+          <label for="np-referencia">Referencia fabricante <span class="req">*</span></label>
+          <input type="text" id="np-referencia" required maxlength="80" placeholder="ej. 6205-2RS">
+        </div>
+        <div class="field">
+          <label for="np-descripcion">Descripción <span class="req">*</span></label>
+          <input type="text" id="np-descripcion" required minlength="3" maxlength="200" placeholder="ej. Rodamiento rígido 25x52x15">
+        </div>
+        <div class="field">
+          <label for="np-variante">Variante</label>
+          <input type="text" id="np-variante" maxlength="60" placeholder="opcional">
+        </div>
+        <div class="field">
+          <label for="np-tipo_pieza">Tipo de pieza <span class="req">*</span></label>
+          <select id="np-tipo_pieza" required></select>
+        </div>
+        <div class="field">
+          <label for="np-familia">Familia <span class="req">*</span></label>
+          <select id="np-familia" required></select>
+        </div>
+        <div class="field">
+          <label for="np-marca">Marca</label>
+          <input type="text" id="np-marca" maxlength="60" placeholder="ej. SKF, FAG…">
+        </div>
+        <div class="field">
+          <label for="np-proveedor">Proveedor principal</label>
+          <select id="np-proveedor"><option value="">— sin asignar —</option></select>
+        </div>
+        <div class="field">
+          <label for="np-ubicacion">Ubicación almacén</label>
+          <input type="text" id="np-ubicacion" maxlength="40" placeholder="ej. A1">
+        </div>
+        <div class="field">
+          <label for="np-stock_minimo">Stock mínimo</label>
+          <input type="number" id="np-stock_minimo" min="0" step="1" value="4">
+          <p class="hint">Default 4 (se puede ajustar por pieza). Refinable en F6-C.</p>
+        </div>
+        <div class="field">
+          <label for="np-precio">Precio unitario (EUR)</label>
+          <input type="number" id="np-precio" min="0" step="0.01" placeholder="opcional">
+        </div>
+        <div class="field">
+          <label for="np-stock_inicial">Stock inicial</label>
+          <input type="number" id="np-stock_inicial" min="0" step="1" value="0">
+          <p class="hint">Si > 0, se registra automáticamente como movimiento <code>Inicial</code> en el histórico.</p>
+        </div>
+        <div class="field">
+          <label for="np-notas">Notas</label>
+          <textarea id="np-notas" rows="2" maxlength="400" placeholder="opcional"></textarea>
+        </div>
+      </div>
+
+      <div id="np-error" class="error-msg hidden"></div>
+
+      <div class="acciones-stock">
+        <button type="button" id="btn-cancelar-nueva-pieza" class="secondary">Cancelar</button>
+        <button type="submit" id="btn-crear-pieza">Crear pieza</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ========== PIEZA — ficha (F6-A) ========== -->
+  <section id="screen-pieza" class="hidden">
+    <button type="button" class="back" id="btn-volver-piezas">← Piezas</button>
+
+    <div class="card pieza-cabecera">
+      <h2 id="pieza-id">PZ-…</h2>
+      <p class="pieza-meta">
+        <span id="pieza-ref"></span><span id="pieza-variante-sep" class="hidden"> · </span><span id="pieza-variante"></span>
+      </p>
+      <div class="pieza-tipo-badges">
+        <span class="badge" id="pieza-tipo-badge">·</span>
+        <span class="badge familia" id="pieza-familia-badge">·</span>
+      </div>
+      <button type="button" id="btn-editar-pieza" class="secondary" style="margin-top:0.6rem;">✎ Editar pieza</button>
+    </div>
+
+    <!-- Modal de edición de pieza (BKL-027a) -->
+    <div id="modal-editar-pieza" class="modal hidden" role="dialog" aria-labelledby="modal-ed-pieza-title">
+      <div class="modal-card">
+        <h3 id="modal-ed-pieza-title">Editar pieza</h3>
+        <p class="meta" id="modal-ed-pieza-id">·</p>
+        <div class="field"><label>Descripción</label><input type="text" id="ep-descripcion" maxlength="200"></div>
+        <div class="field"><label>Variante</label><input type="text" id="ep-variante" maxlength="60"></div>
+        <div class="field"><label>Tipo de pieza</label><select id="ep-tipo_pieza"></select></div>
+        <div class="field"><label>Familia</label><select id="ep-familia"></select></div>
+        <div class="field"><label>Marca</label><input type="text" id="ep-marca" maxlength="60"></div>
+        <div class="field"><label>Proveedor principal</label><select id="ep-proveedor"><option value="">— sin asignar —</option></select></div>
+        <div class="field"><label>Ubicación almacén</label><input type="text" id="ep-ubicacion" maxlength="40"></div>
+        <div class="field"><label>Stock mínimo</label><input type="number" id="ep-stock_minimo" min="0" step="1"></div>
+        <div class="field"><label>Precio unitario (EUR)</label><input type="number" id="ep-precio" min="0" step="0.01"></div>
+        <div class="field"><label>Activa</label><select id="ep-activa"><option value="Sí">Sí</option><option value="No">No</option></select></div>
+        <div class="field"><label>Notas</label><textarea id="ep-notas" rows="2" maxlength="400"></textarea></div>
+        <div id="ep-error" class="error-msg hidden"></div>
+        <div class="modal-actions">
+          <button type="button" id="btn-ep-cancelar" class="secondary">Cancelar</button>
+          <button type="button" id="btn-ep-guardar">Guardar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stock -->
+    <div class="card">
+      <h3>Stock</h3>
+      <div class="kv"><span class="k">Stock actual</span><span class="v stock-valor" id="pieza-stock-actual">·</span></div>
+      <div class="kv"><span class="k">Stock mínimo</span><span class="v" id="pieza-stock-minimo">·</span></div>
+      <div class="kv"><span class="k">Ubicación almacén</span><span class="v" id="pieza-ubicacion">—</span></div>
+      <div id="pieza-alerta-stock" class="error-banner hidden" style="margin-top:0.7rem;">
+        ⚠ Stock por debajo del mínimo. Considerar reposición.
+      </div>
+
+      <div class="acciones-stock">
+        <button type="button" class="secondary" id="btn-mov-rapido-menos">− 1 ud (consumo)</button>
+        <button type="button" class="secondary" id="btn-mov-completo">Registrar movimiento…</button>
+      </div>
+    </div>
+
+    <!-- Datos -->
+    <div class="card">
+      <h3>Datos de la pieza</h3>
+      <div class="kv"><span class="k">Marca</span><span class="v" id="pieza-marca">—</span></div>
+      <div class="kv"><span class="k">Tipo</span><span class="v" id="pieza-tipo">—</span></div>
+      <div class="kv"><span class="k">Familia</span><span class="v" id="pieza-familia">—</span></div>
+      <div class="kv"><span class="k">Activa</span><span class="v" id="pieza-activa">—</span></div>
+      <div class="kv"><span class="k">Fecha alta</span><span class="v" id="pieza-fecha-alta">—</span></div>
+      <div class="kv"><span class="k">Último movimiento</span><span class="v" id="pieza-fecha-mov">—</span></div>
+      <div class="kv block">
+        <span class="k">Notas</span>
+        <p class="v" id="pieza-notas">—</p>
+      </div>
+    </div>
+
+    <!-- Usos por máquina -->
+    <div class="card">
+      <h3>Usos por máquina</h3>
+      <ul id="lista-usos" class="usos"></ul>
+    </div>
+
+    <!-- Proveedor -->
+    <div class="card" id="card-proveedor">
+      <h3>Proveedor principal</h3>
+      <div id="proveedor-vacio" class="empty" style="padding:0.5rem 0; text-align:left;">
+        Sin proveedor asignado.
+      </div>
+      <div id="proveedor-detalle" class="hidden">
+        <div class="kv"><span class="k">Nombre</span><span class="v" id="prov-nombre">·</span></div>
+        <div class="kv"><span class="k">Categoría</span><span class="v" id="prov-categoria">·</span></div>
+        <div class="kv"><span class="k">Contacto</span><span class="v" id="prov-contacto">—</span></div>
+        <div class="kv"><span class="k">Email</span><span class="v" id="prov-email">—</span></div>
+        <div class="kv"><span class="k">Teléfono</span><span class="v" id="prov-telefono">—</span></div>
+      </div>
+    </div>
+
+    <!-- Movimientos recientes -->
+    <div class="card">
+      <h3>Movimientos recientes</h3>
+      <ul id="lista-movimientos" class="historial"></ul>
+    </div>
+  </section>
+
+  <!-- ========== CONFIG — vista de edición (F2-C BKL-028) ========== -->
+  <section id="screen-config" class="hidden">
+    <button id="btn-volver-config" class="btn-volver" aria-label="Volver">← Volver</button>
+    <h2>Configuración del sistema</h2>
+    <p class="meta">Las claves marcadas con 🔒 son <strong>enums duros</strong>: tocan lógica del sistema y sólo Eric puede editarlas. Cualquier cambio en una clave se propaga al siguiente login del panel y form.</p>
+    <div id="config-toast" class="hidden config-toast" role="status"></div>
+    <div id="config-sections"></div>
+  </section>
+
+  <!-- ========== MODAL MOVIMIENTO DE STOCK (F6-B) ========== -->
+  <div id="modal-movimiento" class="modal hidden" role="dialog" aria-labelledby="modal-mov-title">
+    <div class="modal-card">
+      <h3 id="modal-mov-title">Registrar movimiento de stock</h3>
+      <p class="meta" id="modal-mov-pieza-nombre">·</p>
+
+      <div class="field">
+        <label for="mov-tipo">Tipo de movimiento</label>
+        <select id="mov-tipo">
+          <option value="Salida">Salida (consumo / roto / devolución)</option>
+          <option value="Entrada">Entrada (recepción del proveedor)</option>
+          <option value="Ajuste">Ajuste (inventario)</option>
+          <option value="Devolución">Devolución a proveedor</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="mov-cantidad">Cantidad</label>
+        <input type="number" id="mov-cantidad" min="1" step="1" value="1">
+      </div>
+
+      <div class="field">
+        <label for="mov-motivo">Motivo</label>
+        <select id="mov-motivo"></select>
+      </div>
+
+      <div class="field" id="campo-mov-incidencia">
+        <label for="mov-id_incidencia">
+          Incidencia
+          <span class="hint" id="mov-incidencia-hint">Opcional. Obligatorio si Salida + Consumo.</span>
+        </label>
+        <select id="mov-id_incidencia">
+          <option value="">— sin asignar —</option>
+        </select>
+      </div>
+
+      <div class="field" id="campo-mov-proveedor">
+        <label for="mov-id_proveedor">Proveedor</label>
+        <select id="mov-id_proveedor">
+          <option value="">— sin asignar —</option>
+        </select>
+      </div>
+
+      <div class="field" id="campo-mov-precio">
+        <label for="mov-precio_total">Precio total (€)</label>
+        <input type="number" id="mov-precio_total" min="0" step="0.01">
+      </div>
+
+      <div class="field">
+        <label for="mov-notas">
+          Notas
+          <span class="hint" id="mov-notas-hint">Obligatorio si motivo es "Otro".</span>
+        </label>
+        <textarea id="mov-notas" rows="2" maxlength="300"></textarea>
+      </div>
+
+      <div id="modal-mov-error" class="error-banner hidden" role="alert"></div>
+
+      <div class="acciones-modal">
+        <button type="button" class="secondary" id="btn-mov-volver">Cancelar</button>
+        <button type="button" class="primary" id="btn-mov-confirmar">Registrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== MODAL "MARCAR BLOQUEADA POR PIEZA" (F6-B) ========== -->
+  <div id="modal-bloquear-pieza" class="modal hidden" role="dialog" aria-labelledby="modal-blq-title">
+    <div class="modal-card">
+      <h3 id="modal-blq-title">Marcar bloqueada por pieza</h3>
+      <p>Esta acción **enlaza una pieza pendiente** con la incidencia y la pone en estado <strong>Pausada</strong>. <strong>No resta stock</strong> — solo marca que estás esperando recepción.</p>
+
+      <div class="field">
+        <label for="blq-id_pieza">Pieza pendiente</label>
+        <select id="blq-id_pieza">
+          <option value="">— elige pieza —</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="blq-nota">Nota</label>
+        <textarea id="blq-nota" rows="2" maxlength="300" placeholder="Ej: pendiente recepción de Roeirasa, ETA 3 días"></textarea>
+      </div>
+
+      <div id="modal-blq-error" class="error-banner hidden" role="alert"></div>
+
+      <div class="acciones-modal">
+        <button type="button" class="secondary" id="btn-blq-volver">Cancelar</button>
+        <button type="button" class="primary" id="btn-blq-confirmar">Marcar bloqueada</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== MODAL CANCELACIÓN ========== -->
+  <div id="modal-cancelar" class="modal hidden" role="dialog" aria-labelledby="modal-cancelar-title">
+    <div class="modal-card">
+      <h3 id="modal-cancelar-title">Cancelar incidencia</h3>
+      <p>Esta acción es definitiva. La incidencia queda marcada como <strong>Cancelada</strong> y se pide motivo obligatorio.</p>
+      <div class="field">
+        <label for="modal-motivo">
+          Motivo de cancelación
+          <span class="required">*</span>
+        </label>
+        <textarea id="modal-motivo" rows="3" maxlength="500" placeholder="Ej: incidencia duplicada / falsa alarma / creada por error"></textarea>
+      </div>
+      <div id="modal-error" class="error-banner hidden"></div>
+      <div class="acciones-modal">
+        <button type="button" class="secondary" id="btn-modal-volver">Volver</button>
+        <button type="button" class="danger" id="btn-modal-confirmar">Confirmar cancelación</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== TOAST ========== -->
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+  <footer>
+    Intralogik para Grupo Imar · v<span id="ver"></span>
+  </footer>
+
+</main>
+
+<script src="demo-data.js?v=0.7.2"></script>
+<script src="demo-mode.js?v=0.7.2"></script>
+<script src="config.js?v=0.7.2"></script>
+<script src="app.js?v=0.7.2"></script>
+
+</body>
+</html>

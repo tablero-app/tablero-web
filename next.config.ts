@@ -48,15 +48,11 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  // Notas: la integración del panel demo bajo intralogik.com/demo se intentó
-  // con rewrites (ver historial git) pero el preload scanner del navegador
-  // pre-fetch los <link> y <script> antes de poder reescribir <base>, así
-  // que los assets relativos no resolvían. La integración limpia requiere
-  // copiar los assets del panel a public/demo/ o usar un Edge Function que
-  // reescriba el HTML — pendiente de retomar.
-  // Por ahora los enlaces "Probar demo" apuntan directos al panel en su
-  // hosting GitHub Pages (eric-crypto-ai.github.io/grupo-imar-frontend),
-  // que sirve el modo demo con el query string ?demo=1.
+  // El panel demo se sirve desde public/demo/ (copia local, sincronizada
+  // con scripts/sync-demo-from-panel.sh). Vercel sirve los estáticos con
+  // URL canónica intralogik.com/demo/. Cuando se endurezca la CSP, hay que
+  // permitir https://fonts.googleapis.com en style-src y https://fonts.gstatic.com
+  // en font-src — el panel carga Geist desde Google Fonts.
 };
 
 export default nextConfig;
