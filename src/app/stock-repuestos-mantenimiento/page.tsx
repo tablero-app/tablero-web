@@ -12,6 +12,7 @@ import {
 import { Nav } from "@/components/site/nav";
 import { Footer } from "@/components/site/footer";
 import { Cta } from "@/components/site/cta";
+import { ScreenshotShowcase } from "@/components/site/screenshot-showcase";
 import { Button } from "@/components/ui/button";
 
 const SITE_URL = "https://www.intralogik.com";
@@ -392,6 +393,20 @@ export default function StockRepuestosPage() {
             </ol>
           </div>
         </section>
+
+        <ScreenshotShowcase
+          src="/screenshots/panel-pieza-detalle-desktop.png"
+          alt="Ficha de pieza Junta tórica 25x3 Viton con stock cero y alerta visible 'Stock por debajo del mínimo. Considerar reposición' en el panel de Intralogik"
+          width={1440}
+          height={900}
+          title="Stock crítico, visible al instante"
+          caption="Cuando una pieza baja del mínimo (o llega a cero, como aquí), aparece resaltada en la lista y la ficha individual muestra alerta directa. Adiós al patrón “no había junta”."
+          enlace={{
+            href: "https://eric-crypto-ai.github.io/grupo-imar-frontend/panel/?demo=1#/piezas",
+            texto: "Probar el módulo de stock en el demo",
+            external: true,
+          }}
+        />
 
         {/* Beneficios */}
         <section className="border-t border-border bg-secondary/30 py-16 md:py-20">

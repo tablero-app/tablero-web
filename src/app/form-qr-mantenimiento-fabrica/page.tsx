@@ -12,6 +12,7 @@ import {
 import { Nav } from "@/components/site/nav";
 import { Footer } from "@/components/site/footer";
 import { Cta } from "@/components/site/cta";
+import { ScreenshotShowcase } from "@/components/site/screenshot-showcase";
 import { Button } from "@/components/ui/button";
 
 const SITE_URL = "https://www.intralogik.com";
@@ -367,6 +368,20 @@ export default function FormQrPage() {
             </ol>
           </div>
         </section>
+
+        <ScreenshotShowcase
+          src="/screenshots/panel-incidencias-mobile.png"
+          alt="Panel de incidencias de Intralogik en vista móvil mostrando las incidencias activas con sus máquinas, operarios, prioridades e indicadores de parada — el mismo flujo que activa el QR escaneado por el operario en planta"
+          width={390}
+          height={844}
+          title="Lo que el responsable ve cuando entra una incidencia"
+          caption="El operario escanea el QR y rellena el form. Segundos después, la incidencia aparece en el panel del responsable de mantenimiento — con foto, máquina, operario y prioridad — desde su propio móvil."
+          enlace={{
+            href: "https://eric-crypto-ai.github.io/grupo-imar-frontend/panel/?demo=1",
+            texto: "Ver el panel completo en el demo",
+            external: true,
+          }}
+        />
 
         {/* Beneficios */}
         <section className="border-t border-border py-16 md:py-20">

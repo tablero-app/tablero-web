@@ -12,6 +12,7 @@ import {
 import { Nav } from "@/components/site/nav";
 import { Footer } from "@/components/site/footer";
 import { Cta } from "@/components/site/cta";
+import { ScreenshotShowcase } from "@/components/site/screenshot-showcase";
 import { Button } from "@/components/ui/button";
 
 const SITE_URL = "https://www.intralogik.com";
@@ -395,6 +396,20 @@ export default function GestionIncidenciasPage() {
             </ol>
           </div>
         </section>
+
+        <ScreenshotShowcase
+          src="/screenshots/panel-incidencias-desktop.png"
+          alt="Panel del responsable de mantenimiento de Intralogik con 12 incidencias industriales en distintos estados (nueva, asignada, en curso, pausada) y prioridades, incluyendo paradas de línea y riesgos"
+          width={1440}
+          height={900}
+          title="Así se ve la lista real de incidencias"
+          caption="Cada incidencia entra al panel con su prioridad, máquina, operario y estado. Filtrable por activas, todas o cerradas. Las paradas de línea se distinguen al primer vistazo."
+          enlace={{
+            href: "https://eric-crypto-ai.github.io/grupo-imar-frontend/panel/?demo=1",
+            texto: "Probar el panel demo (5 min, sin alta)",
+            external: true,
+          }}
+        />
 
         {/* Beneficios */}
         <section className="border-t border-border bg-secondary/30 py-16 md:py-20">

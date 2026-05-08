@@ -11,6 +11,7 @@ import {
 import { Nav } from "@/components/site/nav";
 import { Footer } from "@/components/site/footer";
 import { Cta } from "@/components/site/cta";
+import { ScreenshotShowcase } from "@/components/site/screenshot-showcase";
 import { Button } from "@/components/ui/button";
 
 const SITE_URL = "https://www.intralogik.com";
@@ -424,6 +425,20 @@ export default function PreventivoCorrectivoPage() {
             </ol>
           </div>
         </section>
+
+        <ScreenshotShowcase
+          src="/screenshots/panel-incidencias-desktop.png"
+          alt="Panel del responsable de mantenimiento con incidencias mezcladas — preventivos programados (engrase semestral del torno, cambio de correa por horas) junto con correctivos urgentes (parada de prensa por fuga, vibración del CNC) — todo en la misma cola con prioridad real"
+          width={1440}
+          height={900}
+          title="Preventivos y correctivos en la misma cola"
+          caption="En el panel real, los preventivos vencidos aparecen como una OT más con prioridad “Programado”. Si tu equipo los cierra, queda registrado. Si no, salen en rojo. No hay calendario paralelo."
+          enlace={{
+            href: "https://eric-crypto-ai.github.io/grupo-imar-frontend/panel/?demo=1",
+            texto: "Probar el panel demo (5 min, sin alta)",
+            external: true,
+          }}
+        />
 
         {/* Beneficios */}
         <section className="border-t border-border bg-secondary/30 py-16 md:py-20">
