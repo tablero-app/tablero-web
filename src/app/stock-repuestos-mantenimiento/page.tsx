@@ -402,7 +402,7 @@ export default function StockRepuestosPage() {
           title="Stock crítico, visible al instante"
           caption="Cuando una pieza baja del mínimo (o llega a cero, como aquí), aparece resaltada en la lista y la ficha individual muestra alerta directa. Adiós al patrón “no había junta”."
           enlace={{
-            href: "/demo/#/piezas",
+            href: "https://eric-crypto-ai.github.io/grupo-imar-frontend/panel/?demo=1#/piezas",
             texto: "Probar el módulo de stock en el demo",
             external: true,
           }}

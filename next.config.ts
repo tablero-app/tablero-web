@@ -35,9 +35,6 @@ const securityHeaders = [
   { key: "Content-Security-Policy-Report-Only", value: cspReportOnly },
 ];
 
-const PANEL_DEMO_ORIGIN =
-  "https://eric-crypto-ai.github.io/grupo-imar-frontend/panel";
-
 const nextConfig: NextConfig = {
   outputFileTracingRoot: path.resolve(__dirname),
   turbopack: {
@@ -51,23 +48,15 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  /**
-   * Sirve el panel demo (modo demo) bajo intralogik.com/demo sin duplicar
-   * código. El panel real vive en eric-crypto-ai/grupo-imar-frontend y se
-   * mantiene allí — cuando cambia, el rewrite lo refleja en /demo de oficio.
-   *
-   * Funciona tanto en /demo (sin slash) como en /demo/ porque el HTML del
-   * panel inyecta un <base href="/demo/"> dinámico al cargar, y eso hace
-   * que los assets relativos (styles.css, app.js…) se resuelvan
-   * correctamente independientemente del path actual del navegador.
-   */
-  async rewrites() {
-    return [
-      { source: "/demo",        destination: `${PANEL_DEMO_ORIGIN}/index.html` },
-      { source: "/demo/",       destination: `${PANEL_DEMO_ORIGIN}/index.html` },
-      { source: "/demo/:path*", destination: `${PANEL_DEMO_ORIGIN}/:path*` },
-    ];
-  },
+  // Notas: la integración del panel demo bajo intralogik.com/demo se intentó
+  // con rewrites (ver historial git) pero el preload scanner del navegador
+  // pre-fetch los <link> y <script> antes de poder reescribir <base>, así
+  // que los assets relativos no resolvían. La integración limpia requiere
+  // copiar los assets del panel a public/demo/ o usar un Edge Function que
+  // reescriba el HTML — pendiente de retomar.
+  // Por ahora los enlaces "Probar demo" apuntan directos al panel en su
+  // hosting GitHub Pages (eric-crypto-ai.github.io/grupo-imar-frontend),
+  // que sirve el modo demo con el query string ?demo=1.
 };
 
 export default nextConfig;
