@@ -2,6 +2,7 @@ import { Nav } from "@/components/site/nav";
 import { Hero } from "@/components/site/hero";
 import { Problema } from "@/components/site/problema";
 import { Solucion } from "@/components/site/solucion";
+import { Capturas } from "@/components/site/capturas";
 import { Flujo } from "@/components/site/flujo";
 import { Beneficios } from "@/components/site/beneficios";
 import { Casos } from "@/components/site/casos";
@@ -157,6 +158,7 @@ export default function HomePage() {
         <Hero />
         <Problema />
         <Solucion />
+        <Capturas />
         <Flujo />
         <Beneficios />
         <Casos />
