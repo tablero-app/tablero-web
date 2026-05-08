@@ -89,7 +89,7 @@ export function Nav() {
           className="rounded-md text-primary"
           aria-label="Intralogik — inicio"
         >
-          <Logo size={28} />
+          <Logo size={28} alt="" />
         </Link>
 
         <nav className="hidden md:block" aria-label="Navegación principal">
