@@ -54,6 +54,44 @@ const casos: Caso[] = [
   },
 ];
 
+interface CasoEnPreparacion {
+  sector: string;
+  perfil: string;
+  resumen: string;
+  cierreEstimado: string;
+}
+
+const casosEnPreparacion: CasoEnPreparacion[] = [
+  {
+    sector: "Industria alimentaria",
+    perfil: "Envasado · 2 líneas · 45 trabajadores",
+    resumen:
+      "Trazabilidad sanitaria sobre intervenciones en líneas de llenado y etiquetado, con OTs cerradas con foto y firma para auditoría.",
+    cierreEstimado: "Q3 2026",
+  },
+  {
+    sector: "Plástico",
+    perfil: "Inyección · 30 máquinas · 60 trabajadores",
+    resumen:
+      "Catálogo de moldes y repuestos por molde, preventivos por horas reales de funcionamiento y conexión con stock.",
+    cierreEstimado: "Q3 2026",
+  },
+  {
+    sector: "Industria química",
+    perfil: "Reactores pequeños · 35 trabajadores",
+    resumen:
+      "OTs con firma digital del técnico, exportes ISO 9001 y vinculación de cada repuesto consumido a expediente regulatorio.",
+    cierreEstimado: "Q4 2026",
+  },
+  {
+    sector: "Metalmecánica · multi-planta",
+    perfil: "2 plantas · 160 trabajadores combinados",
+    resumen:
+      "Despliegue del plan Avanzado con dashboard consolidado para dirección y vista filtrada por jefe de planta.",
+    cierreEstimado: "Q4 2026",
+  },
+];
+
 const collectionLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
@@ -134,6 +172,19 @@ export default function CasosPage() {
               anonimizados a petición de los clientes; el contenido operativo
               es íntegro.
             </p>
+
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
+              Cada caso describe un patrón verificable de planta —
+              sector, tamaño, problema operativo de partida, cómo se hizo la
+              implantación de 2 semanas y qué empezó a cambiar. Las cifras de
+              impacto se publican al cierre del primer trimestre completo de
+              uso real, no antes; preferimos un caso honesto a un caso con
+              números inventados. Cuando el cliente acepta compartir nombre,
+              lo decimos; si pide anonimato, mantenemos la operativa íntegra
+              pero no la identidad. Los nuevos clientes que aceptan compartir
+              su experiencia obtienen 2 meses gratis a cambio del caso
+              publicado.
+            </p>
           </div>
         </section>
 
@@ -171,10 +222,64 @@ export default function CasosPage() {
               ))}
             </ul>
 
+          </div>
+        </section>
+
+        <section className="border-t border-border bg-secondary/30 py-16 md:py-20">
+          <div className="mx-auto max-w-3xl px-4 md:px-8">
+            <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+              <span
+                aria-hidden="true"
+                className="inline-block h-px w-8"
+                style={{ background: "var(--intralogik-orange)" }}
+              />
+              Próximos casos
+            </span>
+            <h2 className="mt-4 text-2xl font-bold tracking-tight text-foreground md:text-3xl">
+              Cuatro implantaciones en proceso, listas a lo largo de 2026
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+              Cada uno cubre un perfil distinto de PYME industrial española.
+              Los publicaremos a medida que el cliente cierre su primer
+              trimestre completo de uso y acepte compartir el detalle
+              operativo. Las cifras saldrán al hilo, no antes.
+            </p>
+
+            <ul className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2">
+              {casosEnPreparacion.map((caso) => (
+                <li
+                  key={`${caso.sector}-${caso.cierreEstimado}`}
+                  className="rounded-xl border border-dashed border-border bg-card p-5 md:p-6"
+                >
+                  <div className="flex flex-wrap items-center gap-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                    <span>{caso.sector}</span>
+                    <span aria-hidden="true">·</span>
+                    <span style={{ color: "var(--intralogik-orange-text)" }}>
+                      Cierre est. {caso.cierreEstimado}
+                    </span>
+                  </div>
+                  <p className="mt-3 text-sm font-semibold leading-snug text-foreground md:text-base">
+                    {caso.perfil}
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {caso.resumen}
+                  </p>
+                </li>
+              ))}
+            </ul>
+
             <p className="mt-10 text-sm leading-relaxed text-muted-foreground">
-              Más casos en preparación. Los nuevos clientes que aceptan
-              compartir su experiencia obtienen 2 meses gratis a cambio del
-              caso publicado (con o sin nombre).
+              ¿Tu planta encaja en alguno de estos perfiles y quieres que el
+              próximo caso sea el tuyo? Implantamos en 2 semanas y los
+              clientes que aceptan caso publicado (con o sin nombre) obtienen
+              2 meses gratis. Escríbenos a{" "}
+              <a
+                href="mailto:info@intralogik.com"
+                className="font-medium text-foreground underline underline-offset-4 decoration-foreground/30 transition-colors hover:decoration-foreground"
+              >
+                info@intralogik.com
+              </a>
+              .
             </p>
           </div>
         </section>

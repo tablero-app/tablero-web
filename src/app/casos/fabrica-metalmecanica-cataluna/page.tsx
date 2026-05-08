@@ -358,13 +358,58 @@ export default function CasoPage() {
             </section>
 
             <section>
-              <h2>Lo que cambió en planta</h2>
+              <h2>Lo que ya está desplegado en planta</h2>
               <p>
-                Las primeras semanas de uso real apuntan en la dirección
-                esperada. No se publican aquí cifras concretas porque el
-                cliente está cerrando el primer trimestre completo y los datos
-                anteriores a ese plazo no son representativos. Los cambios
-                cualitativos visibles desde el primer mes:
+                El sistema arrancó en producción el día 14 de la implantación,
+                según lo previsto. Los hitos de despliegue son verificables
+                hoy; las cifras de impacto operativo (MTBF, MTTR, paradas
+                evitadas, rotación real de stock) las publicaremos al cierre
+                del primer trimestre completo de uso, cuando los promedios
+                sean representativos.
+              </p>
+
+              <dl className="my-8 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-[max-content_1fr] [&_dt]:font-semibold [&_dt]:text-foreground [&_dd]:text-muted-foreground [&_dd]:leading-relaxed [&>*]:text-sm">
+                <dt>Catálogo de piezas</dt>
+                <dd>
+                  ≈200 piezas críticas catalogadas tras importar, deduplicar y
+                  normalizar el histórico de almacén.
+                </dd>
+
+                <dt>Catálogo de máquinas</dt>
+                <dd>
+                  15 máquinas con ficha completa, manuales vinculados y QR
+                  físico pegado en cada puesto.
+                </dd>
+
+                <dt>Histórico importado</dt>
+                <dd>
+                  5 años de órdenes de trabajo en Excel manual normalizadas a
+                  base relacional, con vinculación máquina-pieza-técnico.
+                </dd>
+
+                <dt>Movimientos de stock</dt>
+                <dd>
+                  ≈150 movimientos de entrada y salida registrados en las
+                  primeras semanas, con alertas activas sobre stock_min.
+                </dd>
+
+                <dt>Módulos en producción</dt>
+                <dd>
+                  Incidencias, panel del responsable, ficha de máquina, stock
+                  con alertas, comentarios trazados y resumen diario por
+                  Telegram.
+                </dd>
+
+                <dt>Soporte automatizado</dt>
+                <dd>
+                  13 workflows que orquestan formulario, panel, gestión de
+                  estados, alertas de stock y notificaciones programadas.
+                </dd>
+              </dl>
+
+              <p>
+                A partir del día 14, el sistema permite el siguiente flujo
+                operativo en planta &mdash; lo que veníamos a sustituir:
               </p>
 
               <ul className="mt-6 space-y-3 [&>li]:flex [&>li]:gap-3 [&>li]:items-start">

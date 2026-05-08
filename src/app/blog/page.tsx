@@ -55,6 +55,58 @@ const posts: Post[] = [
   },
 ];
 
+interface GuiaEnPreparacion {
+  titulo: string;
+  resumen: string;
+  categoria: Post["categoria"];
+  cierreEstimado: string;
+}
+
+const guiasEnPreparacion: GuiaEnPreparacion[] = [
+  {
+    titulo: "GMAO vs CMMS: ¿hay diferencia real?",
+    resumen:
+      "Aclaración del eterno debate terminológico, el matiz entre EAM y GMAO, y por qué para una PYME industrial española importa menos la etiqueta que el ajuste de funcionalidades.",
+    categoria: "Guía",
+    cierreEstimado: "Mayo 2026",
+  },
+  {
+    titulo: "Excel vs GMAO: cuándo deja de compensar el Excel manual",
+    resumen:
+      "Las 6 señales objetivas (no solo intuición) de que el Excel histórico de mantenimiento ya está costando más caro que un GMAO ligero. Con cálculo de coste oculto.",
+    categoria: "Comparativa",
+    cierreEstimado: "Mayo 2026",
+  },
+  {
+    titulo: "QR de mantenimiento en fábrica: cómo se diseña, imprime y pega",
+    resumen:
+      "Tamaños, materiales, posición física en la máquina, qué evitar, costes orientativos. Guía operativa para responsables que quieren montar el sistema antes de comprar GMAO.",
+    categoria: "Guía",
+    cierreEstimado: "Junio 2026",
+  },
+  {
+    titulo: "Preventivo, correctivo y predictivo: la mezcla realista para PYME",
+    resumen:
+      "Por qué el predictivo con sensores IoT no es para tu planta hoy, qué porcentaje preventivo/correctivo apuntar y cómo medirlo con datos reales del primer trimestre.",
+    categoria: "Guía",
+    cierreEstimado: "Junio 2026",
+  },
+  {
+    titulo: "Cómo elegir software de mantenimiento PYME sin equivocarte",
+    resumen:
+      "Cinco criterios (mobile-first real, implantación en semanas, precio cerrado, sin permanencia, interfaz que respeta el conocimiento existente) y las 3 banderas rojas que descartan al proveedor en la primera demo.",
+    categoria: "Guía",
+    cierreEstimado: "Junio 2026",
+  },
+  {
+    titulo: "Auditoría ISO 9001 y software de mantenimiento: qué pide y qué evita",
+    resumen:
+      "Trazabilidad mínima exigible (OT cerrada, técnico, repuestos, fecha, firma), cómo se exporta y los errores típicos que hacen perder horas en cada renovación.",
+    categoria: "Auditoría",
+    cierreEstimado: "Q3 2026",
+  },
+];
+
 const blogLd = {
   "@context": "https://schema.org",
   "@type": "Blog",
@@ -118,6 +170,16 @@ export default function BlogPage() {
               transformación digital&rdquo;. Escrito en el idioma del que pasa
               por planta cada día.
             </p>
+
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
+              Tres principios editoriales: cero contenido genérico generado
+              por IA &mdash; cada guía sale de implantaciones reales en planta
+              española; cero hype &mdash; nada de &ldquo;revoluciones&rdquo;
+              ni &ldquo;industria 4.0&rdquo;, sí compromisos verificables; cero
+              clickbait &mdash; el título dice exactamente lo que vas a
+              encontrar dentro. Si una guía no resuelve un problema concreto
+              de tu planta esta semana, no se publica.
+            </p>
           </div>
         </section>
 
@@ -155,11 +217,57 @@ export default function BlogPage() {
               ))}
             </ul>
 
-            <p className="mt-10 text-sm leading-relaxed text-muted-foreground">
-              Más guías en preparación: GMAO vs CMMS · cómo elegir software de
-              mantenimiento PYME · Excel vs GMAO industrial · QR de
-              mantenimiento en fábrica · ISO 9001 y software de mantenimiento.
+          </div>
+        </section>
+
+        <section className="border-t border-border bg-secondary/30 py-12 md:py-16">
+          <div className="mx-auto max-w-3xl px-4 md:px-8">
+            <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+              <span
+                aria-hidden="true"
+                className="inline-block h-px w-8"
+                style={{ background: "var(--intralogik-orange)" }}
+              />
+              Próximas guías
+            </span>
+            <h2 className="mt-4 text-2xl font-bold tracking-tight text-foreground md:text-3xl">
+              Seis guías en preparación, calendario realista
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+              El orden y la fecha estimada se mantienen mientras no aparezca
+              un caso real que pida priorizar otra. Si quieres que avancemos
+              una en concreto,{" "}
+              <a
+                href="mailto:info@intralogik.com"
+                className="font-medium text-foreground underline underline-offset-4 decoration-foreground/30 transition-colors hover:decoration-foreground"
+              >
+                pídelo a info@intralogik.com
+              </a>
+              .
             </p>
+
+            <ul className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2">
+              {guiasEnPreparacion.map((guia) => (
+                <li
+                  key={guia.titulo}
+                  className="rounded-xl border border-dashed border-border bg-card p-5 md:p-6"
+                >
+                  <div className="flex flex-wrap items-center gap-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                    <span>{guia.categoria}</span>
+                    <span aria-hidden="true">·</span>
+                    <span style={{ color: "var(--intralogik-orange-text)" }}>
+                      {guia.cierreEstimado}
+                    </span>
+                  </div>
+                  <p className="mt-3 text-sm font-semibold leading-snug text-foreground md:text-base">
+                    {guia.titulo}
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {guia.resumen}
+                  </p>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
       </main>
