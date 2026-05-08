@@ -60,18 +60,18 @@ const faqPageLd = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "¿Funciona si tenemos mala cobertura WiFi en planta?",
+      name: "¿En qué se diferencia Intralogik de un CMMS clásico tipo Maximo, Infor EAM o SAP PM?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Sí. El form móvil de Intralogik funciona con datos del operario o con WiFi. Si la cobertura cae justo al enviar, el sistema reintenta automáticamente cuando vuelve la red. La incidencia no se pierde.",
+        text: "Maximo, Infor EAM y SAP PM son productos enterprise diseñados para corporaciones multi-planta con equipo IT propio. Intralogik es un GMAO ligero específicamente para PYME industrial española de 30-150 trabajadores. La diferencia se nota en cuatro ejes: implantación (2 semanas vs 4-9 meses), coste anual (2.400-7.200 € vs 20.000-150.000 €), curva de aprendizaje (días vs meses) y dependencia de IT propio (ninguna vs equipo IT dedicado). Si tu planta encaja en el perfil Intralogik, un CMMS enterprise está sobreequipado y dispara coste sin retorno proporcional.",
       },
     },
     {
       "@type": "Question",
-      name: "¿Qué pasa si un operario no tiene smartphone?",
+      name: "Si nos funciona el Excel + WhatsApp + llamada al móvil, ¿para qué cambiar?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Cualquier móvil moderno con cámara basta — el form va por web, no por app. Si en alguna sección de planta no hay móviles personales, dejamos un par de tablets fijas con un QR de \"modo planta\".",
+        text: "La pregunta no es si funciona — la mayoría de plantas españolas tira adelante así durante años. La pregunta es cuál es el coste oculto: el responsable contestando llamadas dos horas al día en lugar de planificar; las averías que se pierden porque entraron por canal equivocado; los repuestos urgentes con sobrecoste porque nadie sabía el stock; el técnico nuevo reaprendiendo cómo se reparó algo que ya se reparó cuatro veces. Si reconoces dos o más de esos patrones, Excel + WhatsApp ya no funciona — sólo lo parece, y lo pagas en otra cuenta.",
       },
     },
     {
@@ -84,10 +84,10 @@ const faqPageLd = {
     },
     {
       "@type": "Question",
-      name: "¿Lo podemos integrar con nuestro ERP?",
+      name: "¿Por qué Intralogik cuesta 199 €/mes y no 49 €/mes como otros GMAO baratos del mercado?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Sí. Mediante exportes automáticos en CSV/Excel, API REST en el plan Avanzado, o conector a medida si tu ERP necesita algo específico. La integración sale como add-on en el plan Avanzado o como proyecto puntual.",
+        text: "Porque incluye lo que los freemium cobran aparte. La implantación de 2 semanas, los QRs físicos, las plantillas de import, la formación al jefe de mantenimiento y el soporte por email están en el precio del plan, sin tarifas escondidas. Los GMAO de 49 €/mes suelen requerir un setup fee de 1.500-3.000 €, consultoría aparte para configurar el catálogo y módulos premium para preventivos o auditoría que escalan rápido. La factura anual real de uno y otro suele ser equivalente; la diferencia es que aquí lo ves desde el día uno.",
       },
     },
     {
@@ -108,10 +108,10 @@ const faqPageLd = {
     },
     {
       "@type": "Question",
-      name: "¿Funciona offline?",
+      name: "¿Cuándo NO deberíamos contratar Intralogik?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Intralogik es una aplicación web móvil — funciona desde cualquier navegador del operario. Si la cobertura cae justo al enviar la incidencia, el form la guarda y la reintenta cuando vuelve la red, así que no se pierde. El panel del responsable de mantenimiento sí necesita conexión, pero hoy las oficinas la tienen siempre.",
+        text: "Tres casos donde otra solución encaja mejor. (1) Si tienes 5+ plantas en países distintos con regulación heterogénea, necesitas un EAM enterprise tipo IBM Maximo o SAP PM, no un GMAO ligero. (2) Si tu mantenimiento es 100% software o ITSM (servidores, no máquinas físicas), un GMAO industrial está sobreequipado — mira ServiceNow o Jira Service Management. (3) Si no tienes un responsable de mantenimiento dedicado (taller pequeño donde el dueño hace todo), probablemente no necesitas un sistema todavía: cuando llegues a 30 trabajadores y empieces a perder información, vuelve.",
       },
     },
     {
