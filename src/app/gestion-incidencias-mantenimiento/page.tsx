@@ -405,7 +405,7 @@ export default function GestionIncidenciasPage() {
           title="Así se ve la lista real de incidencias"
           caption="Cada incidencia entra al panel con su prioridad, máquina, operario y estado. Filtrable por activas, todas o cerradas. Las paradas de línea se distinguen al primer vistazo."
           enlace={{
-            href: "/demo",
+            href: "/demo/",
             texto: "Probar el panel demo (5 min, sin alta)",
             external: true,
           }}

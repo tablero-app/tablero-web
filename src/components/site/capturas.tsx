@@ -82,7 +82,7 @@ export function Capturas() {
             Capturas reales del panel funcionando. Datos ficticios de una PYME
             metalmecánica para no exponer al cliente piloto.{" "}
             <Link
-              href="/demo"
+              href="/demo/"
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium text-foreground underline underline-offset-4 decoration-foreground/30 hover:decoration-foreground"

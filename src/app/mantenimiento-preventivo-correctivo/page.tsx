@@ -434,7 +434,7 @@ export default function PreventivoCorrectivoPage() {
           title="Preventivos y correctivos en la misma cola"
           caption="En el panel real, los preventivos vencidos aparecen como una OT más con prioridad “Programado”. Si tu equipo los cierra, queda registrado. Si no, salen en rojo. No hay calendario paralelo."
           enlace={{
-            href: "/demo",
+            href: "/demo/",
             texto: "Probar el panel demo (5 min, sin alta)",
             external: true,
           }}

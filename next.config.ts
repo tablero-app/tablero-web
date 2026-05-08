@@ -52,17 +52,23 @@ const nextConfig: NextConfig = {
     ];
   },
   /**
-   * Sirve el panel demo (modo demo) bajo intralogik.com/demo sin duplicar
+   * Sirve el panel demo (modo demo) bajo intralogik.com/demo/ sin duplicar
    * código. El panel real vive en eric-crypto-ai/grupo-imar-frontend y se
    * mantiene allí — cuando cambia, el rewrite lo refleja en /demo de oficio.
    *
-   * El JS del panel detecta el path "/demo" y activa automáticamente el modo
-   * demo (banner + datos sintéticos), así que el visitante no necesita query
-   * string ni alta para probarlo.
+   * Importante: el panel usa rutas relativas para sus assets (styles.css,
+   * app.js, etc.). Sin trailing slash, el navegador resuelve "styles.css"
+   * desde la raíz (/styles.css) y no encuentra nada. Por eso /demo se
+   * redirige a /demo/ — y los enlaces internos del frontend ya apuntan a
+   * /demo/ directamente para evitar el round trip.
    */
+  async redirects() {
+    return [
+      { source: "/demo", destination: "/demo/", permanent: true },
+    ];
+  },
   async rewrites() {
     return [
-      { source: "/demo",        destination: `${PANEL_DEMO_ORIGIN}/index.html` },
       { source: "/demo/",       destination: `${PANEL_DEMO_ORIGIN}/index.html` },
       { source: "/demo/:path*", destination: `${PANEL_DEMO_ORIGIN}/:path*` },
     ];
