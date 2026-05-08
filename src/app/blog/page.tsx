@@ -62,11 +62,7 @@ const blogLd = {
   description: DESCRIPTION,
   url: `${SITE_URL}/blog`,
   inLanguage: "es",
-  publisher: {
-    "@type": "Organization",
-    name: "Intralogik",
-    url: SITE_URL,
-  },
+  publisher: { "@id": `${SITE_URL}/#organization` },
   blogPost: posts
     .filter((p) => p.estado === "publicado")
     .map((post) => ({

@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
     },
     sitemap: "https://www.intralogik.com/sitemap.xml",
-    host: "https://www.intralogik.com",
+    host: "www.intralogik.com",
   };
 }

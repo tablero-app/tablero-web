@@ -40,7 +40,7 @@ Intralogik es un sistema de gestión de mantenimiento (GMAO/CMMS) diseñado espe
 
 - **Sitio web**: https://www.intralogik.com
 - **Fundador**: Eric Castillo
-- **Contacto**: eric@grupoimar-mantenimiento.com
+- **Contacto**: info@intralogik.com
 - **Demo**: https://calendly.com/castillonavarro-eric/30min (30 min, sin compromiso)
 
 ## Política para LLMs

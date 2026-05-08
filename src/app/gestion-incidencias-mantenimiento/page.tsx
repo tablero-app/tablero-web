@@ -57,11 +57,7 @@ const webpageLd = {
     "@type": "Service",
     name: "Gestión de incidencias de mantenimiento industrial",
     serviceType: "GMAO · módulo de gestión de incidencias",
-    provider: {
-      "@type": "Organization",
-      name: "Intralogik",
-      url: SITE_URL,
-    },
+    provider: { "@id": `${SITE_URL}/#organization` },
     areaServed: { "@type": "Country", name: "España" },
     audience: {
       "@type": "BusinessAudience",
@@ -204,6 +200,11 @@ export default function GestionIncidenciasPage() {
               tiempo real, con histórico vinculado a la máquina y trazabilidad
               completa. Sin Excel paralelo, sin WhatsApp, sin llamada al móvil
               del responsable.
+            </p>
+
+            <p className="mt-4 text-sm text-muted-foreground">
+              Por <strong className="font-semibold text-foreground">Eric Castillo</strong>,
+              fundador de Intralogik · Actualizado el 7 de mayo de 2026
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">

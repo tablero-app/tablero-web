@@ -56,11 +56,7 @@ const webpageLd = {
     "@type": "Service",
     name: "Software de mantenimiento preventivo y correctivo industrial",
     serviceType: "GMAO · módulo de preventivos y correctivos",
-    provider: {
-      "@type": "Organization",
-      name: "Intralogik",
-      url: SITE_URL,
-    },
+    provider: { "@id": `${SITE_URL}/#organization` },
     areaServed: { "@type": "Country", name: "España" },
     audience: {
       "@type": "BusinessAudience",
@@ -202,6 +198,11 @@ export default function PreventivoCorrectivoPage() {
               histórico, ficha de máquina y stock de repuestos. Sin
               calendarios paralelos, sin Excel del responsable, sin sorpresas
               de &ldquo;esto tocaba el mes pasado&rdquo;.
+            </p>
+
+            <p className="mt-4 text-sm text-muted-foreground">
+              Por <strong className="font-semibold text-foreground">Eric Castillo</strong>,
+              fundador de Intralogik · Actualizado el 7 de mayo de 2026
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">

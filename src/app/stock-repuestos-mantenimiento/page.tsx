@@ -57,11 +57,7 @@ const webpageLd = {
     "@type": "Service",
     name: "Gestión de stock de repuestos para mantenimiento industrial",
     serviceType: "GMAO · módulo de stock e inventario de repuestos",
-    provider: {
-      "@type": "Organization",
-      name: "Intralogik",
-      url: SITE_URL,
-    },
+    provider: { "@id": `${SITE_URL}/#organization` },
     areaServed: { "@type": "Country", name: "España" },
     audience: {
       "@type": "BusinessAudience",
@@ -203,6 +199,11 @@ export default function StockRepuestosPage() {
               de stock mínimo y bloqueo automático de incidencias por falta de
               repuesto. Las paradas por &ldquo;no había pieza&rdquo; se
               anticipan, no se sufren.
+            </p>
+
+            <p className="mt-4 text-sm text-muted-foreground">
+              Por <strong className="font-semibold text-foreground">Eric Castillo</strong>,
+              fundador de Intralogik · Actualizado el 7 de mayo de 2026
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">

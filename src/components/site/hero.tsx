@@ -1,5 +1,6 @@
 import { ArrowRight, QrCode } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ctaUrls } from "@/lib/cta-config";
 
 /**
  * Hero V3 · "De WhatsApp a un sistema de mantenimiento en 2 semanas"
@@ -44,8 +45,12 @@ export function Hero() {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button asChild size="lg" className="group">
-              <a href="#cta">
-                Ver demo guiada (30 min)
+              <a
+                href={ctaUrls.reservarDemo}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Reservar demo (30 min)
                 <ArrowRight
                   className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5"
                   aria-hidden="true"

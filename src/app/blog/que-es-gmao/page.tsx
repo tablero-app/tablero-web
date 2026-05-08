@@ -53,15 +53,7 @@ const articleLd = {
     name: "Eric Castillo",
     url: SITE_URL,
   },
-  publisher: {
-    "@type": "Organization",
-    name: "Intralogik",
-    url: SITE_URL,
-    logo: {
-      "@type": "ImageObject",
-      url: `${SITE_URL}/opengraph-image`,
-    },
-  },
+  publisher: { "@id": `${SITE_URL}/#organization` },
   about: [
     { "@type": "Thing", name: "GMAO" },
     { "@type": "Thing", name: "Mantenimiento industrial" },

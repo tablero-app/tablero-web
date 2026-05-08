@@ -74,6 +74,20 @@ const collectionLd = {
   },
 };
 
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Inicio", item: `${SITE_URL}/` },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Casos",
+      item: `${SITE_URL}/casos`,
+    },
+  ],
+};
+
 export default function CasosPage() {
   return (
     <>
@@ -82,6 +96,10 @@ export default function CasosPage() {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
         />
 
         <section className="relative pt-16 pb-12 md:pt-24 md:pb-20">

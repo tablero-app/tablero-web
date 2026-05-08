@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Eric Castillo" }],
   creator: "Eric Castillo",
   alternates: {
-    canonical: "/",
+    canonical: `${SITE_URL}/`,
   },
   keywords: [
     "GMAO",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "es_ES",
-    url: SITE_URL,
+    url: `${SITE_URL}/`,
     siteName: "Intralogik",
     title: "Software de mantenimiento industrial sencillo | Intralogik",
     description: DESCRIPTION,
