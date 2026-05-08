@@ -17,13 +17,12 @@
  * - YouTube canal: `https://www.youtube.com/@<handle>`.
  */
 export const socialProfiles: ReadonlyArray<string> = [
-  // "https://www.linkedin.com/company/intralogik",
-  // "https://www.linkedin.com/in/eric-castillo-navarro",
+  "https://www.linkedin.com/company/intralogik",
   // "https://x.com/intralogik",
   // "https://github.com/intralogik",
 ];
 
 /** Perfiles del fundador (Eric) que pesan en E-E-A-T para el `founder.sameAs`. */
 export const founderProfiles: ReadonlyArray<string> = [
-  // "https://www.linkedin.com/in/eric-castillo-navarro",
+  "https://www.linkedin.com/in/eric-castillo-navarro-b4b7a78",
 ];
