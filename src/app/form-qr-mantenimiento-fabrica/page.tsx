@@ -377,7 +377,7 @@ export default function FormQrPage() {
           title="Lo que el responsable ve cuando entra una incidencia"
           caption="El operario escanea el QR y rellena el form. Segundos después, la incidencia aparece en el panel del responsable de mantenimiento — con foto, máquina, operario y prioridad — desde su propio móvil."
           enlace={{
-            href: "https://eric-crypto-ai.github.io/grupo-imar-frontend/panel/?demo=1",
+            href: "/demo",
             texto: "Ver el panel completo en el demo",
             external: true,
           }}

@@ -35,6 +35,9 @@ const securityHeaders = [
   { key: "Content-Security-Policy-Report-Only", value: cspReportOnly },
 ];
 
+const PANEL_DEMO_ORIGIN =
+  "https://eric-crypto-ai.github.io/grupo-imar-frontend/panel";
+
 const nextConfig: NextConfig = {
   outputFileTracingRoot: path.resolve(__dirname),
   turbopack: {
@@ -46,6 +49,22 @@ const nextConfig: NextConfig = {
         source: "/:path*",
         headers: securityHeaders,
       },
+    ];
+  },
+  /**
+   * Sirve el panel demo (modo demo) bajo intralogik.com/demo sin duplicar
+   * código. El panel real vive en eric-crypto-ai/grupo-imar-frontend y se
+   * mantiene allí — cuando cambia, el rewrite lo refleja en /demo de oficio.
+   *
+   * El JS del panel detecta el path "/demo" y activa automáticamente el modo
+   * demo (banner + datos sintéticos), así que el visitante no necesita query
+   * string ni alta para probarlo.
+   */
+  async rewrites() {
+    return [
+      { source: "/demo",        destination: `${PANEL_DEMO_ORIGIN}/index.html` },
+      { source: "/demo/",       destination: `${PANEL_DEMO_ORIGIN}/index.html` },
+      { source: "/demo/:path*", destination: `${PANEL_DEMO_ORIGIN}/:path*` },
     ];
   },
 };
