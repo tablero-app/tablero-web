@@ -43,6 +43,13 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(__dirname),
   },
+  /**
+   * Necesario para que el redirect /demo → /demo/ (definido más abajo) NO
+   * sea deshecho por el strip-trailing-slash automático de Next.js, que
+   * generaría un loop /demo ↔ /demo/. Las demás rutas del site las controla
+   * el frontend; sin slash final canónico, no hay reescrituras automáticas.
+   */
+  skipTrailingSlashRedirect: true,
   async headers() {
     return [
       {
