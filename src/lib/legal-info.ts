@@ -28,7 +28,7 @@ export const legalInfo = {
   // Contacto
   email: "info@intralogik.com",
   emailRgpd: "info@intralogik.com",
-  telefono: PENDING.telefono,
+  telefono: "+34 634 42 18 74",
 
   // Sitio
   sitioUrl: "https://www.intralogik.com",
