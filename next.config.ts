@@ -1,14 +1,33 @@
 import type { NextConfig } from "next";
 import path from "node:path";
 
+// HubSpot Free CRM — tracking JS y (futuro) formularios. Aunque hoy no embebemos
+// formularios (D-BLOG-2 Opción B: el blog reutiliza CTAs Calendly/Stripe/mailto),
+// dejamos los orígenes permitidos para no tocar CSP si se activan en el futuro.
+const HUBSPOT_HOSTS = [
+  "https://js-eu1.hs-scripts.com",
+  "https://js.hs-scripts.com",
+  "https://js.hsforms.net",
+  "https://js-eu1.hsforms.net",
+  "https://forms.hsforms.com",
+  "https://forms-eu1.hsforms.com",
+  "https://api.hsforms.com",
+  "https://api-eu1.hsforms.com",
+  "https://track.hubspot.com",
+  "https://track-eu1.hubspot.com",
+  "https://*.hubspot.com",
+  "https://*.hs-analytics.net",
+  "https://*.hs-banner.com",
+].join(" ");
+
 const cspReportOnly = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://vercel.live",
+  `script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://vercel.live ${HUBSPOT_HOSTS}`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https://vercel.live https://vercel.com",
+  `img-src 'self' data: blob: https://vercel.live https://vercel.com ${HUBSPOT_HOSTS}`,
   "font-src 'self' data:",
-  "connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com https://vercel.live",
-  "frame-src 'self' https://vercel.live",
+  `connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com https://vercel.live ${HUBSPOT_HOSTS}`,
+  `frame-src 'self' https://vercel.live ${HUBSPOT_HOSTS}`,
   "frame-ancestors 'none'",
   "object-src 'none'",
   "base-uri 'self'",
