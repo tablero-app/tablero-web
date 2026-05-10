@@ -62,22 +62,25 @@ const proximas: GuiaEnPreparacion[] = [
 function PostCard({ post }: { post: Post }) {
   const { frontmatter } = post;
   const href = `/blog/${frontmatter.slug}`;
+  // Usamos la URL dinámica de OG (next/og) que genera una imagen única por artículo.
+  // Mantiene el listado visualmente diferenciado y consistente con lo que se ve en
+  // shares de LinkedIn/Twitter. El OG dinámico devuelve PNG 1200x630.
+  const cardImage = `/blog/${frontmatter.slug}/opengraph-image`;
   return (
     <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-colors hover:border-foreground/20">
-      {frontmatter.ogImage && (
-        <Link
-          href={href}
-          className="relative block aspect-[1200/630] w-full overflow-hidden bg-secondary/40"
-        >
-          <Image
-            src={frontmatter.ogImage}
-            alt=""
-            fill
-            sizes="(min-width: 768px) 50vw, 100vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-          />
-        </Link>
-      )}
+      <Link
+        href={href}
+        className="relative block aspect-[1200/630] w-full overflow-hidden bg-secondary/40"
+      >
+        <Image
+          src={cardImage}
+          alt=""
+          fill
+          sizes="(min-width: 768px) 50vw, 100vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+          unoptimized
+        />
+      </Link>
       <div className="flex flex-1 flex-col p-6 md:p-8">
         <div className="flex items-center gap-3 text-xs text-muted-foreground">
           <span className="font-medium text-foreground">{frontmatter.categoria}</span>
