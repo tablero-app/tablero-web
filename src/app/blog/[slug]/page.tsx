@@ -24,9 +24,10 @@ export async function generateMetadata({ params }: RouteProps): Promise<Metadata
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) return {};
-  const { title, description, ogImage, keywords, date, modified, author } = post.frontmatter;
+  const { title, description, keywords, date, modified, author } = post.frontmatter;
   const url = `${SITE_URL}/blog/${slug}`;
-  const imageAbs = ogImage ? `${SITE_URL}${ogImage}` : undefined;
+  // OG image: Next.js detecta automáticamente `opengraph-image.tsx` en el segmento
+  // y la añade al metadata. No declaramos `openGraph.images` aquí para no duplicar.
   return {
     title,
     description,
@@ -42,13 +43,11 @@ export async function generateMetadata({ params }: RouteProps): Promise<Metadata
       publishedTime: date,
       modifiedTime: modified || date,
       authors: [author],
-      ...(imageAbs ? { images: [{ url: imageAbs, width: 1200, height: 630 }] } : {}),
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      ...(imageAbs ? { images: [imageAbs] } : {}),
     },
     robots: { index: true, follow: true },
   };
@@ -57,12 +56,15 @@ export async function generateMetadata({ params }: RouteProps): Promise<Metadata
 function buildArticleLd(post: Post): Record<string, unknown> {
   const { frontmatter } = post;
   const url = `${SITE_URL}/blog/${frontmatter.slug}`;
+  // image: usa la OG dinámica generada por opengraph-image.tsx del segmento.
+  // Next.js sirve esa imagen en `/blog/[slug]/opengraph-image` con extensión auto-añadida
+  // por el runtime al generar metadata; en JSON-LD usamos la URL canónica sin extensión.
   return {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: frontmatter.title,
     description: frontmatter.description,
-    image: frontmatter.ogImage ? `${SITE_URL}${frontmatter.ogImage}` : `${SITE_URL}/opengraph-image`,
+    image: `${SITE_URL}/blog/${frontmatter.slug}/opengraph-image`,
     url,
     datePublished: frontmatter.date,
     dateModified: frontmatter.modified || frontmatter.date,
