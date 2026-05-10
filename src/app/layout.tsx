@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Analytics } from "@vercel/analytics/next";
@@ -6,6 +7,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { socialProfiles, founderProfiles } from "@/lib/social-profiles";
 import { legalInfo, isPending } from "@/lib/legal-info";
 import "./globals.css";
+
+const HUBSPOT_PORTAL_ID = process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID;
 
 const SITE_URL = "https://www.intralogik.com";
 const DESCRIPTION =
@@ -123,6 +126,13 @@ export default function RootLayout({
         {children}
         <Analytics />
         <SpeedInsights />
+        {HUBSPOT_PORTAL_ID ? (
+          <Script
+            id="hs-script-loader"
+            src={`https://js-eu1.hs-scripts.com/${HUBSPOT_PORTAL_ID}.js`}
+            strategy="afterInteractive"
+          />
+        ) : null}
       </body>
     </html>
   );
