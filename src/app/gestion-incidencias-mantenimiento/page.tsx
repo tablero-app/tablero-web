@@ -20,7 +20,7 @@ const PATH = "/gestion-incidencias-mantenimiento";
 
 const TITLE = "Gestión de incidencias de mantenimiento industrial";
 const DESCRIPTION =
-  "Reporta y resuelve incidencias de mantenimiento industrial con form QR + panel móvil. Sin Excel, sin WhatsApp, sin llamada al móvil del responsable. 38 segundos por reporte.";
+  "Reporta y resuelve incidencias de mantenimiento industrial con form QR + panel móvil. Sin Excel ni llamada al responsable. 38 segundos por reporte.";
 
 export const metadata: Metadata = {
   title: TITLE,

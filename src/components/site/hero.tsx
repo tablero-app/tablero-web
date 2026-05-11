@@ -37,6 +37,17 @@ export function Hero() {
             <span className="whitespace-nowrap">2 semanas.</span>
           </h1>
 
+          {/* Tagline comercial bajo H1: precio + tiempo + prueba.
+              Los tres argumentos diferenciadores en una línea, antes de tener
+              que bajar 7 secciones para verlos en el pricing. */}
+          <p className="mt-4 inline-flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-medium text-foreground md:text-base">
+            <span>Desde <strong className="font-bold">199 €/mes</strong></span>
+            <span aria-hidden="true" className="text-muted-foreground">·</span>
+            <span>Implantación en <strong className="font-bold">2 semanas</strong></span>
+            <span aria-hidden="true" className="text-muted-foreground">·</span>
+            <span><strong className="font-bold">14 días gratis</strong>, sin tarjeta</span>
+          </p>
+
           <p className="mt-5 max-w-[60ch] text-base leading-relaxed text-muted-foreground md:text-lg">
             Intralogik es un GMAO ligero para pymes industriales: incidencias,
             órdenes de trabajo, repuestos, preventivos e historial por máquina

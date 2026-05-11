@@ -14,10 +14,12 @@ const productLinks = [
 ];
 
 const recursosLinks = [
+  { href: "/sobre", label: "Sobre Intralogik" },
   { href: "/casos", label: "Casos reales" },
   { href: "/casos/fabrica-metalmecanica-cataluna", label: "Caso · fábrica metalmecánica" },
   { href: "/blog", label: "Blog" },
   { href: "/blog/que-es-gmao", label: "¿Qué es un GMAO?" },
+  { href: "/alternativa-sap-pm-pyme", label: "Alternativa a SAP PM" },
 ];
 
 const legalLinks = [

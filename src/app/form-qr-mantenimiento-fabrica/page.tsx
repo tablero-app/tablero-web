@@ -20,7 +20,7 @@ const PATH = "/form-qr-mantenimiento-fabrica";
 
 const TITLE = "Form QR de mantenimiento industrial · sin app, sin login";
 const DESCRIPTION =
-  "Cualquier operario reporta una incidencia de mantenimiento escaneando un QR pegado en la máquina. Sin app que instalar, sin login, sin formación previa. 38 segundos por reporte.";
+  "El operario reporta una incidencia escaneando un QR pegado en la máquina. Sin app, sin login, sin formación previa. 38 segundos por reporte.";
 
 export const metadata: Metadata = {
   title: TITLE,

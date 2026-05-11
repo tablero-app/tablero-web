@@ -19,7 +19,7 @@ const PATH = "/mantenimiento-preventivo-correctivo";
 
 const TITLE = "Software de mantenimiento preventivo y correctivo industrial";
 const DESCRIPTION =
-  "Mantenimiento preventivo programado por calendario o por horas reales de máquina + correctivo cuando falla, en un único sistema. Plan Estándar de Intralogik desde 299 €/mes.";
+  "Mantenimiento preventivo por calendario u horas reales de máquina + correctivo, en un único sistema. Plan Estándar de Intralogik desde 299 €/mes.";
 
 export const metadata: Metadata = {
   title: TITLE,

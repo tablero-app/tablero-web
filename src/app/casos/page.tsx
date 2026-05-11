@@ -8,7 +8,7 @@ const SITE_URL = "https://www.intralogik.com";
 
 const TITLE = "Casos reales · cómo PYMEs industriales usan Intralogik";
 const DESCRIPTION =
-  "Casos prácticos de plantas industriales españolas que sustituyeron Excel y llamadas telefónicas por Intralogik en 2 semanas. Detalles, plazos y cambios reales en planta.";
+  "Casos prácticos de plantas industriales españolas que sustituyeron Excel y llamadas por Intralogik en 2 semanas. Plazos y cambios reales en planta.";
 
 export const metadata: Metadata = {
   title: TITLE,

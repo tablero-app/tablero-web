@@ -10,7 +10,7 @@ const SITE_URL = "https://www.intralogik.com";
 
 const TITLE = "Blog · GMAO, mantenimiento industrial y digitalización PYME";
 const DESCRIPTION =
-  "Guías prácticas sobre GMAO, mantenimiento industrial, digitalización de PYMEs industriales y gestión de planta. Sin marketing vacío, escrito para responsables de mantenimiento.";
+  "Guías prácticas sobre GMAO, mantenimiento industrial y digitalización de PYMEs. Sin marketing vacío, escrito para responsables de mantenimiento.";
 
 export const metadata: Metadata = {
   title: TITLE,

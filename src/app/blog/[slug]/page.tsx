@@ -82,7 +82,7 @@ function buildArticleLd(post: Post): Record<string, unknown> {
     author: {
       "@type": "Person",
       name: frontmatter.author,
-      url: SITE_URL,
+      url: `${SITE_URL}/sobre`,
       ...(founderProfiles.length > 0 ? { sameAs: [...founderProfiles] } : {}),
     },
     publisher: { "@id": `${SITE_URL}/#organization` },

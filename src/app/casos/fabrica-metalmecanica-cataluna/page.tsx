@@ -10,9 +10,9 @@ const SITE_URL = "https://www.intralogik.com";
 const CASO_PATH = "/casos/fabrica-metalmecanica-cataluna";
 
 const TITLE =
-  "Caso real: fábrica metalmecánica de 80 trabajadores · 2 semanas";
+  "Caso real: fábrica metalmecánica catalana · 2 semanas";
 const DESCRIPTION =
-  "Cómo una fábrica metalmecánica de 80 trabajadores en Cataluña pasó de la llamada al móvil del responsable y un Excel histórico a un sistema completo de mantenimiento en 2 semanas con Intralogik.";
+  "Una fábrica metalmecánica catalana de 80 trabajadores cambió el Excel histórico y la llamada al móvil del responsable por Intralogik en 2 semanas.";
 const PUBLISHED = "2026-05-07";
 const MODIFIED = "2026-05-07";
 

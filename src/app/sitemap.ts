@@ -10,6 +10,7 @@ const SITE_URL = "https://www.intralogik.com";
 // SEO B2B y diluyen el crawl signal de las páginas comerciales.
 const LAST_MOD: Record<string, string> = {
   "/": "2026-05-11",
+  "/sobre": "2026-05-11",
   "/precios": "2026-05-10",
   "/casos": "2026-05-10",
   "/casos/fabrica-metalmecanica-cataluna": "2026-05-10",
@@ -18,6 +19,7 @@ const LAST_MOD: Record<string, string> = {
   "/stock-repuestos-mantenimiento": "2026-05-10",
   "/mantenimiento-preventivo-correctivo": "2026-05-10",
   "/form-qr-mantenimiento-fabrica": "2026-05-10",
+  "/alternativa-sap-pm-pyme": "2026-05-11",
 };
 
 export default function sitemap(): MetadataRoute.Sitemap {

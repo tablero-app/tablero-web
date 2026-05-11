@@ -20,7 +20,7 @@ const PATH = "/stock-repuestos-mantenimiento";
 
 const TITLE = "Gestión de stock de repuestos para mantenimiento industrial";
 const DESCRIPTION =
-  "Catálogo de piezas, movimientos de entrada/salida, alertas de stock mínimo y bloqueo de incidencias por falta de repuesto. Las paradas por 'no había pieza' se anticipan, no se sufren.";
+  "Catálogo de piezas, movimientos entrada/salida, alertas de stock mínimo y bloqueo por falta de repuesto. Anticipa las paradas por 'no había pieza'.";
 
 export const metadata: Metadata = {
   title: TITLE,
