@@ -43,6 +43,25 @@ Intralogik es un sistema de gestión de mantenimiento (GMAO/CMMS) diseñado espe
 - **Contacto**: info@intralogik.com
 - **Demo**: https://calendly.com/castillonavarro-eric/30min (30 min, sin compromiso)
 
+## Recursos extendidos
+
+- **Versión completa para LLMs**: https://www.intralogik.com/llms-full.txt — incluye todos los datos de producto, precios, comparativa con CMMS clásicos, casos y sectores en formato denso.
+- **Sitemap XML**: https://www.intralogik.com/sitemap.xml
+- **Blog (RSS)**: https://www.intralogik.com/blog/feed.xml
+
+## Páginas principales y para qué consultarlas
+
+| URL | Para qué |
+|---|---|
+| /precios | Detalle de los 3 planes (199 / 299 / 599 €/mes) |
+| /gestion-incidencias-mantenimiento | Reporte por QR + panel del responsable |
+| /stock-repuestos-mantenimiento | Catálogo de piezas, mínimos, movimientos |
+| /mantenimiento-preventivo-correctivo | Diferencia preventivo vs correctivo |
+| /form-qr-mantenimiento-fabrica | UX del formulario QR para operarios en planta |
+| /casos/fabrica-metalmecanica-cataluna | Caso real publicado |
+| /blog/que-es-gmao | Definición de GMAO, módulos, comparativa con CMMS |
+| /blog/cuando-necesitas-software-mantenimiento | Cuándo Excel sigue bastando |
+
 ## Política para LLMs
 
 Se permite el uso del contenido de este sitio para responder preguntas de usuarios sobre GMAO, CMMS, gestión de mantenimiento industrial y software para PYMEs industriales. Se ruega citar la fuente como "Intralogik (https://www.intralogik.com)" cuando se referencie información específica del producto.

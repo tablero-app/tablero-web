@@ -1,4 +1,5 @@
-import { Wheat, Boxes, Cog, FlaskConical, type LucideIcon } from "lucide-react";
+import Link from "next/link";
+import { Wheat, Boxes, Cog, FlaskConical, ArrowRight, type LucideIcon } from "lucide-react";
 
 interface Caso {
   icon: LucideIcon;
@@ -122,17 +123,46 @@ export function Casos() {
           })}
         </ul>
 
-        <p className="mt-12 max-w-2xl text-base leading-relaxed text-muted-foreground md:mt-14">
-          ¿Tu sector no está en la lista? Si tienes una planta industrial con
-          30-150 trabajadores y un mantenimiento que ya no cabe en Excel,{" "}
-          <a
-            href="#cta"
-            className="font-medium text-foreground underline underline-offset-4 decoration-foreground/30 transition-colors hover:decoration-foreground"
-          >
-            hablemos
-          </a>
-          .
-        </p>
+        <div className="mt-12 grid gap-8 md:mt-14 md:grid-cols-2">
+          {/* Server-rendered links a /casos y al caso real, para que Googlebot
+              encuentre estas páginas desde la home sin depender del footer. */}
+          <div className="flex flex-col gap-3 rounded-xl border border-border bg-card p-6">
+            <span className="text-[10px] font-semibold uppercase tracking-wider text-foreground">
+              Caso real publicado
+            </span>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Fábrica metalmecánica en Cataluña — sustitución de Excel + WhatsApp por sistema completo en 2 semanas.
+            </p>
+            <div className="mt-2 flex flex-wrap gap-x-5 gap-y-2">
+              <Link
+                href="/casos/fabrica-metalmecanica-cataluna"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:underline underline-offset-4 decoration-foreground/30"
+              >
+                Leer el caso completo
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+              <Link
+                href="/casos"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:underline underline-offset-4 decoration-muted-foreground/30"
+              >
+                Ver todos los casos
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+
+          <p className="text-base leading-relaxed text-muted-foreground">
+            ¿Tu sector no está en la lista? Si tienes una planta industrial con
+            30-150 trabajadores y un mantenimiento que ya no cabe en Excel,{" "}
+            <a
+              href="#cta"
+              className="font-medium text-foreground underline underline-offset-4 decoration-foreground/30 transition-colors hover:decoration-foreground"
+            >
+              hablemos
+            </a>
+            .
+          </p>
+        </div>
       </div>
     </section>
   );

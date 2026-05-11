@@ -57,6 +57,24 @@ export const metadata: Metadata = {
   },
 };
 
+const websiteLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+  url: `${SITE_URL}/`,
+  name: "Intralogik",
+  inLanguage: "es-ES",
+  publisher: { "@id": `${SITE_URL}/#organization` },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${SITE_URL}/blog?q={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
+};
+
 const organizationLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -121,6 +139,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }}
+        />
       </head>
       <body className="min-h-[100dvh] flex flex-col antialiased">
         {children}
@@ -130,7 +152,7 @@ export default function RootLayout({
           <Script
             id="hs-script-loader"
             src={`https://js-eu1.hs-scripts.com/${HUBSPOT_PORTAL_ID}.js`}
-            strategy="afterInteractive"
+            strategy="lazyOnload"
           />
         ) : null}
       </body>

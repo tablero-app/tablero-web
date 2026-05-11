@@ -1,9 +1,11 @@
+import Link from "next/link";
 import {
   QrCode,
   LayoutDashboard,
   Wrench,
   Boxes,
   CalendarCheck,
+  ArrowRight,
   type LucideIcon,
 } from "lucide-react";
 
@@ -14,6 +16,11 @@ interface Modulo {
   lead: string;
   bullets: string[];
   detalle: string;
+  /** URL del hub correspondiente. Si está, se renderiza un <Link> server-side
+   * para que Googlebot encuentre los hubs sin depender del dropdown del nav
+   * (que solo se renderiza tras click en cliente). */
+  href?: string;
+  hrefLabel?: string;
 }
 
 const modulos: Modulo[] = [
@@ -29,6 +36,8 @@ const modulos: Modulo[] = [
     ],
     detalle:
       "Funciona como web, no como app. No hay que instalar nada, no hay que dar de alta a cada operario, no hay nadie que se quede fuera porque \"no tiene cuenta de email\".",
+    href: "/gestion-incidencias-mantenimiento",
+    hrefLabel: "Ver gestión de incidencias",
   },
   {
     num: "02",
@@ -42,6 +51,8 @@ const modulos: Modulo[] = [
     ],
     detalle:
       "Las prioridades no son \"alta/media/baja\" abstractas. Son las que tu planta usa de verdad: parada de línea, riesgo de parada, mantenimiento programado, mejora.",
+    href: "/form-qr-mantenimiento-fabrica",
+    hrefLabel: "Ver el form QR en fábrica",
   },
   {
     num: "03",
@@ -68,6 +79,8 @@ const modulos: Modulo[] = [
     ],
     detalle:
       "No es un almacén ERP. Es un control operativo de los repuestos que mueves de verdad cada semana, sin SAPs ni códigos imposibles.",
+    href: "/stock-repuestos-mantenimiento",
+    hrefLabel: "Ver stock de repuestos",
   },
   {
     num: "05",
@@ -81,6 +94,8 @@ const modulos: Modulo[] = [
     ],
     detalle:
       "Los preventivos no son una lista que mueres por mantener. Cuando vence uno, aparece como una OT más en el panel del responsable. Si tu equipo lo cierra, queda registrado. Si no, sale en rojo.",
+    href: "/mantenimiento-preventivo-correctivo",
+    hrefLabel: "Ver preventivo y correctivo",
   },
 ];
 
@@ -181,6 +196,18 @@ export function Solucion() {
                     </span>
                     <span className="mt-1.5 block">{mod.detalle}</span>
                   </p>
+                  {mod.href && (
+                    <Link
+                      href={mod.href}
+                      className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:underline underline-offset-4 decoration-foreground/30"
+                    >
+                      {mod.hrefLabel ?? "Saber más"}
+                      <ArrowRight
+                        className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+                        aria-hidden="true"
+                      />
+                    </Link>
+                  )}
                 </div>
               </li>
             );

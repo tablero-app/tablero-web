@@ -9,8 +9,17 @@ import { Footer } from "@/components/site/footer";
 import { Cta } from "@/components/site/cta";
 import { Button } from "@/components/ui/button";
 import { getAllSlugs, getPostBySlug, formatDateEs, type Post } from "@/lib/blog";
+import { founderProfiles } from "@/lib/social-profiles";
 
 const SITE_URL = "https://www.intralogik.com";
+
+// Garantiza ISO 8601 datetime completo (con T00:00:00Z) cuando el frontmatter
+// trae solo fecha (YYYY-MM-DD). Google prefiere datetime completo en
+// `datePublished`/`dateModified` para señales de frescura.
+function toIso8601(value: string): string {
+  if (!value) return value;
+  return /T/.test(value) ? value : `${value}T00:00:00Z`;
+}
 
 interface RouteProps {
   params: Promise<{ slug: string }>;
@@ -61,16 +70,23 @@ function buildArticleLd(post: Post): Record<string, unknown> {
   // por el runtime al generar metadata; en JSON-LD usamos la URL canónica sin extensión.
   return {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     headline: frontmatter.title,
     description: frontmatter.description,
     image: `${SITE_URL}/blog/${frontmatter.slug}/opengraph-image`,
     url,
-    datePublished: frontmatter.date,
-    dateModified: frontmatter.modified || frontmatter.date,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    datePublished: toIso8601(frontmatter.date),
+    dateModified: toIso8601(frontmatter.modified || frontmatter.date),
     inLanguage: "es",
-    author: { "@type": "Person", name: frontmatter.author, url: SITE_URL },
+    author: {
+      "@type": "Person",
+      name: frontmatter.author,
+      url: SITE_URL,
+      ...(founderProfiles.length > 0 ? { sameAs: [...founderProfiles] } : {}),
+    },
     publisher: { "@id": `${SITE_URL}/#organization` },
+    isPartOf: { "@id": `${SITE_URL}/#website` },
   };
 }
 
