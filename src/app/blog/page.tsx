@@ -123,10 +123,46 @@ function PostCard({ post }: { post: Post }) {
 
 export default function BlogIndexPage() {
   const posts = getAllPosts();
+  const blogLd = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": `${SITE_URL}/blog#blog`,
+    url: `${SITE_URL}/blog`,
+    name: TITLE,
+    description: DESCRIPTION,
+    inLanguage: "es",
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    blogPost: posts.map((p) => ({
+      "@type": "BlogPosting",
+      headline: p.frontmatter.title,
+      url: `${SITE_URL}/blog/${p.frontmatter.slug}`,
+      datePublished: /T/.test(p.frontmatter.date)
+        ? p.frontmatter.date
+        : `${p.frontmatter.date}T00:00:00Z`,
+      author: { "@type": "Person", name: p.frontmatter.author },
+    })),
+  };
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: `${SITE_URL}/` },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+    ],
+  };
   return (
     <>
       <Nav />
       <main className="flex-1">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(blogLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+        />
         <section className="relative pt-16 pb-8 md:pt-24 md:pb-12">
           <div
             aria-hidden="true"

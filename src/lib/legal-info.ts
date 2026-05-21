@@ -7,8 +7,8 @@
  */
 
 export const PENDING = {
-  /** DNI/NIF del titular del sitio. Pendiente de alta de autónomo. */
-  nif: "PENDIENTE: NIF tras alta de autónomo",
+  /** DNI/NIF del titular del sitio. Cuando se complete, mover fuera de PENDING. */
+  nif: "PENDIENTE: NIF — pegar dígitos con letra final",
   /** Domicilio fiscal completo (calle, nº, CP, municipio, provincia). */
   domicilioFiscal: "PENDIENTE: domicilio fiscal",
   /** Provincia para fijar fuero contractual con clientes no consumidores. */
@@ -21,9 +21,9 @@ export const legalInfo = {
   // Identidad del titular y responsable de tratamiento
   titular: "Eric Castillo Navarro",
   marca: "Intralogik",
-  nif: PENDING.nif,
-  domicilioFiscal: PENDING.domicilioFiscal,
-  provincia: PENDING.provincia,
+  nif: "45787541-S",
+  domicilioFiscal: "Calle Pau Vergós, 54, Barcelona",
+  provincia: "Barcelona",
 
   // Contacto
   email: "info@intralogik.com",

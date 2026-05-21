@@ -92,6 +92,17 @@ export function Nav() {
           <Logo size={28} alt="" />
         </Link>
 
+        {/* Enlaces de producto en SSR para crawlers y screen readers.
+            El dropdown JS de abajo controla la UX visual; estos garantizan
+            que Googlebot descubre las 4 páginas sin ejecutar JavaScript. */}
+        <ul className="sr-only" aria-label="Páginas de producto">
+          {productPillars.map((pillar) => (
+            <li key={pillar.href}>
+              <a href={pillar.href}>{pillar.label}</a>
+            </li>
+          ))}
+        </ul>
+
         <nav className="hidden md:block" aria-label="Navegación principal">
           <ul className="flex items-center gap-1">
             {/* Producto · dropdown */}

@@ -299,6 +299,21 @@ export default function CasoPage() {
                 cambiar cómo trabajaban hoy. Encontraron Intralogik leyendo un
                 hilo de un foro de mantenimiento.
               </p>
+              <p>
+                Lo que les hizo decidir, según el propio responsable de
+                mantenimiento, no fue una promesa comercial. Fue descubrir que{" "}
+                <strong>
+                  el sistema se había diseñado tras analizar 423 órdenes de
+                  trabajo reales de su propia planta
+                </strong>{" "}
+                durante los meses previos &mdash; el histórico completo del
+                Excel que llevaban usando desde 2021. No era un GMAO genérico
+                adaptado a su caso, era un GMAO construido literalmente sobre
+                su caso. El módulo de stock de repuestos, por ejemplo, se
+                modeló a partir de las 207 piezas que aparecían en ese
+                histórico, no a partir de un catálogo de referencia
+                hipotético.
+              </p>
             </section>
 
             <section>

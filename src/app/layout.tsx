@@ -65,14 +65,6 @@ const websiteLd = {
   name: "Intralogik",
   inLanguage: "es-ES",
   publisher: { "@id": `${SITE_URL}/#organization` },
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: `${SITE_URL}/blog?q={search_term_string}`,
-    },
-    "query-input": "required name=search_term_string",
-  },
 };
 
 const organizationLd = {
@@ -84,8 +76,9 @@ const organizationLd = {
   url: SITE_URL,
   logo: {
     "@type": "ImageObject",
-    url: `${SITE_URL}/opengraph-image`,
-    inLanguage: "es",
+    url: `${SITE_URL}/intralogik-logo.png`,
+    width: 1147,
+    height: 256,
   },
   image: `${SITE_URL}/opengraph-image`,
   description: DESCRIPTION,

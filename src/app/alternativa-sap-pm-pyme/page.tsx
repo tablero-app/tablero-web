@@ -9,11 +9,11 @@ import { Button } from "@/components/ui/button";
 const SITE_URL = "https://www.intralogik.com";
 const PATH = "/alternativa-sap-pm-pyme";
 
-const TITLE = "Alternativa a SAP PM para PYME industrial · Comparativa 2026";
+const TITLE = "5 alternativas a SAP PM para PYME industrial · Comparativa 2026";
 const DESCRIPTION =
-  "Cuándo SAP PM (Plant Maintenance) tiene sentido y cuándo es excesivo para una PYME industrial española. Comparativa en 6 ejes con Intralogik.";
+  "Cuándo SAP PM es excesivo para una PYME industrial española y qué 5 alternativas comparar: Intralogik, Fracttal, Fixner, MaintainX y GMAOLinx. Comparativa 2026.";
 const PUBLISHED = "2026-05-11T08:00:00Z";
-const MODIFIED = "2026-05-11T08:00:00Z";
+const MODIFIED = "2026-05-12T10:00:00Z";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -109,6 +109,14 @@ const faqLd = {
         text: "Migrar de SAP PM a un GMAO ligero como Intralogik tiene tres pasos prácticos: (1) exportar el catálogo de equipos, repuestos y órdenes históricas desde SAP a Excel (función nativa de SAP); (2) importar a Intralogik con las plantillas estándar incluidas en la implantación de 2 semanas; (3) operar en paralelo durante 2-4 semanas con SAP PM en read-only mientras Intralogik gestiona la operación viva. Si la planta funciona estable en paralelo, se desactiva SAP PM con todo el histórico ya migrado.",
       },
     },
+    {
+      "@type": "Question",
+      name: "¿Cuáles son las principales alternativas a SAP PM para PYME industrial?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Las cinco alternativas más relevantes en el mercado español 2026 son: (1) Intralogik — GMAO ligero español con precios públicos (199-599 €/mes) y mobile-first para PYME; (2) Fracttal One — origen Chile, oficinas en España, UI pulida, precio bajo presupuesto; (3) Fixner — español, combina mantenimiento + facturación + gestión de obra, calculadora interna no transparente; (4) MaintainX — estadounidense, fuerte en procedimientos digitales ISO/FDA, precios públicos en USD ($20-65/usuario/mes); (5) GMAOLinx Sphere — español, consolidado en industria pesada, precio bajo presupuesto. Solo Intralogik y MaintainX publican precios; los demás operan con presupuesto cerrado por vendedor.",
+      },
+    },
   ],
 };
 
@@ -172,6 +180,72 @@ const ejes = [
   },
 ];
 
+// 5 alternativas reales en el mercado español 2026, ordenadas por encaje con PYME industrial
+// de 30-150 trabajadores (perfil ICP). Cifras verificadas en webs oficiales — si publican
+// precios. Tres de cinco competidores no publican; eso es información útil para el comprador.
+const alternativas = [
+  {
+    nombre: "Intralogik",
+    origen: "España (Barcelona)",
+    precio: "199-599 €/mes",
+    precioPublico: true,
+    perfil: "PYME industrial española 30-150 trabajadores, 1-3 plantas",
+    fortaleza:
+      "Mobile-first real para operario con guantes. Implantación de 2 semanas con datos de tu planta. Sin permanencia. Fundador accountable directo.",
+    debilidad:
+      "No multi-país, no integración nativa ERP enterprise. Equipo de 1 persona (yo) — la dependencia de proveedor es real y la tengo que demostrar con SLA escritos.",
+    intralogik: true,
+  },
+  {
+    nombre: "Fracttal One",
+    origen: "Chile (con oficinas en España)",
+    precio: "A medida — bajo presupuesto",
+    precioPublico: false,
+    perfil: "Empresas medianas-grandes listas para SaaS premium con presupuesto IT",
+    fortaleza:
+      "UI muy pulida, marketplace de plugins, soporte robusto en español, BI integrado. Maduro en mercado LATAM/España desde hace años.",
+    debilidad:
+      "No publican precios — necesitas pasar por vendedor para saber el coste real. Curva de configuración mayor que un GMAO ligero. Sobre-equipado si tienes una sola planta.",
+    intralogik: false,
+  },
+  {
+    nombre: "Fixner",
+    origen: "España (Madrid)",
+    precio: "Calculadora privada, desde ~2 usuarios base",
+    precioPublico: false,
+    perfil: "Empresas mantenedoras de servicio (subcontratas) que combinan obra + factura",
+    fortaleza:
+      "Combina mantenimiento + facturación + gestión de obra y partes en un solo sistema. Fuerte si tu negocio es subcontratar mantenimiento a terceros.",
+    debilidad:
+      "Precio no transparente sin pasar por calculadora interna. Diseñado para empresa de servicios, no para planta industrial que opera maquinaria propia.",
+    intralogik: false,
+  },
+  {
+    nombre: "MaintainX",
+    origen: "Estados Unidos",
+    precio: "20-65 USD/usuario/mes (público)",
+    precioPublico: true,
+    perfil: "Plantas con foco en procedimientos digitales ISO/FDA/HACCP",
+    fortaleza:
+      "Procedimientos digitales sólidos, app móvil madura, fuerte en compliance regulatorio (alimentación, farma). Buen producto técnico.",
+    debilidad:
+      "UI principal en inglés, soporte zona horaria EEUU, precio por usuario escala mal: 10 usuarios ya igualan a Intralogik Esencial, 25 lo doblan. Sin Q&A localizado al mercado español.",
+    intralogik: false,
+  },
+  {
+    nombre: "GMAOLinx Sphere",
+    origen: "España",
+    precio: "A medida — bajo presupuesto",
+    precioPublico: false,
+    perfil: "Industria pesada española con OT complejas multi-activo",
+    fortaleza:
+      "Producto consolidado en industria pesada, fuerte en gestión de activos tradicional, vendor con experiencia dilatada en el sector.",
+    debilidad:
+      "Sin precios públicos. UI tradicional, curva de adopción más larga. Mejor encaje para plantas grandes y procesos formales, no para PYME que necesita arrancar en semanas.",
+    intralogik: false,
+  },
+];
+
 export default function AlternativaSapPmPage() {
   return (
     <>
@@ -212,11 +286,11 @@ export default function AlternativaSapPmPage() {
                 className="inline-block h-1.5 w-1.5 rounded-full"
                 style={{ background: "var(--intralogik-orange)" }}
               />
-              Comparativa · SAP PM vs GMAO ligero
+              Comparativa · SAP PM vs 5 alternativas GMAO
             </span>
 
             <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tighter text-foreground md:text-5xl lg:text-[3.25rem]">
-              Alternativa a SAP PM para{" "}
+              5 alternativas a SAP PM para{" "}
               <span style={{ color: "var(--intralogik-orange-text)" }}>PYME industrial.</span>
             </h1>
 
@@ -226,7 +300,8 @@ export default function AlternativaSapPmPage() {
               30-150 trabajadores y 1-3 sedes en España, es probable que estés
               pagando 10× lo necesario.{" "}
               <strong className="font-semibold text-foreground">
-                Aquí tienes la comparativa honesta en 4 ejes.
+                Comparativa honesta en 6 ejes vs SAP PM, más una tabla con 5
+                alternativas reales del mercado español 2026.
               </strong>
             </p>
 
@@ -251,7 +326,7 @@ export default function AlternativaSapPmPage() {
               empresa ya opera SAP S/4HANA o tiene operación global.
             </p>
 
-            <ul className="mt-8 space-y-4">
+            <ul className="mt-8 space-y-4" aria-label="Comparativa SAP PM vs Intralogik por ejes">
               {ejes.map((e) => (
                 <li
                   key={e.eje}
@@ -293,6 +368,121 @@ export default function AlternativaSapPmPage() {
                 </li>
               ))}
             </ul>
+          </div>
+        </section>
+
+        {/* 5 alternativas reales del mercado */}
+        <section
+          aria-labelledby="alternativas-heading"
+          className="border-b border-border py-12 md:py-16"
+        >
+          <div className="mx-auto max-w-4xl px-4 md:px-8">
+            <h2
+              id="alternativas-heading"
+              className="text-2xl font-bold tracking-tight text-foreground md:text-3xl"
+            >
+              5 alternativas a SAP PM en el mercado español 2026
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">
+              Si SAP PM sobre-equipa tu planta, estos son los GMAO ligeros y
+              CMMS verticales que tiene sentido comparar. Dato relevante:
+              <strong className="font-semibold text-foreground">
+                {" "}solo 2 de 5 publican precios.
+              </strong>{" "}
+              El resto opera con presupuesto cerrado por vendedor — algo a
+              tener en cuenta antes de invertir 4-6 semanas en una demo.
+            </p>
+
+            <ul
+              className="mt-8 space-y-4"
+              aria-label="Cinco alternativas a SAP PM para PYME industrial"
+            >
+              {alternativas.map((a) => (
+                <li
+                  key={a.nombre}
+                  className={`rounded-xl border bg-card p-5 md:p-6 ${
+                    a.intralogik
+                      ? "border-[color:var(--intralogik-orange)]"
+                      : "border-border"
+                  }`}
+                >
+                  <header className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                    <h3 className="text-lg font-semibold tracking-tight text-foreground md:text-xl">
+                      {a.nombre}
+                    </h3>
+                    <span className="text-xs text-muted-foreground">
+                      {a.origen}
+                    </span>
+                    {a.intralogik && (
+                      <span
+                        className="ml-auto inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider"
+                        style={{
+                          background:
+                            "color-mix(in oklab, var(--intralogik-orange-soft) 100%, transparent)",
+                          color: "var(--intralogik-orange-text)",
+                        }}
+                      >
+                        Esta web
+                      </span>
+                    )}
+                  </header>
+
+                  <dl className="mt-4 grid gap-x-6 gap-y-3 md:grid-cols-[max-content_1fr]">
+                    <dt className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                      Precio
+                    </dt>
+                    <dd className="text-sm text-foreground">
+                      {a.precio}
+                      {a.precioPublico ? (
+                        <span
+                          className="ml-2 inline-flex items-center gap-1 text-xs font-medium"
+                          style={{ color: "var(--intralogik-orange-text)" }}
+                        >
+                          <Check className="h-3 w-3" aria-hidden="true" />
+                          público
+                        </span>
+                      ) : (
+                        <span className="ml-2 inline-flex items-center gap-1 text-xs text-muted-foreground">
+                          <X className="h-3 w-3" aria-hidden="true" />
+                          no público
+                        </span>
+                      )}
+                    </dd>
+
+                    <dt className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                      Mejor para
+                    </dt>
+                    <dd className="text-sm text-muted-foreground">
+                      {a.perfil}
+                    </dd>
+
+                    <dt className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                      Punto fuerte
+                    </dt>
+                    <dd className="text-sm text-muted-foreground">
+                      {a.fortaleza}
+                    </dd>
+
+                    <dt className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                      Punto débil
+                    </dt>
+                    <dd className="text-sm text-muted-foreground">
+                      {a.debilidad}
+                    </dd>
+                  </dl>
+                </li>
+              ))}
+            </ul>
+
+            <p className="mt-6 text-xs leading-relaxed text-muted-foreground">
+              <strong className="font-semibold text-foreground">Nota:</strong>{" "}
+              precios verificados en las webs oficiales el 12 de mayo de 2026.
+              Para los vendors sin precios públicos he indicado el modelo
+              comercial ({" "}
+              <em>bajo presupuesto / calculadora privada</em>) en lugar de
+              inventar cifras. Si alguno actualiza tarifas y me lo escribes a
+              info@intralogik.com, lo corrijo en 24 h.
+            </p>
           </div>
         </section>
 

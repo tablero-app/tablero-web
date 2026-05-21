@@ -8,7 +8,7 @@ import { Nav } from "@/components/site/nav";
 import { Footer } from "@/components/site/footer";
 import { Cta } from "@/components/site/cta";
 import { Button } from "@/components/ui/button";
-import { getAllSlugs, getPostBySlug, formatDateEs, type Post } from "@/lib/blog";
+import { getAllSlugs, getPostBySlug, getAllPosts, formatDateEs, type Post } from "@/lib/blog";
 import { founderProfiles } from "@/lib/social-profiles";
 
 const SITE_URL = "https://www.intralogik.com";
@@ -65,6 +65,13 @@ export async function generateMetadata({ params }: RouteProps): Promise<Metadata
 function buildArticleLd(post: Post): Record<string, unknown> {
   const { frontmatter } = post;
   const url = `${SITE_URL}/blog/${frontmatter.slug}`;
+  const datePublished = toIso8601(frontmatter.date);
+  const candidateModified = toIso8601(frontmatter.modified || frontmatter.date);
+  // Google invalida rich result de fecha si dateModified < datePublished.
+  // Si el frontmatter declara modified sin hora (YYYY-MM-DD) y date con hora,
+  // el modified resultante puede ser anterior — en ese caso usamos date.
+  const dateModified =
+    candidateModified < datePublished ? datePublished : candidateModified;
   // image: usa la OG dinámica generada por opengraph-image.tsx del segmento.
   // Next.js sirve esa imagen en `/blog/[slug]/opengraph-image` con extensión auto-añadida
   // por el runtime al generar metadata; en JSON-LD usamos la URL canónica sin extensión.
@@ -76,8 +83,8 @@ function buildArticleLd(post: Post): Record<string, unknown> {
     image: `${SITE_URL}/blog/${frontmatter.slug}/opengraph-image`,
     url,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
-    datePublished: toIso8601(frontmatter.date),
-    dateModified: toIso8601(frontmatter.modified || frontmatter.date),
+    datePublished,
+    dateModified,
     inLanguage: "es",
     author: {
       "@type": "Person",
@@ -142,6 +149,9 @@ export default async function BlogPostPage({ params }: RouteProps) {
   const articleLd = buildArticleLd(post);
   const faqLd = buildFaqLd(post);
   const breadcrumbLd = buildBreadcrumbLd(post);
+  const relatedPosts = getAllPosts()
+    .filter((p) => p.frontmatter.slug !== frontmatter.slug)
+    .slice(0, 3);
 
   return (
     <>
@@ -245,6 +255,49 @@ export default async function BlogPostPage({ params }: RouteProps) {
                 ))}
               </div>
             </section>
+          )}
+
+          {relatedPosts.length > 0 && (
+            <aside
+              aria-labelledby="sigue-leyendo-heading"
+              className="mt-16 border-t border-border pt-10"
+            >
+              <h2
+                id="sigue-leyendo-heading"
+                className="text-2xl font-bold tracking-tight text-foreground md:text-3xl"
+              >
+                Sigue leyendo
+              </h2>
+              <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {relatedPosts.map((p) => (
+                  <li key={p.frontmatter.slug}>
+                    <Link
+                      href={`/blog/${p.frontmatter.slug}`}
+                      className="group block h-full rounded-xl border border-border bg-card p-5 transition-colors hover:border-foreground/30"
+                    >
+                      <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                        {p.frontmatter.categoria}
+                      </span>
+                      <h3 className="mt-2 text-base font-semibold leading-snug text-foreground group-hover:text-foreground md:text-lg">
+                        {p.frontmatter.title}
+                      </h3>
+                      {p.frontmatter.excerpt && (
+                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                          {p.frontmatter.excerpt}
+                        </p>
+                      )}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-6 text-sm text-muted-foreground">
+                Ver todos los artículos en{" "}
+                <Link href="/blog" className="font-medium text-foreground underline underline-offset-4 hover:text-foreground/80">
+                  el blog de Intralogik
+                </Link>
+                .
+              </p>
+            </aside>
           )}
 
           <div className="mt-16 border-t border-border pt-10">

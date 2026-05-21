@@ -49,11 +49,8 @@ const webpageLd = {
   description: DESCRIPTION,
   url: `${SITE_URL}${PATH}`,
   inLanguage: "es",
-  isPartOf: {
-    "@type": "WebSite",
-    name: "Intralogik",
-    url: SITE_URL,
-  },
+  isPartOf: { "@id": `${SITE_URL}/#website` },
+  mainEntity: { "@id": `${SITE_URL}/#software` },
   about: {
     "@type": "Service",
     name: "Gestión de stock de repuestos para mantenimiento industrial",

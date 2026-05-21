@@ -1,10 +1,12 @@
 import { Fragment } from "react";
 import type { Metadata } from "next";
-import { Check, Minus } from "lucide-react";
+import { ArrowRight, Check, Minus } from "lucide-react";
 import { Nav } from "@/components/site/nav";
 import { Footer } from "@/components/site/footer";
 import { Pricing } from "@/components/site/pricing";
 import { Cta } from "@/components/site/cta";
+import { Button } from "@/components/ui/button";
+import { ctaUrls } from "@/lib/cta-config";
 
 const SITE_URL = "https://www.intralogik.com";
 
@@ -314,6 +316,25 @@ export default function PreciosPage() {
                 permanencia, datos exportables a Excel siempre. Lo que ves aquí
                 es lo que pagas — el resto, cero.
               </p>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Button asChild size="lg" className="group">
+                  <a
+                    href={ctaUrls.reservarDemo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Reservar demo (30 min)
+                    <ArrowRight
+                      className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5"
+                      aria-hidden="true"
+                    />
+                  </a>
+                </Button>
+                <Button asChild size="lg" variant="outline">
+                  <a href="#precios">Comparar los 3 planes</a>
+                </Button>
+              </div>
             </div>
           </div>
         </section>

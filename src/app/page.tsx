@@ -19,8 +19,10 @@ const DESCRIPTION =
 const softwareApplicationLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
+  "@id": `${SITE_URL}/#software`,
   name: "Intralogik",
   applicationCategory: "BusinessApplication",
+  applicationSubCategory: "GMAO",
   operatingSystem: "Web",
   description: DESCRIPTION,
   url: SITE_URL,
